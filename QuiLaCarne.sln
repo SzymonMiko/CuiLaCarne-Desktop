@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37027.9 d17.14
+VisualStudioVersion = 17.14.37027.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{F8BA99ED-168B-425B-8CBE-1B30D50EEBFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Ui", "QuiLaCarne.Ui\QuiLaCarne.Ui.csproj", "{EF0B686F-AC92-4568-92E6-23186977404D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Services", "QuiLaCarne.Services\QuiLaCarne.Services.csproj", "{CB41F55A-3AB0-4263-8B3D-996426522246}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.ViewModels", "ViewModels\QuiLaCarne.ViewModels.csproj", "{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Models", "QuiLaCarne.Models\QuiLaCarne.Models.csproj", "{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLACarne.Helpers", "QuiLACarne.Helpers\QuiLACarne.Helpers.csproj", "{C6892F91-DB0D-425B-A098-63088F21E8D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Data", "QuiLaCarne.Data\QuiLaCarne.Data.csproj", "{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +21,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F8BA99ED-168B-425B-8CBE-1B30D50EEBFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8BA99ED-168B-425B-8CBE-1B30D50EEBFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8BA99ED-168B-425B-8CBE-1B30D50EEBFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8BA99ED-168B-425B-8CBE-1B30D50EEBFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0B686F-AC92-4568-92E6-23186977404D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0B686F-AC92-4568-92E6-23186977404D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0B686F-AC92-4568-92E6-23186977404D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0B686F-AC92-4568-92E6-23186977404D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB41F55A-3AB0-4263-8B3D-996426522246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB41F55A-3AB0-4263-8B3D-996426522246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB41F55A-3AB0-4263-8B3D-996426522246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB41F55A-3AB0-4263-8B3D-996426522246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6892F91-DB0D-425B-A098-63088F21E8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6892F91-DB0D-425B-A098-63088F21E8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6892F91-DB0D-425B-A098-63088F21E8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6892F91-DB0D-425B-A098-63088F21E8D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

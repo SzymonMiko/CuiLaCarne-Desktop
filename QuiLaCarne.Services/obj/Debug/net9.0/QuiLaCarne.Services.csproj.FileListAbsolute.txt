@@ -1,0 +1,15 @@
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\bin\Debug\net9.0\QuiLaCarne.Services.deps.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\bin\Debug\net9.0\QuiLaCarne.Services.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\bin\Debug\net9.0\QuiLaCarne.Services.pdb
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.AssemblyInfoInputs.cache
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.AssemblyInfo.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.csproj.CoreCompileInputs.cache
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.sourcelink.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\refint\QuiLaCarne.Services.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.pdb
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\ref\QuiLaCarne.Services.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\bin\Debug\net9.0\QuiLaCarne.Services.runtimeconfig.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.csproj.AssemblyReference.cache
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Services\obj\Debug\net9.0\QuiLaCarne.Services.genruntimeconfig.cache

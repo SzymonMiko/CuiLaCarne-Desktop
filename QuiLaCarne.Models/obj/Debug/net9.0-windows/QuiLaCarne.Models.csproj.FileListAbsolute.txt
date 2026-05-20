@@ -1,0 +1,14 @@
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\bin\Debug\net9.0-windows\QuiLaCarne.Models.deps.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\bin\Debug\net9.0-windows\QuiLaCarne.Models.runtimeconfig.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\bin\Debug\net9.0-windows\QuiLaCarne.Models.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\bin\Debug\net9.0-windows\QuiLaCarne.Models.pdb
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.AssemblyInfoInputs.cache
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.AssemblyInfo.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.csproj.CoreCompileInputs.cache
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.sourcelink.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\refint\QuiLaCarne.Models.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.pdb
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.genruntimeconfig.cache
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Models\obj\Debug\net9.0-windows\ref\QuiLaCarne.Models.dll
