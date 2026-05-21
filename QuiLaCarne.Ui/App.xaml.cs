@@ -4,12 +4,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using QuiLaCarne.Data;
 using QuiLaCarne.Services.Api;
+using QuiLaCarne.Services.IServices;
 using QuiLaCarne.Ui.Views;
 using QuiLaCarne.ViewModels;
 using System;
 using System.IO;
 using System.Net.Http;
 using System.Windows;
+using QuiLaCarne.Ui.Navigation;
 using System.Windows.Controls;
 
 namespace QuiLaCarne.Ui;
@@ -42,14 +44,18 @@ public partial class App : Application
                         services.AddSingleton<DishService>();
                         services.AddSingleton<SyncService>();
                         services.AddSingleton<MainWindow>();
-                        services.AddSingleton<LoginPage>();
+                        services.AddTransient<LoginPage>();
                         services.AddSingleton<SystemService>();
                         services.AddSingleton<LoginViewModel>();
                         services.AddSingleton<LookupService>();
                         services.AddSingleton<AuthenticationViewModel>();
-                        services.AddSingleton<Menu>();
-                        services.AddSingleton<Authentication>();
+                        services.AddTransient<Menu>();
+                        services.AddTransient<Authentication>();
                         services.AddSingleton<MenuViewModel>();
+                        services.AddTransient<UsersPanel>();
+                        services.AddSingleton<UsersPanelViewModel>();
+                       
+                        services.AddSingleton<INavigationService, NavigationService>();
                     })
                 .Build();
     }

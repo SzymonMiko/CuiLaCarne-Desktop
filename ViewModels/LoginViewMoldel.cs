@@ -1,7 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Windows;
 using CommunityToolkit.Mvvm.Input;
 using QuiLaCarne.Services.Api;
+using QuiLaCarne.Services.IServices;
+using System.Windows;
 namespace QuiLaCarne.ViewModels;
 
 public partial class LoginViewModel : ObservableObject
@@ -12,6 +13,7 @@ public partial class LoginViewModel : ObservableObject
     private readonly SyncService _syncService;
     private readonly LookupService _lookupService;
     private readonly DishService _dishService;
+    private readonly INavigationService _navigation;
 
     [ObservableProperty]
     private string username = "";
@@ -20,6 +22,7 @@ public partial class LoginViewModel : ObservableObject
     private string password = "";
 
     public LoginViewModel(
+        INavigationService navigation,
             ReservationService reservationService,
         DishService dishService,
         SystemService systemService,
@@ -33,6 +36,7 @@ public partial class LoginViewModel : ObservableObject
         _authService = authService;
         _syncService = syncService;
         _lookupService = lookupService;
+        _navigation = navigation;
     }
 
     [RelayCommand]
@@ -120,6 +124,9 @@ public partial class LoginViewModel : ObservableObject
             await _syncService.SyncDishesAsync(token);
 
             MessageBox.Show("Sync finished");
+
+            _navigation.ShowMenu();
+            _navigation.CloseLogin();
         }
         catch (HttpRequestException ex)
         {

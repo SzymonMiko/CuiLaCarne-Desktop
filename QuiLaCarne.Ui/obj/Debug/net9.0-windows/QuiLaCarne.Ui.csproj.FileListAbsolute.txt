@@ -188,3 +188,5 @@ C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\Menu.baml
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\Authentication.g.cs
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\Menu.g.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\UsersPanel.baml
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\UsersPanel.g.cs

@@ -6,7 +6,38 @@
     Width="1200"
     Height="720"
     WindowStartupLocation="CenterScreen"
-    Background="#111111">
+    Background="#F5F5F5">
+
+    <Window.Resources>
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#19A93A"/>
+            <Setter Property="Padding" Value="18 8"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="InputTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#D6D6D6"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="8 4"/>
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -14,63 +45,74 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <DockPanel Grid.Row="0" Background="#0B6B2D">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="24 0">
-                <TextBlock Text="🍕" FontSize="20" Margin="0 0 10 0"/>
-                <TextBlock Text="Qui la Carne" FontSize="20" FontWeight="Bold" Foreground="White"/>
-            </StackPanel>
+        <DockPanel Grid.Row="0" Background="#19A93A">
+            <TextBlock Text="Qui la Carne"
+                       Foreground="White"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       Margin="24 0"/>
         </DockPanel>
 
         <Grid Grid.Row="1">
-            <Grid.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#2B1208" Offset="0"/>
-                    <GradientStop Color="#141414" Offset="0.6"/>
-                    <GradientStop Color="#06330F" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-
-            <Rectangle Fill="#66000000"/>
-
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Width="460">
+                        Width="520">
 
-                <TextBlock Text="Qui la Carne"
-                           FontFamily="Segoe Script"
-                           FontSize="58"
-                           Foreground="#FF2D2D"
-                           TextAlignment="Center"/>
+                <TextBlock FontSize="56"
+                           FontWeight="Bold"
+                           TextAlignment="Center">
+                    <Run Text="Qui " Foreground="#E53935"/>
+                    <Run Text="la Carne" Foreground="#1B9A2F"/>
+                </TextBlock>
+
+                <Grid Margin="0 8 0 24" Height="6" Width="320" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#19A93A" RadiusX="3" RadiusY="3"/>
+                    <Rectangle Grid.Column="1" Fill="#E0E0E0" RadiusX="3" RadiusY="3"/>
+                    <Rectangle Grid.Column="2" Fill="#E53935" RadiusX="3" RadiusY="3"/>
+                </Grid>
 
                 <TextBlock Text="Weryfikacja dwuetapowa"
-                           Foreground="White"
+                           Foreground="#222222"
                            FontSize="20"
-                           Margin="0 12 0 28"
+                           FontWeight="SemiBold"
+                           Margin="0 0 0 20"
                            TextAlignment="Center"/>
 
-                <Border Background="#EFFFFFFF"
-                        CornerRadius="12"
-                        Padding="24">
+                <Border Background="White"
+                        CornerRadius="22"
+                        Padding="28">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="16"
+                                          ShadowDepth="3"
+                                          Opacity="0.18"/>
+                    </Border.Effect>
+
                     <StackPanel>
                         <TextBlock Text="Wpisz kod z aplikacji authenticator"
                                    FontWeight="SemiBold"
-                                   Margin="0 0 0 8"/>
+                                   Foreground="#222222"
+                                   Margin="0 0 0 10"/>
 
-                        <TextBox Height="42"
-                                 FontSize="18"
-                                 TextAlignment="Center"
+                        <TextBox Style="{StaticResource InputTextBoxStyle}"
                                  MaxLength="6"
                                  Text="{Binding TwoFactorCode,
                                                 UpdateSourceTrigger=PropertyChanged}"/>
 
                         <Button Content="Verify"
-                                Margin="0 12 0 0"
+                                Style="{StaticResource PrimaryButtonStyle}"
+                                Margin="0 16 0 0"
                                 Command="{Binding Verify2FaCommand}"/>
 
                         <TextBlock Text="{Binding StatusMessage}"
                                    Foreground="#B00000"
                                    TextAlignment="Center"
-                                   Margin="0 14 0 0"
+                                   Margin="0 16 0 0"
                                    TextWrapping="Wrap"/>
                     </StackPanel>
                 </Border>
