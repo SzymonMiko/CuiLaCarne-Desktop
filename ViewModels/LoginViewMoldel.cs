@@ -14,6 +14,7 @@ public partial class LoginViewModel : ObservableObject
     private readonly LookupService _lookupService;
     private readonly DishService _dishService;
     private readonly INavigationService _navigation;
+    private readonly RestaurantWebSocketService _webSocketService;
 
     [ObservableProperty]
     private string username = "";
@@ -22,7 +23,9 @@ public partial class LoginViewModel : ObservableObject
     private string password = "";
 
     public LoginViewModel(
+
         INavigationService navigation,
+        RestaurantWebSocketService webSocketService,
             ReservationService reservationService,
         DishService dishService,
         SystemService systemService,
@@ -30,6 +33,7 @@ public partial class LoginViewModel : ObservableObject
         SyncService syncService,
         LookupService lookupService)
     {
+        _webSocketService = webSocketService;   
         _reservationService = reservationService;
         _dishService = dishService;
         _systemService = systemService;
@@ -64,7 +68,10 @@ public partial class LoginViewModel : ObservableObject
 
             var token = loginData.Token;
 
+
             MessageBox.Show("Login success");
+
+            await _webSocketService.ConnectAsync(token);
 
             var cacheKeys =
                 await _systemService.GetCacheListAsync(token);

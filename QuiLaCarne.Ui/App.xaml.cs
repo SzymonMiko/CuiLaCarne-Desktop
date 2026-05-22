@@ -13,6 +13,8 @@ using System.Net.Http;
 using System.Windows;
 using QuiLaCarne.Ui.Navigation;
 using System.Windows.Controls;
+using Microsoft.Data.Sqlite;
+using SQLitePCL;
 
 namespace QuiLaCarne.Ui;
 public partial class App : Application
@@ -27,22 +29,29 @@ public partial class App : Application
                     services =>
                     {
                         services.AddSingleton<HttpClient>();
-
                         services.AddDbContext<
                             QuiLaCarneDbContext>(options =>
                             {
                                 var dbPath =
-                                    Path.Combine(
-                                        Environment.CurrentDirectory,
-                                        "quilacarne.db");
+            Path.Combine(
+                Environment.CurrentDirectory,
+                "quilacarne.db");
+
+                                var connectionString =
+            new SqliteConnectionStringBuilder
+            {
+                DataSource = dbPath,
+                Password = "Admin123!"
+            };
 
                                 options.UseSqlite(
-                                    $"Data Source={dbPath}");
+            connectionString.ToString());
                             });
                         services.AddSingleton<ReservationService>();
                         services.AddSingleton<AuthService>();
                         services.AddSingleton<DishService>();
                         services.AddSingleton<SyncService>();
+                        services.AddSingleton<RestaurantWebSocketService>();
                         services.AddSingleton<MainWindow>();
                         services.AddTransient<LoginPage>();
                         services.AddSingleton<SystemService>();
@@ -54,14 +63,20 @@ public partial class App : Application
                         services.AddSingleton<MenuViewModel>();
                         services.AddTransient<UsersPanel>();
                         services.AddSingleton<UsersPanelViewModel>();
-                       
+
                         services.AddSingleton<INavigationService, NavigationService>();
                     })
                 .Build();
     }
     protected override async void OnStartup(
+
     StartupEventArgs e)
     {
+        Batteries_V2.Init();
+
+     
+
+
         await AppHost.StartAsync();
 
         using (var scope = AppHost.Services.CreateScope())
