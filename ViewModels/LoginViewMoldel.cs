@@ -68,6 +68,8 @@ public partial class LoginViewModel : ObservableObject
 
             var token = loginData.Token;
 
+            SessionService.JwtToken = token;
+
 
             MessageBox.Show("Login success");
 

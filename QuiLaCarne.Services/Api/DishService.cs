@@ -46,4 +46,33 @@ public class DishService : BaseApiService
 
         return result?.Data?.Items ?? [];
     }
+    public async Task ChangeDishAvailabilityAsync(
+    string jwt,
+    string dishToken,
+    bool available,
+    string? unavailableReason)
+    {
+        SetBearerToken(jwt);
+
+        var request = new
+        {
+            token = dishToken,
+            unavailableReason = unavailableReason ?? "",
+            available = available
+        };
+
+        var response =
+            await HttpClient.PatchAsJsonAsync(
+                "api/dishes",
+                request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Change dish availability failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+    }
 }
