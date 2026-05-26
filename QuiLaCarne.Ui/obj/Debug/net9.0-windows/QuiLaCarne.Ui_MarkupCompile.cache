@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\App.xaml
-6-1650645417
+71477822086
 
-10-371880369
+11-1942868942
 2511849550647
-Authentication.xaml;DashBoard.xaml;LoginPage.xaml;MainWindow.xaml;Menu.xaml;UsersPanel.xaml;
+Authentication.xaml;DashBoard.xaml;LoginPage.xaml;MainWindow.xaml;ManagerTab.xaml;Menu.xaml;UsersPanel.xaml;
 
 False
 

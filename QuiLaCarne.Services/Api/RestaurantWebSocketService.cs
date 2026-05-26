@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using QuiLaCarne.Models;
 using System.Net.WebSockets;
 using System.Text.Json;
+using System.IO;
 
 namespace QuiLaCarne.Services.Api;
 
@@ -112,45 +113,7 @@ public class RestaurantWebSocketService
         if (wsEvent == null)
             return;
 
-        switch (wsEvent.EntityType)
-        {
-            case "ORDER":
-                await _syncService.SyncOrdersAsync(jwt);
-                break;
-
-            case "ORDER_ITEM":
-                await _syncService.SyncOrderItemsAsync(jwt);
-                break;
-
-            case "DISH":
-                await _syncService.SyncDishesAsync(jwt);
-                break;
-
-            case "CATEGORY":
-                await _syncService.SyncDishCategoriesAsync(jwt);
-                break;
-
-            case "RESERVATION":
-                await _syncService.SyncReservationsAsync(jwt);
-                break;
-
-            case "TABLE":
-                await _syncService.SyncTablesAsync(jwt);
-                break;
-
-            case "EMPLOYEE":
-                await _syncService.SyncUsersAsync(jwt);
-                break;
-
-            case "BAN":
-                await _syncService.SyncBansAsync(jwt);
-                break;
-
-            case "INGREDIENT":
-                await _syncService.SyncIngredientsAsync(jwt);
-                await _syncService.SyncDishesAsync(jwt);
-                break;
-        }
+        await _syncService.SyncWholeDatabaseAsync(jwt);
 
         EventReceived?.Invoke(wsEvent);
     }
@@ -175,17 +138,25 @@ public class RestaurantWebSocketService
         if (_ws == null)
             return "";
 
-        var buffer =
-            new byte[65536];
+        var buffer = new byte[8192];
 
-        var result =
-            await _ws.ReceiveAsync(
+        using var ms = new MemoryStream();
+
+        WebSocketReceiveResult result;
+
+        do
+        {
+            result = await _ws.ReceiveAsync(
                 buffer,
                 CancellationToken.None);
 
-        return Encoding.UTF8.GetString(
-            buffer,
-            0,
-            result.Count);
+            if (result.MessageType == WebSocketMessageType.Close)
+                return "";
+
+            ms.Write(buffer, 0, result.Count);
+        }
+        while (!result.EndOfMessage);
+
+        return Encoding.UTF8.GetString(ms.ToArray());
     }
 }

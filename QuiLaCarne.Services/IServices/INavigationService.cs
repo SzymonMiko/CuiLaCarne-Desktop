@@ -12,6 +12,6 @@ public interface INavigationService
     void ShowUsersPanel();
     void ShowTwoFactor();
     void CloseCurrentWindow();
-
+    void ShowManagerPanel();
     void CloseLogin();
 }

@@ -15,6 +15,7 @@ public partial class ManagerViewModel : ObservableObject
 {
     private readonly DishService _dishService;
     private readonly SyncService _syncService;
+    private readonly RestaurantWebSocketService _webSocketService;
 
     [ObservableProperty]
     private ObservableCollection<DishManagerItem> dishes = new();
@@ -26,11 +27,15 @@ public partial class ManagerViewModel : ObservableObject
     private string unavailableReason = "Test WebSocket";
 
     public ManagerViewModel(
-        DishService dishService,
-        SyncService syncService)
+     DishService dishService,
+     SyncService syncService,
+     RestaurantWebSocketService webSocketService)
     {
         _dishService = dishService;
         _syncService = syncService;
+        _webSocketService = webSocketService;
+
+        _webSocketService.EventReceived += OnWebSocketEventReceived;
     }
 
     [RelayCommand]
@@ -62,8 +67,7 @@ public partial class ManagerViewModel : ObservableObject
             return;
         }
 
-        var newAvailable =
-            !SelectedDish.IsAvailable;
+        var newAvailable = !SelectedDish.IsAvailable;
 
         await _dishService.ChangeDishAvailabilityAsync(
             SessionService.JwtToken,
@@ -71,13 +75,25 @@ public partial class ManagerViewModel : ObservableObject
             newAvailable,
             newAvailable ? "" : UnavailableReason);
 
-        await _syncService.SyncDishesAsync(
-            SessionService.JwtToken);
+        await _syncService.SyncDishesAsync(SessionService.JwtToken);
 
-        SelectedDish.IsAvailable =
-            newAvailable;
+        await LoadDishesAsync();
 
-        MessageBox.Show("Dish availability changed. Check WebSocket notification.");
+        MessageBox.Show("Dish availability changed and local DB synchronized.");
+    }
+    private void OnWebSocketEventReceived(WebSocketEvent e)
+    {
+        if (e.EntityType != "DISH" &&
+            e.EntityType != "INGREDIENT" &&
+            e.EntityType != "CATEGORY")
+        {
+            return;
+        }
+
+        Application.Current.Dispatcher.Invoke(async () =>
+        {
+            await LoadDishesAsync();
+        });
     }
 }
 
@@ -89,3 +105,5 @@ public partial class DishManagerItem : ObservableObject
     [ObservableProperty]
     private bool isAvailable;
 }
+
+

@@ -28,8 +28,9 @@ public partial class MenuViewModel : ObservableObject
     [RelayCommand]
     private void OpenManager()
     {
-        _navigation.ShowUsersPanel();
+        _navigation.ShowManagerPanel();
     }
+   
 
     [RelayCommand]
     private void OpenKitchen()

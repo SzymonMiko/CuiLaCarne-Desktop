@@ -226,3 +226,5 @@ C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0-windows\System.Reactive.dll
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0-windows\Websocket.Client.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\ManagerTab.g.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\ManagerTab.baml

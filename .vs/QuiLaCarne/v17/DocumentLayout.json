@@ -3,6 +3,142 @@
   "WorkspaceRootPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\refreshtokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\refreshtokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\verifytwofactorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\verifytwofactorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\banuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\banuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\lookupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\lookupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\addallergenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\addallergenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\adddishcategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\adddishcategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\addentityrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\addentityrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\addingredientrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\addingredientrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\addorderitemstatusrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\addorderitemstatusrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\createguestreportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\createguestreportrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\addtablestatusrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\addtablestatusrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\createtablerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\createtablerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\createemployeerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\createemployeerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\generate2faresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\generate2faresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\enable2farequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\enable2farequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\baseapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\baseapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\managertab.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\managertab.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\managertab.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\managertab.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\viewmodels\\managerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|solutionrelative:viewmodels\\managerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\dishservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\dishservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\kitchenmonitor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\kitchenmonitor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\personnelmanagement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\personnelmanagement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\viewmodels\\kitchenmonitorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|solutionrelative:viewmodels\\kitchenmonitorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\getallergendictionaryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\getallergendictionaryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\syncdishresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\syncdishresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\syncbootstrapresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\syncbootstrapresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\syncbanresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\syncbanresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\getreservationdishresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\getreservationdishresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\websocketevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\websocketevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,12 +151,40 @@
       "RelativeMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|solutionrelative:viewmodels\\loginviewmoldel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\viewmodels\\quilacarne.viewmodels.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|solutionrelative:viewmodels\\quilacarne.viewmodels.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\syncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\syncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\viewmodels\\menuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|solutionrelative:viewmodels\\menuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\iservices\\inavigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\iservices\\inavigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\navigation\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\navigation\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\dictionarywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\dictionarywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\viewmodels\\quilacarne.viewmodels.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|solutionrelative:viewmodels\\quilacarne.viewmodels.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\systemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,28 +211,12 @@
       "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\syncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\syncservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\orderitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\orderitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\navigation\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\navigation\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\viewmodels\\userpanelviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|solutionrelative:viewmodels\\userpanelviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\viewmodels\\menuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}|ViewModels\\QuiLaCarne.ViewModels.csproj|solutionrelative:viewmodels\\menuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\iservices\\inavigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\iservices\\inavigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\menu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -79,20 +227,12 @@
       "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\userspanel.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\userspanel.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\userspanel.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\authentication.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\authentication.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\baseapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\baseapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\menu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -127,16 +267,8 @@
       "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.ui\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EF0B686F-AC92-4568-92E6-23186977404D}|QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj|solutionrelative:quilacarne.ui\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\lookup\\guestreportstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\lookup\\guestreportstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -145,38 +277,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\logindata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\logindata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\syncbanresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\syncbanresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\generate2faresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\generate2faresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\enable2farequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\enable2farequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\syncdishresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\syncdishresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\syncbootstrapresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\syncbootstrapresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\lookupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\lookupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\getreservationdishresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\getreservationdishresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\getreservationdetailsresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -189,14 +289,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\dishcategorydictionaryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\dishcategorydictionaryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\dictionarywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\dictionarywrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\getallergendictionaryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\getallergendictionaryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\getbanstatusdictionaryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -217,10 +309,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dtos\\getdishesresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|solutionrelative:quilacarne.models\\dtos\\getdishesresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.services\\api\\dishservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CB41F55A-3AB0-4263-8B3D-996426522246}|QuiLaCarne.Services\\QuiLaCarne.Services.csproj|solutionrelative:quilacarne.services\\api\\dishservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}|QuiLaCarne.Models\\QuiLaCarne.Models.csproj|c:\\users\\mania\\source\\repos\\quilacarne\\quilacarne\\quilacarne.models\\dishes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -258,7 +346,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -266,235 +354,239 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "QuiLaCarne.ViewModels.csproj",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
-              "RelativeDocumentMoniker": "ViewModels\\QuiLaCarne.ViewModels.csproj",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
-              "RelativeToolTip": "ViewModels\\QuiLaCarne.ViewModels.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-22T11:05:37.247Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WebSocketEvent.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\WebSocketEvent.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\WebSocketEvent.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\WebSocketEvent.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\WebSocketEvent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "RefreshTokenRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\RefreshTokenRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\RefreshTokenRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\RefreshTokenRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\RefreshTokenRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T11:00:38.132Z",
+              "WhenOpened": "2026-05-25T21:50:15.903Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RestaurantWebSocketService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\RestaurantWebSocketService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\RestaurantWebSocketService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\RestaurantWebSocketService.cs",
-              "RelativeToolTip": "QuiLaCarne.Services\\Api\\RestaurantWebSocketService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T11:00:01.759Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LoginViewMoldel.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\LoginViewMoldel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\LoginViewMoldel.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\LoginViewMoldel.cs",
-              "RelativeToolTip": "ViewModels\\LoginViewMoldel.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwDUAAAAeAAAAAAAAAA==",
+              "Title": "VerifyTwoFactorRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\VerifyTwoFactorRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\VerifyTwoFactorRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\VerifyTwoFactorRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\VerifyTwoFactorRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:38:56.626Z"
+              "WhenOpened": "2026-05-25T21:47:34.762Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "BanUserRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\BanUserRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\BanUserRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\BanUserRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\BanUserRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:45:13.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddAllergenRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddAllergenRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\AddAllergenRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddAllergenRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\AddAllergenRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:43:14.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddDishCategoryRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddDishCategoryRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\AddDishCategoryRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddDishCategoryRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\AddDishCategoryRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:40:26.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddIngredientRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddIngredientRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\AddIngredientRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddIngredientRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\AddIngredientRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:33:57.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddEntityRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddEntityRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\AddEntityRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddEntityRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\AddEntityRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:33:25.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AddOrderItemStatusRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddOrderItemStatusRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\AddOrderItemStatusRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddOrderItemStatusRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\AddOrderItemStatusRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:30:53.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\AuthService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\AuthService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\AuthService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\AuthService.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAQwMEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T06:18:47.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ReportService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\ReportService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\ReportService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\ReportService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\ReportService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:27:59.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CreateGuestReportRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\CreateGuestReportRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\CreateGuestReportRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\CreateGuestReportRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\CreateGuestReportRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:26:11.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\UserService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\UserService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\UserService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\UserService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAE4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T20:52:54.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AddTableStatusRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddTableStatusRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\AddTableStatusRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\AddTableStatusRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\AddTableStatusRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:19:44.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LookupService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\LookupService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\LookupService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\LookupService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\LookupService.cs",
+              "ViewState": "AgIAAPsBAAAAAAAAAAAAACMCAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T07:02:26.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CreateTableRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\CreateTableRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\CreateTableRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\CreateTableRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\CreateTableRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T21:12:17.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "PersonnelManagement.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\PersonnelManagement.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\PersonnelManagement.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\PersonnelManagement.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\PersonnelManagement.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-25T20:00:09.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Enable2FaRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\Enable2FaRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\Enable2FaRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\Enable2FaRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\Enable2FaRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:06:14.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\App.xaml.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Ui\\App.xaml.cs",
               "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\App.xaml.cs",
               "RelativeToolTip": "QuiLaCarne.Ui\\App.xaml.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowDUAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowEQAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:40:54.363Z"
+              "WhenOpened": "2026-05-19T14:40:54.363Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "QuiLaCarneDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarneDbContext.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Data\\QuiLaCarneDbContext.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarneDbContext.cs",
-              "RelativeToolTip": "QuiLaCarne.Data\\QuiLaCarneDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T18:09:00.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SyncService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SyncService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\SyncService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SyncService.cs",
-              "RelativeToolTip": "QuiLaCarne.Services\\Api\\SyncService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T14:47:28.27Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApiResponse.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Responses\\ApiResponse.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Responses\\ApiResponse.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Responses\\ApiResponse.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\Responses\\ApiResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T08:11:34.404Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SystemService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SystemService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\SystemService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SystemService.cs",
-              "RelativeToolTip": "QuiLaCarne.Services\\Api\\SystemService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T07:50:12.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Users.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Users.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Users.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Users.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\Users.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T07:28:49.981Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PagedResult.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Responses\\PagedResult.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Responses\\PagedResult.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Responses\\PagedResult.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\Responses\\PagedResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T13:38:11.99Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "QuiLaCarne.Data.csproj",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarne.Data.csproj",
-              "RelativeDocumentMoniker": "QuiLaCarne.Data\\QuiLaCarne.Data.csproj",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarne.Data.csproj",
-              "RelativeToolTip": "QuiLaCarne.Data\\QuiLaCarne.Data.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-19T14:44:00.064Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Menu.xaml",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Menu.xaml",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Menu.xaml",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Menu.xaml",
-              "RelativeToolTip": "QuiLaCarne.Ui\\Menu.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-20T13:59:15.328Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "UserPanelViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\UserPanelViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\UserPanelViewModel.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\UserPanelViewModel.cs",
-              "RelativeToolTip": "ViewModels\\UserPanelViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T16:07:00.437Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "UsersPanel.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\UsersPanel.xaml.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\UsersPanel.xaml.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\UsersPanel.xaml.cs",
-              "RelativeToolTip": "QuiLaCarne.Ui\\UsersPanel.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T16:08:22.404Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "NavigationService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Navigation\\NavigationService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Navigation\\NavigationService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Navigation\\NavigationService.cs",
-              "RelativeToolTip": "QuiLaCarne.Ui\\Navigation\\NavigationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T16:55:57.018Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OrderItems.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\OrderItems.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\OrderItems.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\OrderItems.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\OrderItems.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T18:38:06.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "INavigationService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\IServices\\INavigationService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Services\\IServices\\INavigationService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\IServices\\INavigationService.cs",
-              "RelativeToolTip": "QuiLaCarne.Services\\IServices\\INavigationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T16:54:12.172Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "MenuViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\MenuViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\MenuViewModel.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\MenuViewModel.cs",
-              "RelativeToolTip": "ViewModels\\MenuViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T14:02:22.316Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 20,
               "Title": "BaseApiService.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\BaseApiService.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\BaseApiService.cs",
@@ -506,181 +598,128 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "UsersPanel.xaml",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\UsersPanel.xaml",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\UsersPanel.xaml",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\UsersPanel.xaml",
-              "RelativeToolTip": "QuiLaCarne.Ui\\UsersPanel.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-20T16:05:41.853Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "LoginPage.xaml",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\LoginPage.xaml",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\LoginPage.xaml",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\LoginPage.xaml",
-              "RelativeToolTip": "QuiLaCarne.Ui\\LoginPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-20T06:24:37.146Z"
+              "DocumentIndex": 18,
+              "Title": "Generate2FaResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\Generate2FaResponse.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\Generate2FaResponse.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\Generate2FaResponse.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\Generate2FaResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:05:35.605Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 21,
-              "Title": "Authentication.xaml",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Authentication.xaml",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Authentication.xaml",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Authentication.xaml",
-              "RelativeToolTip": "QuiLaCarne.Ui\\Authentication.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-20T13:56:41.433Z"
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\RegisterRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\RegisterRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\RegisterRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T20:40:55.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Menu.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Menu.xaml.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Menu.xaml.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Menu.xaml.cs",
-              "RelativeToolTip": "QuiLaCarne.Ui\\Menu.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "ReservationService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\ReservationService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\ReservationService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\ReservationService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\ReservationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T14:00:19.167Z"
+              "WhenOpened": "2026-05-20T12:30:43.162Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 24,
-              "Title": "Authentication.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Authentication.xaml.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Authentication.xaml.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Authentication.xaml.cs",
-              "RelativeToolTip": "QuiLaCarne.Ui\\Authentication.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
+              "Title": "ManagerViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\ManagerViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ManagerViewModel.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\ManagerViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ManagerViewModel.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowEgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T14:12:36.48Z"
+              "WhenOpened": "2026-05-22T12:56:21.587Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\AssemblyInfo.cs",
-              "RelativeToolTip": "QuiLaCarne.Ui\\AssemblyInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 17,
+              "Title": "CreateEmployeeRequest.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\CreateEmployeeRequest.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\CreateEmployeeRequest.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\CreateEmployeeRequest.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\CreateEmployeeRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T07:39:03.656Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "AuthenticationViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\AuthenticationViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\AuthenticationViewModel.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\AuthenticationViewModel.cs",
-              "RelativeToolTip": "ViewModels\\AuthenticationViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T14:01:22.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "QuiLaCarne.Ui.csproj",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
-              "RelativeToolTip": "QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-20T14:05:13.913Z"
+              "WhenOpened": "2026-05-25T20:41:21.189Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 25,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\App.xaml",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\App.xaml",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\App.xaml",
-              "RelativeToolTip": "QuiLaCarne.Ui\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-20T14:05:17.468Z"
+              "Title": "DishService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\DishService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\DishService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\DishService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\DishService.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAIwHgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T08:09:47.829Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "DashBoard.xaml",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\DashBoard.xaml",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\DashBoard.xaml",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\DashBoard.xaml",
-              "RelativeToolTip": "QuiLaCarne.Ui\\DashBoard.xaml",
+              "DocumentIndex": 26,
+              "Title": "KitchenMonitor.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\KitchenMonitor.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\KitchenMonitor.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\KitchenMonitor.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\KitchenMonitor.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-20T14:00:41.832Z"
+              "WhenOpened": "2026-05-25T20:00:28.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "KitchenMonitorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\KitchenMonitorViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\KitchenMonitorViewModel.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\KitchenMonitorViewModel.cs",
+              "RelativeToolTip": "ViewModels\\KitchenMonitorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T20:00:03.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ManagerTab.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\ManagerTab.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\ManagerTab.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\ManagerTab.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\ManagerTab.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-22T13:01:04.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ManagerTab.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\ManagerTab.xaml.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\ManagerTab.xaml.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\ManagerTab.xaml.cs",
+              "RelativeToolTip": "QuiLaCarne.Ui\\ManagerTab.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T13:09:49.276Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 32,
-              "Title": "GuestReportStatus.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Lookup\\GuestReportStatus.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Lookup\\GuestReportStatus.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Lookup\\GuestReportStatus.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\Lookup\\GuestReportStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T13:38:37.42Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\AuthService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\AuthService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\AuthService.cs",
-              "RelativeToolTip": "QuiLaCarne.Services\\Api\\AuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T06:18:47.673Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "LoginData.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\LoginData.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\LoginData.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\LoginData.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\LoginData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T13:21:55.122Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "LoginPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\LoginPage.xaml.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\LoginPage.xaml.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\LoginPage.xaml.cs",
-              "RelativeToolTip": "QuiLaCarne.Ui\\LoginPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAxwBMAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T15:03:43.465Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\MainWindow.xaml",
-              "RelativeToolTip": "QuiLaCarne.Ui\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-19T15:15:23.293Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
               "Title": "SyncBanResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\SyncBanResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\SyncBanResponse.cs",
@@ -692,55 +731,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "Generate2FaResponse.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\Generate2FaResponse.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\Generate2FaResponse.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\Generate2FaResponse.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\Generate2FaResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "DocumentIndex": 33,
+              "Title": "GetReservationDishResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetReservationDishResponse.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetReservationDishResponse.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetReservationDishResponse.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\GetReservationDishResponse.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T13:05:35.605Z"
+              "WhenOpened": "2026-05-20T12:29:24.271Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 34,
-              "Title": "LoginResponse.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\LoginResponse.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\LoginResponse.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\LoginResponse.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\LoginResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Title": "WebSocketEvent.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\WebSocketEvent.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\WebSocketEvent.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\WebSocketEvent.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\WebSocketEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T13:21:01.715Z"
+              "WhenOpened": "2026-05-22T11:00:38.132Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "Enable2FaRequest.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\Enable2FaRequest.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\Enable2FaRequest.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\Enable2FaRequest.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\Enable2FaRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T13:06:14.405Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "GetReservationDetailsResponse.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetReservationDetailsResponse.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetReservationDetailsResponse.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetReservationDetailsResponse.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\GetReservationDetailsResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T12:28:44.314Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 31,
               "Title": "SyncBootstrapResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\SyncBootstrapResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\SyncBootstrapResponse.cs",
@@ -752,7 +767,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 30,
               "Title": "SyncDishResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\SyncDishResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\SyncDishResponse.cs",
@@ -764,115 +779,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "LookupService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\LookupService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\LookupService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\LookupService.cs",
-              "RelativeToolTip": "QuiLaCarne.Services\\Api\\LookupService.cs",
-              "ViewState": "AgIAAEYBAAAAAAAAAAAUwDgBAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T07:02:26.212Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "ReservationService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\ReservationService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\ReservationService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\ReservationService.cs",
-              "RelativeToolTip": "QuiLaCarne.Services\\Api\\ReservationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T12:30:43.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "GetReservationDishResponse.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetReservationDishResponse.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetReservationDishResponse.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetReservationDishResponse.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\GetReservationDishResponse.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAxwA8AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T12:29:24.271Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "IngredientDictionaryResponse.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\IngredientDictionaryResponse.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\IngredientDictionaryResponse.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\IngredientDictionaryResponse.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\IngredientDictionaryResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T10:54:50.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "DishCategoryDictionaryResponse.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\DishCategoryDictionaryResponse.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\DishCategoryDictionaryResponse.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\DishCategoryDictionaryResponse.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\DishCategoryDictionaryResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T10:40:51.365Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "GetDishesResponse.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetDishesResponse.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetDishesResponse.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetDishesResponse.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\GetDishesResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T19:19:00.809Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "Dishes.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Dishes.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Dishes.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Dishes.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\Dishes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T06:14:41.552Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "DishService.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\DishService.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\DishService.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\DishService.cs",
-              "RelativeToolTip": "QuiLaCarne.Services\\Api\\DishService.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAIwB8AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T08:09:47.829Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "DictionaryWrapper.cs",
-              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\DictionaryWrapper.cs",
-              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\DictionaryWrapper.cs",
-              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\DictionaryWrapper.cs",
-              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\DictionaryWrapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T09:58:53.487Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 29,
               "Title": "GetAllergenDictionaryResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetAllergenDictionaryResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetAllergenDictionaryResponse.cs",
@@ -884,7 +791,468 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "SyncService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SyncService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\SyncService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SyncService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\SyncService.cs",
+              "ViewState": "AgIAAK4CAAAAAAAAAAAAAM4CAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T14:42:45.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "LoginViewMoldel.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\LoginViewMoldel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\LoginViewMoldel.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\LoginViewMoldel.cs",
+              "RelativeToolTip": "ViewModels\\LoginViewMoldel.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAowIQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T14:38:56.626Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "INavigationService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\IServices\\INavigationService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\IServices\\INavigationService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\IServices\\INavigationService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\IServices\\INavigationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T16:54:12.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RestaurantWebSocketService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\RestaurantWebSocketService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\RestaurantWebSocketService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\RestaurantWebSocketService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\RestaurantWebSocketService.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAqwHMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T11:00:01.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "MenuViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\MenuViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MenuViewModel.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\MenuViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MenuViewModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T14:02:22.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "NavigationService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Navigation\\NavigationService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Navigation\\NavigationService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Navigation\\NavigationService.cs",
+              "RelativeToolTip": "QuiLaCarne.Ui\\Navigation\\NavigationService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAswC4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T16:55:57.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "DictionaryWrapper.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\DictionaryWrapper.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\DictionaryWrapper.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\DictionaryWrapper.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\DictionaryWrapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T09:58:53.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "SessionService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SessionService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\SessionService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SessionService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\SessionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T12:53:03.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\LoginPage.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\LoginPage.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\LoginPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-20T06:24:37.146Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "QuiLaCarneDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarneDbContext.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Data\\QuiLaCarneDbContext.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarneDbContext.cs",
+              "RelativeToolTip": "QuiLaCarne.Data\\QuiLaCarneDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T18:09:00.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\LoginPage.xaml.cs",
+              "RelativeToolTip": "QuiLaCarne.Ui\\LoginPage.xaml.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T15:03:43.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "QuiLaCarne.ViewModels.csproj",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
+              "RelativeDocumentMoniker": "ViewModels\\QuiLaCarne.ViewModels.csproj",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
+              "RelativeToolTip": "ViewModels\\QuiLaCarne.ViewModels.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-22T11:05:37.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Responses\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Responses\\ApiResponse.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Responses\\ApiResponse.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\Responses\\ApiResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T08:11:34.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "SystemService.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SystemService.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Services\\Api\\SystemService.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\Api\\SystemService.cs",
+              "RelativeToolTip": "QuiLaCarne.Services\\Api\\SystemService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T07:50:12.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Users.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Users.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Users.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\Users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T07:28:49.981Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 49,
+              "Title": "PagedResult.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Responses\\PagedResult.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Responses\\PagedResult.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Responses\\PagedResult.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\Responses\\PagedResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:38:11.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "QuiLaCarne.Data.csproj",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarne.Data.csproj",
+              "RelativeDocumentMoniker": "QuiLaCarne.Data\\QuiLaCarne.Data.csproj",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarne.Data.csproj",
+              "RelativeToolTip": "QuiLaCarne.Data\\QuiLaCarne.Data.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-19T14:44:00.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Menu.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Menu.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Menu.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Menu.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\Menu.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-20T13:59:15.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "UserPanelViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\UserPanelViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\UserPanelViewModel.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\UserPanelViewModel.cs",
+              "RelativeToolTip": "ViewModels\\UserPanelViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T16:07:00.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "UsersPanel.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\UsersPanel.xaml.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\UsersPanel.xaml.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\UsersPanel.xaml.cs",
+              "RelativeToolTip": "QuiLaCarne.Ui\\UsersPanel.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T16:08:22.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "OrderItems.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\OrderItems.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\OrderItems.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\OrderItems.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\OrderItems.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T18:38:06.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "UsersPanel.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\UsersPanel.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\UsersPanel.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\UsersPanel.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\UsersPanel.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-20T16:05:41.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Authentication.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Authentication.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Authentication.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Authentication.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\Authentication.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-20T13:56:41.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "Menu.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Menu.xaml.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Menu.xaml.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Menu.xaml.cs",
+              "RelativeToolTip": "QuiLaCarne.Ui\\Menu.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T14:00:19.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "Authentication.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Authentication.xaml.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\Authentication.xaml.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\Authentication.xaml.cs",
+              "RelativeToolTip": "QuiLaCarne.Ui\\Authentication.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T14:12:36.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\AssemblyInfo.cs",
+              "RelativeToolTip": "QuiLaCarne.Ui\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T07:39:03.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "AuthenticationViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\AuthenticationViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\AuthenticationViewModel.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\AuthenticationViewModel.cs",
+              "RelativeToolTip": "ViewModels\\AuthenticationViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T14:01:22.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "QuiLaCarne.Ui.csproj",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
+              "RelativeToolTip": "QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-20T14:05:13.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\App.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\App.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\App.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-20T14:05:17.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "DashBoard.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\DashBoard.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\DashBoard.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\DashBoard.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\DashBoard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-20T14:00:41.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "GuestReportStatus.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Lookup\\GuestReportStatus.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Lookup\\GuestReportStatus.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Lookup\\GuestReportStatus.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\Lookup\\GuestReportStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:38:37.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "LoginData.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\LoginData.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\LoginData.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\LoginData.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\LoginData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:21:55.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "QuiLaCarne.Ui\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\MainWindow.xaml",
+              "RelativeToolTip": "QuiLaCarne.Ui\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-19T15:15:23.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\LoginResponse.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:21:01.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "GetReservationDetailsResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetReservationDetailsResponse.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetReservationDetailsResponse.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetReservationDetailsResponse.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\GetReservationDetailsResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T12:28:44.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "IngredientDictionaryResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\IngredientDictionaryResponse.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\IngredientDictionaryResponse.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\IngredientDictionaryResponse.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\IngredientDictionaryResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T10:54:50.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "DishCategoryDictionaryResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\DishCategoryDictionaryResponse.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\DishCategoryDictionaryResponse.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\DishCategoryDictionaryResponse.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\DishCategoryDictionaryResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T10:40:51.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "GetDishesResponse.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetDishesResponse.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetDishesResponse.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetDishesResponse.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\DTOS\\GetDishesResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T19:19:00.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "Dishes.cs",
+              "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Dishes.cs",
+              "RelativeDocumentMoniker": "QuiLaCarne.Models\\Dishes.cs",
+              "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\Dishes.cs",
+              "RelativeToolTip": "QuiLaCarne.Models\\Dishes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T06:14:41.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
               "Title": "GetBanStatusDictionaryResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetBanStatusDictionaryResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetBanStatusDictionaryResponse.cs",
@@ -896,7 +1264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 73,
               "Title": "GetRestaurantMenuResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetRestaurantMenuResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetRestaurantMenuResponse.cs",
@@ -908,7 +1276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 74,
               "Title": "GetIngredientsResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetIngredientsResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetIngredientsResponse.cs",
@@ -920,7 +1288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 75,
               "Title": "SyncIngredientsResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\SyncIngredientsResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\SyncIngredientsResponse.cs",
@@ -932,7 +1300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 78,
               "Title": "TableStatusResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\TableStatusResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\TableStatusResponse.cs",
@@ -944,7 +1312,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 79,
               "Title": "GetDishCategoriesResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\GetDishCategoriesResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\GetDishCategoriesResponse.cs",
@@ -956,7 +1324,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 80,
               "Title": "SyncTablesResponse.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\DTOS\\SyncTablesResponse.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Models\\DTOS\\SyncTablesResponse.cs",
@@ -968,7 +1336,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 81,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Ui\\MainWindow.xaml.cs",
@@ -980,7 +1348,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 82,
               "Title": "QuiLaCarneDbContextFactory.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarneDbContextFactory.cs",
               "RelativeDocumentMoniker": "QuiLaCarne.Data\\QuiLaCarneDbContextFactory.cs",
@@ -992,7 +1360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 83,
               "Title": "DashboardViewModel.cs",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\DashboardViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\DashboardViewModel.cs",

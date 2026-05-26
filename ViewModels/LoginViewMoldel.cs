@@ -70,11 +70,6 @@ public partial class LoginViewModel : ObservableObject
 
             SessionService.JwtToken = token;
 
-
-            MessageBox.Show("Login success");
-
-            await _webSocketService.ConnectAsync(token);
-
             var cacheKeys =
                 await _systemService.GetCacheListAsync(token);
 
@@ -126,11 +121,8 @@ public partial class LoginViewModel : ObservableObject
             MessageBox.Show(
                 $"Server time: {manifest?.ServerTime}\nModules: {manifest?.Modules.Count}");
 
-            await _syncService.SyncUsersAsync(token);
-            await _syncService.SyncTablesAsync(token);
-            await _syncService.SyncIngredientsAsync(token);
-            await _syncService.SyncBansAsync(token);
-            await _syncService.SyncDishesAsync(token);
+           
+            await _syncService.SyncWholeDatabaseAsync(token);
 
             MessageBox.Show("Sync finished");
 

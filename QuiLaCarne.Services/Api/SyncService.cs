@@ -702,4 +702,19 @@ public class SyncService : BaseApiService
 
         } while (hasNextPage);
     }
+    public async Task SyncWholeDatabaseAsync(string jwt)
+    {
+        await SyncUsersAsync(jwt);
+        await SyncTablesAsync(jwt);
+
+        await SyncIngredientsAsync(jwt);
+        await SyncDishCategoriesAsync(jwt);
+        await SyncDishesAsync(jwt);
+
+        await SyncReservationsAsync(jwt);
+        await SyncOrdersAsync(jwt);
+        await SyncOrderItemsAsync(jwt);
+
+        await SyncBansAsync(jwt);
+    }
 }

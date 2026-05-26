@@ -108,4 +108,88 @@ public class AuthService : BaseApiService
 
         return result?.Success == true;
     }
+    public async Task<LoginData?> Verify2FaAsync(
+    string preAuthToken,
+    int code)
+    {
+        var request =
+            new VerifyTwoFactorRequest
+            {
+                PreAuthToken = preAuthToken,
+                Code = code
+            };
+
+        var response =
+            await HttpClient.PostAsJsonAsync(
+                "api/auth/verify-2fa",
+                request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Verify 2FA failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<LoginResponse>();
+
+        return result?.Data;
+    }
+    public async Task<LoginData?> RefreshTokenAsync(
+    string refreshToken)
+    {
+        var request =
+            new RefreshTokenRequest
+            {
+                RefreshToken = refreshToken
+            };
+
+        var response =
+            await HttpClient.PostAsJsonAsync(
+                "api/auth/refresh",
+                request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Refresh token failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<LoginResponse>();
+
+        return result?.Data;
+    }
+    public async Task<bool> LogoutAsync(string jwt)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.PostAsync(
+                "api/auth/logout",
+                null);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Logout failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
 }

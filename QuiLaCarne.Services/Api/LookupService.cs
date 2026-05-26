@@ -10,6 +10,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using QuiLaCarne.Data;
 
 namespace QuiLaCarne.Services.Api;
 
@@ -76,6 +77,8 @@ public class LookupService : BaseApiService
 
         await _db.SaveChangesAsync();
     }
+
+
     public async Task<List<AllergenDictionaryResponse>>
        GetAllergensAsync(
            string jwt,
@@ -187,7 +190,36 @@ public class LookupService : BaseApiService
                         DictionaryWrapper<
                             DishCategoryDictionaryResponse>>>();
 
-        return result?.Data?.Item ?? [];
+        var items =
+            result?.Data?.Item ?? [];
+
+        foreach (var dto in items)
+        {
+            var existing =
+                await _db.DishesCategories
+                    .FirstOrDefaultAsync(x => x.Token == dto.Token);
+
+            if (existing == null)
+            {
+                existing = new DishesCategories
+                {
+                    Token = dto.Token,
+                    Name = dto.Name,
+                    CreatedAt = DateTimeOffset.UtcNow,
+                    UpdatedAt = DateTimeOffset.UtcNow
+                };
+
+                _db.DishesCategories.Add(existing);
+            }
+            else
+            {
+                existing.Name = dto.Name;
+            }
+        }
+
+        await _db.SaveChangesAsync();
+
+        return items;
     }
     public async Task<List<IngredientDictionaryResponse>> GetIngredientsAsync(
     string jwt,
@@ -339,5 +371,304 @@ public class LookupService : BaseApiService
 
         return result?.Data?.Item ?? [];
     }
-}
+    public async Task<bool> AddTableStatusAsync(
+    string jwt,
+    string namePl,
+    string nameEn)
+    {
+        SetBearerToken(jwt);
 
+        var request =
+            new AddTableStatusRequest
+            {
+                NamePl = namePl,
+                NameEn = nameEn
+            };
+
+        var response =
+            await HttpClient.PostAsJsonAsync(
+                "api/tables/status/add",
+                request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Add table status failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> AddOrderItemStatusAsync(
+    string jwt,
+    string namePl,
+    string nameEn)
+    {
+        SetBearerToken(jwt);
+
+        var request =
+            new AddOrderItemStatusRequest
+            {
+                NamePl = namePl,
+                NameEn = nameEn
+            };
+
+        var response =
+            await HttpClient.PostAsJsonAsync(
+                "api/order/item/status/add",
+                request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Add order item status failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> AddIngredientAsync(
+    string jwt,
+    string namePl,
+    string nameEn,
+    List<string> allergenTokens)
+    {
+        SetBearerToken(jwt);
+
+        var request =
+            new AddIngredientRequest
+            {
+                Entity = new AddEntityRequest
+                {
+                    NamePl = namePl,
+                    NameEn = nameEn
+                },
+                AllergenTokens = allergenTokens
+            };
+
+        var response =
+            await HttpClient.PostAsJsonAsync(
+                "api/ingredients",
+                request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Add ingredient failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> AddDishCategoryAsync(
+    string jwt,
+    string namePl,
+    string nameEn)
+    {
+        SetBearerToken(jwt);
+
+        var request =
+            new AddDishCategoryRequest
+            {
+                NamePl = namePl,
+                NameEn = nameEn
+            };
+
+        var response =
+            await HttpClient.PostAsJsonAsync(
+                "api/dishes/category/add",
+                request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Add dish category failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> AddAllergenAsync(
+    string jwt,
+    string namePl,
+    string nameEn)
+    {
+        SetBearerToken(jwt);
+
+        var request =
+            new AddAllergenRequest
+            {
+                NamePl = namePl,
+                NameEn = nameEn
+            };
+
+        var response =
+            await HttpClient.PostAsJsonAsync(
+                "api/dishes/allergens/add",
+                request);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Add allergen failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> DeleteTableStatusAsync(
+    string jwt,
+    string token)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.DeleteAsync(
+                $"api/tables/status/{token}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Delete table status failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> DeleteOrderStatusAsync(
+    string jwt,
+    string token)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.DeleteAsync(
+                $"api/order/status/{token}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Delete order status failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> DeleteOrderItemStatusAsync(
+    string jwt,
+    string token)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.DeleteAsync(
+                $"api/order/item/status/{token}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Delete order item status failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> DeleteIngredientAsync(
+    string jwt,
+    string token)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.DeleteAsync(
+                $"api/ingredients/{token}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Delete ingredient failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+    public async Task<bool> DeleteAllergenAsync(
+     string jwt,
+     string allergenToken)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.DeleteAsync(
+                $"api/dishes/allergen/{allergenToken}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Delete allergen failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content
+                .ReadFromJsonAsync<ApiResponse<object>>();
+
+        return result?.Success == true;
+    }
+}

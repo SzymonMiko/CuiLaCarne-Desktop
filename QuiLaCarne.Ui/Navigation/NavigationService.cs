@@ -33,6 +33,18 @@ public class NavigationService : INavigationService
             .FirstOrDefault()
             ?.Close();
     }
+    public void ShowManagerPanel()
+    {
+        var window = new Window
+        {
+            Title = "Manager Panel",
+            Content = _services.GetRequiredService<ManagerTab>(),
+            Width = 1000,
+            Height = 650
+        };
+
+        window.Show();
+    }
 
     public void ShowUsersPanel() =>
         _services.GetRequiredService<UsersPanel>().Show();

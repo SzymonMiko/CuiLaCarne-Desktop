@@ -29,6 +29,7 @@ public partial class App : Application
                     services =>
                     {
                         services.AddSingleton<HttpClient>();
+
                         services.AddDbContext<
                             QuiLaCarneDbContext>(options =>
                             {
@@ -63,6 +64,9 @@ public partial class App : Application
                         services.AddSingleton<MenuViewModel>();
                         services.AddTransient<UsersPanel>();
                         services.AddSingleton<UsersPanelViewModel>();
+                        services.AddSingleton<ManagerViewModel>();
+                        services.AddTransient<ManagerTab>();
+                        services.AddSingleton<ReportService>();
 
                         services.AddSingleton<INavigationService, NavigationService>();
                     })
