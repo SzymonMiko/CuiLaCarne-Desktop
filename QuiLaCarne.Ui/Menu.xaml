@@ -1,169 +1,165 @@
-﻿<Window
-    x:Class="QuiLaCarne.Ui.Menu"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Qui la Carne Panel"
-    Width="1200"
-    Height="720"
-    WindowStartupLocation="CenterScreen"
-    Background="#F5F5F5">
+﻿<Page
+  x:Class="QuiLaCarne.Ui.Menu"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  Background="#F5F5F5"
+>
+  <Page.Resources>
+    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Background" Value="#19A93A" />
+      <Setter Property="Padding" Value="18 8" />
+      <Setter Property="FontWeight" Value="SemiBold" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border Background="{TemplateBinding Background}" CornerRadius="20">
+              <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
 
-    <Window.Resources>
-        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#19A93A"/>
-            <Setter Property="Padding" Value="18 8"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                                CornerRadius="20">
-                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+    <Style x:Key="PanelCardStyle" TargetType="Border">
+      <Setter Property="Background" Value="#1AAE3B" />
+      <Setter Property="CornerRadius" Value="22" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Effect">
+        <Setter.Value>
+          <DropShadowEffect BlurRadius="16" ShadowDepth="3" Opacity="0.25" />
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </Page.Resources>
 
-        <Style x:Key="PanelCardStyle" TargetType="Border">
-            <Setter Property="Background" Value="#1AAE3B"/>
-            <Setter Property="CornerRadius" Value="22"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect BlurRadius="16"
-                                      ShadowDepth="3"
-                                      Opacity="0.25"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="64" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="64"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <DockPanel Grid.Row="0" Background="#19A93A">
+      <TextBlock
+        Text="Qui la Carne"
+        Foreground="White"
+        FontSize="22"
+        FontWeight="Bold"
+        VerticalAlignment="Center"
+        Margin="24 0"
+      />
+    </DockPanel>
 
-        <DockPanel Grid.Row="0" Background="#19A93A">
-            <TextBlock Text="Qui la Carne"
-                       Foreground="White"
-                       FontSize="22"
-                       FontWeight="Bold"
-                       VerticalAlignment="Center"
-                       Margin="24 0"/>
-        </DockPanel>
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+      <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        MaxWidth="900"
+        Margin="24"
+      >
+        <TextBlock FontSize="56" FontWeight="Bold" TextAlignment="Center">
+          <Run Text="Qui " Foreground="#E53935" />
+          <Run Text="la Carne" Foreground="#1B9A2F" />
+        </TextBlock>
 
-        <Grid Grid.Row="1">
-            <StackPanel HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Width="760">
-
-                <TextBlock FontSize="56"
-                           FontWeight="Bold"
-                           TextAlignment="Center">
-                    <Run Text="Qui " Foreground="#E53935"/>
-                    <Run Text="la Carne" Foreground="#1B9A2F"/>
-                </TextBlock>
-
-                <Grid Margin="0 8 0 24" Height="6">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle Fill="#19A93A" RadiusX="3" RadiusY="3"/>
-                    <Rectangle Grid.Column="1" Fill="#E0E0E0" RadiusX="3" RadiusY="3"/>
-                    <Rectangle Grid.Column="2" Fill="#E53935" RadiusX="3" RadiusY="3"/>
-                </Grid>
-
-                <TextBlock Text="Wybierz panel roboczy"
-                           Foreground="#222222"
-                           FontSize="22"
-                           FontWeight="SemiBold"
-                           Margin="0 0 0 28"
-                           TextAlignment="Center"/>
-
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="28"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Border Style="{StaticResource PanelCardStyle}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="82"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-
-                            <Border Background="#159032"
-                                    CornerRadius="22,22,0,0"/>
-
-                            <TextBlock Text="Manager"
-                                       FontSize="28"
-                                       FontWeight="Bold"
-                                       Foreground="#0E2B12"
-                                       TextAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
-                            <StackPanel Grid.Row="1"
-                                        Margin="24">
-                                <Button
-    Content="Users Panel"
-    Command="{Binding OpenUsersPanelCommand}"/>
-                                <TextBlock Text="Zarządzanie menu, rezerwacjami i personelem"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           Foreground="White"
-                                           Margin="0 6 0 18"/>
-
-                                <Button Content="Otwórz panel managera"
-                                        Style="{StaticResource PrimaryButtonStyle}"
-                                        Command="{Binding OpenManagerCommand}"/>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-
-                    <Border Grid.Column="2"
-                            Style="{StaticResource PanelCardStyle}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="82"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-
-                            <Border Background="#159032"
-                                    CornerRadius="22,22,0,0"/>
-
-                            <TextBlock Text="Kitchen"
-                                       FontSize="28"
-                                       FontWeight="Bold"
-                                       Foreground="#0E2B12"
-                                       TextAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
-                            <StackPanel Grid.Row="1"
-                                        Margin="24">
-                                <TextBlock Text="Zamówienia, statusy dań i obsługa kuchni"
-                                           TextAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           Foreground="White"
-                                           Margin="0 6 0 18"/>
-
-                                <Button Content="Otwórz panel kuchni"
-                                        Style="{StaticResource PrimaryButtonStyle}"
-                                        Command="{Binding OpenKitchenCommand}"/>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
-                </Grid>
-            </StackPanel>
+        <Grid Margin="0 8 0 24" Height="6">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
+          </Grid.ColumnDefinitions>
+          <Rectangle Fill="#19A93A" RadiusX="3" RadiusY="3" />
+          <Rectangle Grid.Column="1" Fill="#E0E0E0" RadiusX="3" RadiusY="3" />
+          <Rectangle Grid.Column="2" Fill="#E53935" RadiusX="3" RadiusY="3" />
         </Grid>
-    </Grid>
-</Window>
+
+        <TextBlock
+          Text="Wybierz panel roboczy"
+          Foreground="#222222"
+          FontSize="22"
+          FontWeight="SemiBold"
+          Margin="0 0 0 28"
+          TextAlignment="Center"
+        />
+
+        <UniformGrid Columns="3" Margin="12">
+          <Button
+            Content="Manager"
+            Command="{Binding OpenManagerCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+          <Button
+            Content="Kitchen"
+            Command="{Binding OpenKitchenCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+          <Button
+            Content="Users"
+            Command="{Binding OpenUsersCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+          <Button
+            Content="Personnel"
+            Command="{Binding OpenPersonnelCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+          <Button
+            Content="Menu &amp; Room"
+            Command="{Binding OpenMenuRoomCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+          <Button
+            Content="Security"
+            Command="{Binding OpenSecurityCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+          <Button
+            Content="Ingredients"
+            Command="{Binding OpenIngredientConfirmationCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+          <Button
+            Content="Admin 2FA"
+            Command="{Binding OpenAdminTwoFactorCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+          <Button
+            Content="2FA Check"
+            Command="{Binding OpenTwoFactorCommand}"
+            Style="{StaticResource PrimaryButtonStyle}"
+            Margin="8"
+            Height="56"
+            MinWidth="180"
+          />
+                    <Button Content="Users Panel" Command="{Binding OpenUsersPanelCommand}" Style="{StaticResource PrimaryButtonStyle}" Margin="8" Height="56" MinWidth="180" />
+        </UniformGrid>
+      </StackPanel>
+    </ScrollViewer>
+  </Grid>
+</Page>

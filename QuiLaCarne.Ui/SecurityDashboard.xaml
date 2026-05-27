@@ -9,7 +9,8 @@
             <TextBlock Text="Qui la Carne" Foreground="White" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="24 0"/>
             <TextBlock Text="Security Dashboard / SIEM" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
-        <Grid Grid.Row="1" Margin="36">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid Margin="24" MinWidth="760">
             <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="16"/><RowDefinition Height="*"/></Grid.RowDefinitions>
             <StackPanel>
                 <TextBlock FontSize="42" FontWeight="Bold"><Run Text="Security " Foreground="#E53935"/><Run Text="events" Foreground="#1B9A2F"/></TextBlock>
@@ -28,5 +29,6 @@
                 </DataGrid>
             </Border>
         </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

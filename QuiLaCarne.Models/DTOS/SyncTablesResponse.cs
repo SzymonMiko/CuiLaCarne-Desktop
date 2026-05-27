@@ -14,6 +14,8 @@ public class SyncTableResponse
 
     public int Capacity { get; set; }
 
+    public List<string> StatusTokens { get; set; } = [];
+
     public DateTimeOffset CreatedAt { get; set; }
 
     public DateTimeOffset UpdatedAt { get; set; }

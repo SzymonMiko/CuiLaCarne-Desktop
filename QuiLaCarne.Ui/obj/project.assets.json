@@ -9249,8 +9249,8 @@
     },
     "QuiLaCarne.ViewModels/1.0.0": {
       "type": "project",
-      "path": "../ViewModels/QuiLaCarne.ViewModels.csproj",
-      "msbuildProject": "../ViewModels/QuiLaCarne.ViewModels.csproj"
+      "path": "../QuiLaCarne.ViewModels/QuiLaCarne.ViewModels.csproj",
+      "msbuildProject": "../QuiLaCarne.ViewModels/QuiLaCarne.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9308,8 +9308,8 @@
             "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj": {
               "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj"
             },
-            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj": {
-              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj"
+            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj": {
+              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj"
             }
           }
         }

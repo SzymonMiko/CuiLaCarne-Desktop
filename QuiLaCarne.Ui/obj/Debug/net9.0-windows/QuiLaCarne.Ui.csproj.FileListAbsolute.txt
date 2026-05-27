@@ -9,7 +9,6 @@ C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\MainWindow.g.cs
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\App.g.cs
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\QuiLaCarne.Ui_MarkupCompile.cache
-C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\QuiLaCarne.Ui_MarkupCompile.lref
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\MainWindow.baml
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\QuiLaCarne.Ui.g.resources
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\QuiLaCarne.Ui.GeneratedMSBuildEditorConfig.editorconfig
@@ -180,9 +179,7 @@ C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0-windows\QuiLaCarne.Data.pdb
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0-windows\QuiLaCarne.Models.pdb
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0-windows\QuiLaCarne.ViewModels.pdb
-C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\DashBoard.g.cs
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\LoginPage.g.cs
-C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\DashBoard.baml
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\LoginPage.baml
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\Authentication.baml
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\Menu.baml
@@ -228,3 +225,15 @@ C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\bin\Debug\net9.0-windows\Websocket.Client.dll
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\ManagerTab.g.cs
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\ManagerTab.baml
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\AdminTwoFactorPanel.baml
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\IngredientConfirmationPanel.baml
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\KitchenMonitor.baml
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\PersonnelManagement.baml
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\SecurityDashboard.baml
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\AdminTwoFactorPanel.g.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\IngredientConfirmationPanel.g.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\KitchenMonitor.g.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\PersonnelManagement.g.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\SecurityDashboard.g.cs
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\MenuRoomEditor.baml
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\MenuRoomEditor.g.cs

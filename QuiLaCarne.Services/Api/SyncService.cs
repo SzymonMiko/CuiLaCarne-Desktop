@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using QuiLaCarne.Data;
 using QuiLaCarne.Models;
+using QuiLaCarne.Models.Base;
 using QuiLaCarne.Models.DTOS;
 using QuiLaCarne.Models.Lookup;
 using QuiLaCarne.Models.Responses;
 using System;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Windows;
 
 namespace QuiLaCarne.Services.Api;
@@ -23,95 +24,146 @@ public class SyncService : BaseApiService
         _db = db;
     }
 
+    public async Task SyncRolesAsync(string jwt)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.GetAsync(
+                "api/sync/roles");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Sync roles failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var body =
+            await response.Content.ReadAsStringAsync();
+
+        var roles =
+            ReadList<SyncRoleResponse>(body);
+
+        if (roles.Count == 0)
+            return;
+
+        foreach (var dto in roles)
+        {
+            var existing =
+                await _db.Roles
+                    .FirstOrDefaultAsync(x => x.Token == dto.Token);
+
+            if (existing == null)
+            {
+                existing = new Roles
+                {
+                    Token = dto.Token,
+                    Name = dto.Name,
+                    CreatedAt = DateTimeOffset.UtcNow,
+                    UpdatedAt = DateTimeOffset.UtcNow
+                };
+
+                _db.Roles.Add(existing);
+            }
+            else
+            {
+                existing.Name = dto.Name;
+            }
+        }
+
+        await _db.SaveChangesAsync();
+    }
+
     public async Task SyncUsersAsync(string jwt)
     {
         try
         {
             SetBearerToken(jwt);
 
-            var response =
-                await HttpClient.GetAsync(
-                    "api/sync/users");
+            int page = 1;
+            bool hasNextPage;
 
-            if (!response.IsSuccessStatusCode)
+            do
             {
-                var errorBody =
-                    await response.Content
-                        .ReadAsStringAsync();
+                var result =
+                    await GetPagedAsync<SyncUserResponse>(
+                        $"api/sync/users?page={page}",
+                        "Sync users");
 
-                throw new Exception(
-                    $"Sync failed.\n" +
-                    $"Status: {(int)response.StatusCode}\n" +
-                    $"{response.StatusCode}\n\n" +
-                    errorBody);
-            }
-
-            var result =
-                await response.Content
-                    .ReadFromJsonAsync<
-                        ApiResponse<
-                            PagedResult<
-                                SyncUserResponse>>>();
-
-            if (result?.Data?.Items == null)
-            {
-                throw new Exception(
-                    "Sync returned no users.");
-            }
-
-            foreach (var dto in result.Data.Items)
-            {
-                var existing =
-                    await _db.Users
-                        .FirstOrDefaultAsync(
-                            x => x.Token == dto.Token);
-
-                // NEW USER
-                if (existing == null)
+                foreach (var dto in result.Items)
                 {
-                    existing = new Users();
+                    var existing =
+                        await _db.Users
+                            .Include(x => x.Roles)
+                            .FirstOrDefaultAsync(
+                                x => x.Token == dto.Token);
 
-                    existing.Token =
-                        dto.Token;
+                    // NEW USER
+                    if (existing == null)
+                    {
+                        existing = new Users();
 
-                    existing.Username =
-                        dto.Username;
+                        existing.Token =
+                            dto.Token;
 
-                    existing.Email =
-                        dto.Email;
+                        existing.Username =
+                            dto.Username;
 
-                    existing.IsEnabled =
-                        dto.IsActive ?? false;
+                        existing.Email =
+                            dto.Email;
+
+                        existing.IsEnabled =
+                            dto.IsActive ?? false;
 
 
-                    existing.PasswordHash = "";
+                        existing.PasswordHash = "";
 
-                    existing.CreatedAt =
-                        dto.CreatedAt;
+                        existing.CreatedAt =
+                            dto.CreatedAt;
 
-                    existing.UpdatedAt =
-                        dto.UpdatedAt;
+                        existing.UpdatedAt =
+                            dto.UpdatedAt;
 
-                    _db.Users.Add(existing);
+                        _db.Users.Add(existing);
+                    }
+
+                    else if (dto.UpdatedAt > existing.UpdatedAt)
+                    {
+                        existing.Username =
+                            dto.Username;
+
+                        existing.Email =
+                            dto.Email;
+
+                        existing.IsEnabled =
+                            dto.IsActive ?? false;
+
+                        existing.UpdatedAt =
+                            dto.UpdatedAt;
+                    }
+
+                    existing.Roles.Clear();
+
+                    var roles =
+                        await _db.Roles
+                            .Where(x => dto.RoleTokens.Contains(x.Token))
+                            .ToListAsync();
+
+                    foreach (var role in roles)
+                    {
+                        existing.Roles.Add(role);
+                    }
                 }
 
-                else if (dto.UpdatedAt > existing.UpdatedAt)
-                {
-                    existing.Username =
-                        dto.Username;
+                await _db.SaveChangesAsync();
 
-                    existing.Email =
-                        dto.Email;
+                hasNextPage = result.HasNextPage;
+                page++;
 
-                    existing.IsEnabled =
-                        dto.IsActive ?? false;
-
-                    existing.UpdatedAt =
-                        dto.UpdatedAt;
-                }
-            }
-
-            await _db.SaveChangesAsync();
+            } while (hasNextPage);
 
         }
         catch (Exception ex)
@@ -130,190 +182,297 @@ public class SyncService : BaseApiService
     {
         SetBearerToken(jwt);
 
-        var response =
-            await HttpClient.GetAsync(
-                "api/sync/tables");
+        int page = 1;
+        bool hasNextPage;
 
-        response.EnsureSuccessStatusCode();
-
-        var result =
-            await response.Content.ReadFromJsonAsync<
-                ApiResponse<
-                    PagedResult<
-                        SyncTableResponse>>>();
-
-        if (result?.Data?.Items == null)
-            return;
-
-        foreach (var dto in result.Data.Items)
+        do
         {
-            var existing =
-                await _db.RestaurantTables
-                    .FirstOrDefaultAsync(
-                        x => x.Token == dto.Token);
+            var result =
+                await GetPagedAsync<SyncTableResponse>(
+                    $"api/sync/tables?page={page}",
+                    "Sync tables");
 
-            if (existing == null)
+            foreach (var dto in result.Items)
             {
-                existing = new RestaurantTables();
+                var existing =
+                    await _db.RestaurantTables
+                        .Include(x => x.TableStatus)
+                        .FirstOrDefaultAsync(
+                            x => x.Token == dto.Token);
 
-                _db.RestaurantTables
-                    .Add(existing);
+                if (existing == null)
+                {
+                    existing = new RestaurantTables();
+
+                    _db.RestaurantTables
+                        .Add(existing);
+                }
+
+                if (dto.UpdatedAt > existing.UpdatedAt)
+                {
+                    existing.Token =
+                        dto.Token;
+
+                    existing.TableNumber =
+                        dto.TableNumber;
+
+                    existing.Capacity =
+                        dto.Capacity;
+
+                    existing.CreatedAt =
+                        dto.CreatedAt;
+
+                    existing.UpdatedAt =
+                        dto.UpdatedAt;
+                }
+
+                existing.TableStatus.Clear();
+
+                var statuses =
+                    await _db.TableStatuses
+                        .Where(x => dto.StatusTokens.Contains(x.Token))
+                        .ToListAsync();
+
+                foreach (var status in statuses)
+                {
+                    existing.TableStatus.Add(status);
+                }
             }
 
-            if (dto.UpdatedAt > existing.UpdatedAt)
-            {
-                existing.Token =
-                    dto.Token;
+            await _db.SaveChangesAsync();
 
-                existing.TableNumber =
-                    dto.TableNumber;
+            hasNextPage = result.HasNextPage;
+            page++;
 
-                existing.Capacity =
-                    dto.Capacity;
-
-                existing.CreatedAt =
-                    dto.CreatedAt;
-
-                existing.UpdatedAt =
-                    dto.UpdatedAt;
-            }
-        }
-
-        await _db.SaveChangesAsync();
+        } while (hasNextPage);
     }
     public async Task SyncOrdersAsync(string jwt)
     {
         SetBearerToken(jwt);
 
-        var response =
-            await HttpClient.GetAsync("api/sync/orders");
+        int page = 1;
+        bool hasNextPage;
 
-        if (!response.IsSuccessStatusCode)
+        do
         {
-            var error =
-                await response.Content.ReadAsStringAsync();
+            var result =
+                await GetPagedAsync<SyncOrderResponse>(
+                    $"api/sync/orders?page={page}",
+                    "Sync orders");
 
-            throw new Exception(
-                $"Sync orders failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
-        }
-
-        var result =
-            await response.Content.ReadFromJsonAsync<
-                ApiResponse<
-                    PagedResult<
-                        SyncOrderResponse>>>();
-
-        if (result?.Data?.Items == null)
-            return;
-
-        foreach (var dto in result.Data.Items)
-        {
-            var table =
-                await _db.RestaurantTables
-                    .FirstOrDefaultAsync(x => x.Token == dto.TableToken);
-
-            var user =
-                await _db.Users
-                    .FirstOrDefaultAsync(x => x.Token == dto.UserToken);
-
-            if (table == null || user == null)
-                continue;
-
-            var existing =
-                await _db.Orders
-                    .FirstOrDefaultAsync(x => x.Token == dto.Token);
-
-            if (existing == null)
+            foreach (var dto in result.Items)
             {
-                existing = new Orders
+                var table =
+                    await _db.RestaurantTables
+                        .FirstOrDefaultAsync(x => x.Token == dto.TableToken);
+
+                var user =
+                    await _db.Users
+                        .FirstOrDefaultAsync(x => x.Token == dto.UserToken);
+
+                if (table == null || user == null)
+                    continue;
+
+                var existing =
+                    await _db.Orders
+                        .FirstOrDefaultAsync(x => x.Token == dto.Token);
+
+                if (existing == null)
                 {
-                    Token = dto.Token,
-                    TableId = table.Id,
-                    UserId = user.Id,
-                    CreatedAt = dto.CreatedAt,
-                    UpdatedAt = dto.UpdatedAt
-                };
+                    existing = new Orders
+                    {
+                        Token = dto.Token,
+                        TableId = table.Id,
+                        UserId = user.Id,
+                        CreatedAt = dto.CreatedAt,
+                        UpdatedAt = dto.UpdatedAt
+                    };
 
-                _db.Orders.Add(existing);
+                    _db.Orders.Add(existing);
+                }
+                else if (dto.UpdatedAt > existing.UpdatedAt)
+                {
+                    existing.TableId = table.Id;
+                    existing.UserId = user.Id;
+                    existing.UpdatedAt = dto.UpdatedAt;
+                }
             }
-            else if (dto.UpdatedAt > existing.UpdatedAt)
-            {
-                existing.TableId = table.Id;
-                existing.UserId = user.Id;
-                existing.UpdatedAt = dto.UpdatedAt;
-            }
-        }
 
-        await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
+
+            hasNextPage = result.HasNextPage;
+            page++;
+
+        } while (hasNextPage);
     }
     public async Task SyncReservationsAsync(string jwt)
     {
         SetBearerToken(jwt);
 
-        var response =
-            await HttpClient.GetAsync("api/sync/reservations");
+        int page = 1;
+        bool hasNextPage;
 
-        if (!response.IsSuccessStatusCode)
+        do
         {
-            var error =
-                await response.Content.ReadAsStringAsync();
+            var result =
+                await GetPagedAsync<SyncReservationResponse>(
+                    $"api/sync/reservations?page={page}",
+                    "Sync reservations");
 
-            throw new Exception(
-                $"Sync reservations failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
-        }
-
-        var result =
-            await response.Content.ReadFromJsonAsync<
-                ApiResponse<
-                    PagedResult<
-                        SyncReservationResponse>>>();
-
-        if (result?.Data?.Items == null)
-            return;
-
-        foreach (var dto in result.Data.Items)
-        {
-            var table =
-                await _db.RestaurantTables
-                    .FirstOrDefaultAsync(x => x.Token == dto.TableToken);
-
-            var user =
-                await _db.Users
-                    .FirstOrDefaultAsync(x => x.Token == dto.UserToken);
-
-            if (table == null || user == null)
-                continue;
-
-            var existing =
-                await _db.Reservations
-                    .FirstOrDefaultAsync(x => x.Token == dto.Token);
-
-            if (existing == null)
+            foreach (var dto in result.Items)
             {
-                existing = new Reservations
+                var table =
+                    await _db.RestaurantTables
+                        .FirstOrDefaultAsync(x => x.Token == dto.TableToken);
+
+                var user =
+                    await _db.Users
+                        .FirstOrDefaultAsync(x => x.Token == dto.UserToken);
+
+                if (table == null || user == null)
+                    continue;
+
+                var existing =
+                    await _db.Reservations
+                        .Include(x => x.Statuses)
+                        .FirstOrDefaultAsync(x => x.Token == dto.Token);
+
+                if (existing == null)
                 {
-                    Token = dto.Token,
-                    TableId = table.Id,
-                    UserId = user.Id,
-                    ReservedFrom = dto.ReservedFrom,
-                    ReservedUntil = dto.ReservedUntil,
-                    CreatedAt = dto.CreatedAt,
-                    UpdatedAt = dto.UpdatedAt
-                };
+                    existing = new Reservations
+                    {
+                        Token = dto.Token,
+                        TableId = table.Id,
+                        UserId = user.Id,
+                        ReservedFrom = dto.ReservedFrom,
+                        ReservedUntil = dto.ReservedUntil,
+                        CreatedAt = dto.CreatedAt,
+                        UpdatedAt = dto.UpdatedAt
+                    };
 
-                _db.Reservations.Add(existing);
+                    _db.Reservations.Add(existing);
+                }
+                else if (dto.UpdatedAt > existing.UpdatedAt)
+                {
+                    existing.TableId = table.Id;
+                    existing.UserId = user.Id;
+                    existing.ReservedFrom = dto.ReservedFrom;
+                    existing.ReservedUntil = dto.ReservedUntil;
+                    existing.UpdatedAt = dto.UpdatedAt;
+                }
+
+                existing.Statuses.Clear();
+
+                var statuses =
+                    await _db.ReservationStatuses
+                        .Where(x => dto.StatusTokens.Contains(x.Token))
+                        .ToListAsync();
+
+                foreach (var status in statuses)
+                {
+                    existing.Statuses.Add(status);
+                }
             }
-            else if (dto.UpdatedAt > existing.UpdatedAt)
+
+            await _db.SaveChangesAsync();
+
+            hasNextPage = result.HasNextPage;
+            page++;
+
+        } while (hasNextPage);
+    }
+
+    public async Task SyncReportsAsync(string jwt)
+    {
+        SetBearerToken(jwt);
+
+        int page = 1;
+        bool hasNextPage;
+
+        do
+        {
+            var response =
+                await HttpClient.GetAsync(
+                    $"api/sync/reports?page={page}");
+
+            if (!response.IsSuccessStatusCode)
             {
-                existing.TableId = table.Id;
-                existing.UserId = user.Id;
-                existing.ReservedFrom = dto.ReservedFrom;
-                existing.ReservedUntil = dto.ReservedUntil;
-                existing.UpdatedAt = dto.UpdatedAt;
-            }
-        }
+                var error =
+                    await response.Content.ReadAsStringAsync();
 
-        await _db.SaveChangesAsync();
+                throw new Exception(
+                    $"Sync reports failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+            }
+
+            var result =
+                await response.Content
+                    .ReadFromJsonAsync<
+                        ApiResponse<
+                            PagedResult<
+                                SyncGuestReportResponse>>>();
+
+            if (result?.Data?.Items == null)
+                return;
+
+            foreach (var dto in result.Data.Items)
+            {
+                var reportedUser =
+                    await _db.Users
+                        .FirstOrDefaultAsync(x => x.Token == dto.GuestToken);
+
+                var reporter =
+                    await _db.Users
+                        .FirstOrDefaultAsync(x => x.Token == dto.ReporterToken);
+
+                if (reportedUser == null || reporter == null)
+                    continue;
+
+                var existing =
+                    await _db.GuestReports
+                        .Include(x => x.Statuses)
+                        .FirstOrDefaultAsync(x => x.Token == dto.Token);
+
+                if (existing == null)
+                {
+                    existing = new GuestReports
+                    {
+                        Token = dto.Token,
+                        ReporterId = reporter.Id,
+                        ReportedUserId = reportedUser.Id,
+                        Description = dto.Reason,
+                        CreatedAt = dto.CreatedAt,
+                        UpdatedAt = dto.UpdatedAt
+                    };
+
+                    _db.GuestReports.Add(existing);
+                }
+                else if (dto.UpdatedAt > existing.UpdatedAt)
+                {
+                    existing.ReporterId = reporter.Id;
+                    existing.ReportedUserId = reportedUser.Id;
+                    existing.Description = dto.Reason;
+                    existing.UpdatedAt = dto.UpdatedAt;
+                }
+
+                existing.Statuses.Clear();
+
+                var statuses =
+                    await _db.GuestReportStatuses
+                        .Where(x => dto.StatusTokens.Contains(x.Token))
+                        .ToListAsync();
+
+                foreach (var status in statuses)
+                {
+                    existing.Statuses.Add(status);
+                }
+            }
+
+            await _db.SaveChangesAsync();
+
+            hasNextPage = result.Data.HasNextPage;
+            page++;
+
+        } while (hasNextPage);
     }
 
 
@@ -324,176 +483,117 @@ public class SyncService : BaseApiService
     {
         SetBearerToken(jwt);
 
-        var response =
-            await HttpClient.GetAsync("api/sync/order-items");
+        int page = 1;
+        bool hasNextPage;
 
-        if (!response.IsSuccessStatusCode)
+        do
         {
-            var error =
-                await response.Content.ReadAsStringAsync();
+            var result =
+                await GetPagedAsync<SyncOrderItemsResponse>(
+                    $"api/sync/order-items?page={page}",
+                    "Sync order items");
 
-            throw new Exception(
-                $"Sync order items failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
-        }
-
-        var result =
-            await response.Content.ReadFromJsonAsync<
-                ApiResponse<
-                    PagedResult<
-                        SyncOrderItemsResponse>>>();
-
-        if (result?.Data?.Items == null)
-            return;
-
-        foreach (var dto in result.Data.Items)
-        {
-            var order =
-                await _db.Orders
-                    .FirstOrDefaultAsync(x => x.Token == dto.OrderToken);
-
-            var dish =
-                await _db.Dishes
-                    .FirstOrDefaultAsync(x => x.Token == dto.DishToken);
-
-            if (order == null || dish == null)
-                continue;
-
-            var existing =
-                await _db.OrderItems
-                    .FirstOrDefaultAsync(x => x.Token == dto.Token);
-
-            if (existing == null)
+            foreach (var dto in result.Items)
             {
-                existing = new OrderItems
+                var order =
+                    await _db.Orders
+                        .FirstOrDefaultAsync(x => x.Token == dto.OrderToken);
+
+                var dish =
+                    await _db.Dishes
+                        .FirstOrDefaultAsync(x => x.Token == dto.DishToken);
+
+                if (order == null || dish == null)
+                    continue;
+
+                var existing =
+                    await _db.OrderItems
+                        .FirstOrDefaultAsync(x => x.Token == dto.Token);
+
+                if (existing == null)
                 {
-                    Token = dto.Token,
-                    OrderId = order.Id,
-                    DishId = dish.Id,
-                    Quantity = dto.Quantity,
-                    Note = dto.Note,
-                    CreatedAt = dto.CreatedAt,
-                    UpdatedAt = dto.UpdatedAt
-                };
+                    existing = new OrderItems
+                    {
+                        Token = dto.Token,
+                        OrderId = order.Id,
+                        DishId = dish.Id,
+                        Quantity = dto.Quantity,
+                        Note = dto.Note,
+                        CreatedAt = dto.CreatedAt,
+                        UpdatedAt = dto.UpdatedAt
+                    };
 
-                _db.OrderItems.Add(existing);
+                    _db.OrderItems.Add(existing);
+                }
+                else if (dto.UpdatedAt > existing.UpdatedAt)
+                {
+                    existing.OrderId = order.Id;
+                    existing.DishId = dish.Id;
+                    existing.Quantity = dto.Quantity;
+                    existing.Note = dto.Note;
+                    existing.UpdatedAt = dto.UpdatedAt;
+                }
             }
-            else if (dto.UpdatedAt > existing.UpdatedAt)
-            {
-                existing.OrderId = order.Id;
-                existing.DishId = dish.Id;
-                existing.Quantity = dto.Quantity;
-                existing.Note = dto.Note;
-                existing.UpdatedAt = dto.UpdatedAt;
-            }
-        }
 
-        await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
+
+            hasNextPage = result.HasNextPage;
+            page++;
+
+        } while (hasNextPage);
     }
     public async Task SyncIngredientsAsync(string jwt)
     {
         SetBearerToken(jwt);
 
-        var response =
-            await HttpClient.GetAsync("api/sync/ingredients");
+        int page = 1;
+        bool hasNextPage;
 
-        if (!response.IsSuccessStatusCode)
+        do
         {
-            var error =
-                await response.Content.ReadAsStringAsync();
+            var result =
+                await GetPagedAsync<SyncIngredientResponse>(
+                    $"api/sync/ingredients?page={page}",
+                    "Sync ingredients");
 
-            throw new Exception(
-                $"Sync ingredients failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
-        }
-
-        var result =
-            await response.Content.ReadFromJsonAsync<
-                ApiResponse<
-                    PagedResult<
-                        SyncIngredientResponse>>>();
-
-        if (result?.Data?.Items == null)
-            return;
-
-        foreach (var dto in result.Data.Items)
-        {
-            var existing =
-                await _db.Ingredients
-                    .FirstOrDefaultAsync(x => x.Token == dto.Token);
-
-            if (existing == null)
+            foreach (var dto in result.Items)
             {
-                existing = new Ingredients
+                var name = dto.DisplayName;
+
+                var existing =
+                    await _db.Ingredients
+                        .FirstOrDefaultAsync(x => x.Token == dto.Token);
+
+                if (existing == null)
                 {
-                    Token = dto.Token,
-                    Name = dto.Name,
-                    CreatedAt = dto.CreatedAt,
-                    UpdatedAt = dto.UpdatedAt
-                };
+                    existing = new Ingredients
+                    {
+                        Token = dto.Token,
+                        Name = name,
+                        CreatedAt = dto.CreatedAt,
+                        UpdatedAt = dto.UpdatedAt
+                    };
 
-                _db.Ingredients.Add(existing);
+                    _db.Ingredients.Add(existing);
+                }
+                else if (dto.UpdatedAt > existing.UpdatedAt || existing.Name != name)
+                {
+                    existing.Name = name;
+                    existing.UpdatedAt = dto.UpdatedAt > existing.UpdatedAt
+                        ? dto.UpdatedAt
+                        : existing.UpdatedAt;
+                }
             }
-            else if (dto.UpdatedAt > existing.UpdatedAt)
-            {
-                existing.Name = dto.Name;
-                existing.UpdatedAt = dto.UpdatedAt;
-            }
-        }
 
-        await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
+
+            hasNextPage = result.HasNextPage;
+            page++;
+
+        } while (hasNextPage);
     }
     
-    public async Task SyncDishCategoriesAsync(string jwt)
-    {
-        SetBearerToken(jwt);
-
-        var response =
-            await HttpClient.GetAsync("api/sync/dish-categories");
-
-        if (!response.IsSuccessStatusCode)
-        {
-            var error =
-                await response.Content.ReadAsStringAsync();
-
-            throw new Exception(
-                $"Sync dish categories failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
-        }
-
-        var result =
-            await response.Content.ReadFromJsonAsync<
-                ApiResponse<
-                    PagedResult<
-                        GetDishCategoriesResponse>>>();
-
-        if (result?.Data?.Items == null)
-            return;
-
-        foreach (var dto in result.Data.Items)
-        {
-            var existing =
-                await _db.DishesCategories
-                    .FirstOrDefaultAsync(x => x.Token == dto.Token);
-
-            if (existing == null)
-            {
-                existing = new DishesCategories
-                {
-                    Token = dto.Token,
-                    Name = dto.Name,
-                    CreatedAt = dto.CreatedAt,
-                    UpdatedAt = dto.UpdatedAt
-                };
-
-                _db.DishesCategories.Add(existing);
-            }
-            else if (dto.UpdatedAt > existing.UpdatedAt)
-            {
-                existing.Name = dto.Name;
-                existing.UpdatedAt = dto.UpdatedAt;
-            }
-        }
-
-        await _db.SaveChangesAsync();
-    }
+    
     public async Task SyncBansAsync(string jwt)
     {
         SetBearerToken(jwt);
@@ -608,6 +708,45 @@ public class SyncService : BaseApiService
             .ReadFromJsonAsync<
                 SyncBootstrapResponse>();
     }
+
+    public async Task SyncDictionariesAsync(string jwt)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.GetAsync(
+                "api/sync/dictionaries");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Sync dictionaries failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var body =
+            await response.Content.ReadAsStringAsync();
+
+        var dictionaries =
+            ReadData<SyncDictionariesResponse>(body);
+
+        if (dictionaries == null)
+            return;
+
+        await UpsertDictionaryAsync(_db.Allergens, dictionaries.Allergens);
+        await UpsertDictionaryAsync(_db.DishesCategories, dictionaries.DishCategories);
+        await UpsertDictionaryAsync(_db.BanStatuses, dictionaries.BanStatuses);
+        await UpsertDictionaryAsync(_db.GuestReportStatuses, dictionaries.ReportStatuses);
+        await UpsertDictionaryAsync(_db.OrderStatuses, dictionaries.OrderStatuses);
+        await UpsertDictionaryAsync(_db.OrderItemsStatuses, dictionaries.OrderItemStatuses);
+        await UpsertDictionaryAsync(_db.ReservationStatuses, dictionaries.ReservationStatuses);
+        await UpsertDictionaryAsync(_db.TableStatuses, dictionaries.TableStatuses);
+
+        await _db.SaveChangesAsync();
+    }
+
     public async Task SyncDishesAsync(string jwt)
     {
         SetBearerToken(jwt);
@@ -704,11 +843,13 @@ public class SyncService : BaseApiService
     }
     public async Task SyncWholeDatabaseAsync(string jwt)
     {
+        await SyncDictionariesAsync(jwt);
+        await SyncRolesAsync(jwt);
+
         await SyncUsersAsync(jwt);
         await SyncTablesAsync(jwt);
 
         await SyncIngredientsAsync(jwt);
-        await SyncDishCategoriesAsync(jwt);
         await SyncDishesAsync(jwt);
 
         await SyncReservationsAsync(jwt);
@@ -716,5 +857,101 @@ public class SyncService : BaseApiService
         await SyncOrderItemsAsync(jwt);
 
         await SyncBansAsync(jwt);
+        await SyncReportsAsync(jwt);
+    }
+
+    private async Task UpsertDictionaryAsync<T>(
+        DbSet<T> set,
+        IEnumerable<SyncDictionaryItemResponse> items)
+        where T : BaseNamedEntity, new()
+    {
+        foreach (var dto in items)
+        {
+            var existing =
+                await set
+                    .FirstOrDefaultAsync(x => x.Token == dto.Token);
+
+            var name =
+                string.IsNullOrWhiteSpace(dto.NamePl)
+                    ? dto.NameEn
+                    : dto.NamePl;
+
+            if (existing == null)
+            {
+                existing = new T
+                {
+                    Token = dto.Token,
+                    Name = name,
+                    CreatedAt = DateTimeOffset.UtcNow,
+                    UpdatedAt = DateTimeOffset.UtcNow
+                };
+
+                set.Add(existing);
+            }
+            else if (!string.IsNullOrWhiteSpace(name))
+            {
+                existing.Name = name;
+            }
+        }
+    }
+
+    private async Task<PagedResult<T>> GetPagedAsync<T>(string url, string operationName)
+    {
+        var response =
+            await HttpClient.GetAsync(url);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"{operationName} failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var result =
+            await response.Content.ReadFromJsonAsync<
+                ApiResponse<
+                    PagedResult<T>>>();
+
+        return result?.Data ?? new PagedResult<T> { Items = [] };
+    }
+
+    private static T? ReadData<T>(string json)
+    {
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+        var apiResponse = TryDeserialize<ApiResponse<T>>(json, options);
+        if (apiResponse is not null && apiResponse.Data is not null)
+            return apiResponse.Data;
+
+        return TryDeserialize<T>(json, options);
+    }
+
+    private static List<T> ReadList<T>(string json)
+    {
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+        var paged = TryDeserialize<ApiResponse<PagedResult<T>>>(json, options);
+        if (paged?.Data?.Items != null)
+            return paged.Data.Items;
+
+        var listResponse = TryDeserialize<ApiResponse<List<T>>>(json, options);
+        if (listResponse?.Data != null)
+            return listResponse.Data;
+
+        return TryDeserialize<List<T>>(json, options) ?? [];
+    }
+
+    private static T? TryDeserialize<T>(string json, JsonSerializerOptions options)
+    {
+        try
+        {
+            return JsonSerializer.Deserialize<T>(json, options);
+        }
+        catch (JsonException)
+        {
+            return default;
+        }
     }
 }

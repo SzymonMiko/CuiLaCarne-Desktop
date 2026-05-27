@@ -9,8 +9,9 @@
             <TextBlock Text="Qui la Carne" Foreground="White" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="24 0"/>
             <TextBlock Text="Administrative 2FA" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
-        <Grid Grid.Row="1" Margin="36">
-            <Border Background="White" CornerRadius="22" Padding="30" MaxWidth="760" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+        <Grid Margin="24">
+            <Border Background="White" CornerRadius="22" Padding="30" MaxWidth="760" MinWidth="320" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Border.Effect><DropShadowEffect BlurRadius="16" ShadowDepth="3" Opacity="0.18"/></Border.Effect>
                 <StackPanel>
                     <TextBlock FontSize="42" FontWeight="Bold" HorizontalAlignment="Center"><Run Text="2FA " Foreground="#E53935"/><Run Text="required" Foreground="#1B9A2F"/></TextBlock>
@@ -22,5 +23,6 @@
                 </StackPanel>
             </Border>
         </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

@@ -8,5 +8,6 @@ public partial class IngredientConfirmationPanel : Page
     {
         InitializeComponent();
         DataContext = viewModel;
+        Loaded += async (_, _) => await viewModel.LoadIngredientsAsync();
     }
 }

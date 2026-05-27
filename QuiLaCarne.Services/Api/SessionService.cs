@@ -8,4 +8,8 @@ namespace QuiLaCarne.Services.Api;
 public static class SessionService
 {
     public static string JwtToken { get; set; } = "";
+
+    public static string RefreshToken { get; set; } = "";
+
+    public static bool IsAdmin { get; set; }
 }

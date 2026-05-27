@@ -298,8 +298,8 @@
               "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj": {
                 "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj"
               },
-              "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj": {
-                "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj"
+              "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj"
               }
             }
           }
@@ -370,14 +370,14 @@
         }
       }
     },
-    "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj": {
+    "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
+        "projectUniqueName": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj",
         "projectName": "QuiLaCarne.ViewModels",
-        "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
+        "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj",
         "packagesPath": "C:\\Users\\mania\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\obj\\",
+        "outputPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

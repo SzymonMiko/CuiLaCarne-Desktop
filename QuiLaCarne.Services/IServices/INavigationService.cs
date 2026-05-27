@@ -14,4 +14,10 @@ public interface INavigationService
     void CloseCurrentWindow();
     void ShowManagerPanel();
     void CloseLogin();
+    void ShowKitchenMonitor();
+    void ShowPersonnelManagement();
+    void ShowMenuRoomEditor();
+    void ShowSecurityDashboard();
+    void ShowIngredientConfirmation();
+    void ShowAdminTwoFactor();
 }

@@ -12,6 +12,10 @@ public class TableStatusResponse
 
     public string Name { get; set; } = "";
 
+    public string NamePl { get; set; } = "";
+
+    public string NameEn { get; set; } = "";
+
     public DateTimeOffset CreatedAt { get; set; }
 
     public DateTimeOffset UpdatedAt { get; set; }

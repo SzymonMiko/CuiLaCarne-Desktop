@@ -1,0 +1,195 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.EntityFrameworkCore;
+using QuiLaCarne.Data;
+using QuiLaCarne.Models;
+using QuiLaCarne.Models.DTOS;
+using QuiLaCarne.Services.Api;
+using QuiLaCarne.Services.IServices;
+using System.Collections.ObjectModel;
+using System.Windows;
+
+namespace QuiLaCarne.ViewModels;
+
+public partial class PersonnelManagementViewModel : ObservableObject
+{
+    private readonly QuiLaCarneDbContext _db;
+    private readonly UserService _userService;
+    private readonly IRealtimeUpdateService _realtimeUpdateService;
+
+    public ObservableCollection<EmployeeRow> Employees { get; } = new();
+
+    private EmployeeRow? selectedEmployee;
+    public EmployeeRow? SelectedEmployee
+    {
+        get => selectedEmployee;
+        set => SetProperty(ref selectedEmployee, value);
+    }
+
+    private string newUsername = "";
+    public string NewUsername
+    {
+        get => newUsername;
+        set => SetProperty(ref newUsername, value);
+    }
+
+    private string newEmail = "";
+    public string NewEmail
+    {
+        get => newEmail;
+        set => SetProperty(ref newEmail, value);
+    }
+
+    private string newPassword = "";
+    public string NewPassword
+    {
+        get => newPassword;
+        set => SetProperty(ref newPassword, value);
+    }
+
+    private bool isAdmin;
+    public bool IsAdmin
+    {
+        get => isAdmin;
+        set => SetProperty(ref isAdmin, value);
+    }
+
+    public PersonnelManagementViewModel(
+        QuiLaCarneDbContext db,
+        UserService userService,
+        IRealtimeUpdateService realtimeUpdateService)
+    {
+        _db = db;
+        _userService = userService;
+        _realtimeUpdateService = realtimeUpdateService;
+        _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
+
+        _ = LoadAsync();
+    }
+
+    [RelayCommand]
+    public async Task LoadAsync()
+    {
+        var users = await _db.Users
+            .AsNoTracking()
+            .OrderBy(x => x.Username)
+            .ToListAsync();
+
+        Employees.Clear();
+
+        foreach (var user in users)
+        {
+            Employees.Add(new EmployeeRow
+            {
+                Token = user.Token,
+                Username = user.Username,
+                Email = user.Email,
+                IsEnabled = user.IsEnabled
+            });
+        }
+    }
+
+    [RelayCommand]
+    private async Task AddEmployeeAsync()
+    {
+        if (string.IsNullOrWhiteSpace(NewUsername) ||
+            string.IsNullOrWhiteSpace(NewEmail) ||
+            string.IsNullOrWhiteSpace(NewPassword))
+        {
+            MessageBox.Show("Username, email and password are required.");
+            return;
+        }
+
+        await _userService.AddEmployeeAsync(
+            SessionService.JwtToken,
+            new CreateEmployeeRequest
+            {
+                Admin = IsAdmin,
+                Register = new RegisterRequest
+                {
+                    Username = NewUsername,
+                    Email = NewEmail,
+                    Password = NewPassword,
+                    ConfirmPassword = NewPassword
+                }
+            });
+
+        NewUsername = "";
+        NewEmail = "";
+        NewPassword = "";
+        IsAdmin = false;
+
+        MessageBox.Show("Employee change sent. The list will refresh after the server confirms it.");
+    }
+
+    [RelayCommand]
+    private async Task ChangeRoleAsync()
+    {
+        if (SelectedEmployee == null)
+        {
+            return;
+        }
+
+        await _userService.ChangeEmployeeRoleAsync(
+            SessionService.JwtToken,
+            SelectedEmployee.Token,
+            IsAdmin);
+
+        MessageBox.Show("Role change sent. The list will refresh after the server confirms it.");
+    }
+
+    [RelayCommand]
+    private async Task ChangeAvailabilityAsync()
+    {
+        if (SelectedEmployee == null)
+        {
+            return;
+        }
+
+        await _userService.ChangeEmployeeAvailabilityAsync(
+            SessionService.JwtToken,
+            SelectedEmployee.Token,
+            available: !SelectedEmployee.IsEnabled);
+
+        MessageBox.Show("Availability change sent. The list will refresh after the server confirms it.");
+    }
+
+    [RelayCommand]
+    private async Task DeleteEmployeeAsync()
+    {
+        if (SelectedEmployee == null)
+        {
+            return;
+        }
+
+        await _userService.DeleteEmployeeAsync(
+            SessionService.JwtToken,
+            SelectedEmployee.Token);
+
+        MessageBox.Show("Delete request sent. The list will refresh after the server confirms it.");
+    }
+
+    private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
+    {
+        if (e.EntityType != "EMPLOYEE")
+        {
+            return;
+        }
+
+        Application.Current.Dispatcher.Invoke(async () =>
+        {
+            await LoadAsync();
+        });
+    }
+}
+
+public class EmployeeRow
+{
+    public string Token { get; set; } = "";
+
+    public string Username { get; set; } = "";
+
+    public string Email { get; set; } = "";
+
+    public bool IsEnabled { get; set; }
+}

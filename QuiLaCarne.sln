@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Ui", "QuiLaCarne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Services", "QuiLaCarne.Services\QuiLaCarne.Services.csproj", "{CB41F55A-3AB0-4263-8B3D-996426522246}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.ViewModels", "ViewModels\QuiLaCarne.ViewModels.csproj", "{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Models", "QuiLaCarne.Models\QuiLaCarne.Models.csproj", "{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLACarne.Helpers", "QuiLACarne.Helpers\QuiLACarne.Helpers.csproj", "{C6892F91-DB0D-425B-A098-63088F21E8D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Data", "QuiLaCarne.Data\QuiLaCarne.Data.csproj", "{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.ViewModels", "QuiLaCarne.ViewModels\QuiLaCarne.ViewModels.csproj", "{4F3A56EE-B9D8-4F6F-612C-A607329BCFA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{CB41F55A-3AB0-4263-8B3D-996426522246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB41F55A-3AB0-4263-8B3D-996426522246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB41F55A-3AB0-4263-8B3D-996426522246}.Release|Any CPU.Build.0 = Release|Any CPU
-		{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24AE36BE-8FB9-4DFD-BDF6-01FDA32DB672}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F3A56EE-B9D8-4F6F-612C-A607329BCFA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3A56EE-B9D8-4F6F-612C-A607329BCFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3A56EE-B9D8-4F6F-612C-A607329BCFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3A56EE-B9D8-4F6F-612C-A607329BCFA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

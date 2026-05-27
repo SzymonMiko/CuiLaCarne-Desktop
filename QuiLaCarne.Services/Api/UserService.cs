@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace QuiLaCarne.Services.Api;
 public class UserService : BaseApiService
@@ -269,5 +270,55 @@ public class UserService : BaseApiService
                 .ReadFromJsonAsync<ApiResponse<object>>();
 
         return result?.Success == true;
+    }
+
+    public async Task<List<SyncRoleResponse>> GetRolesAsync(string jwt)
+    {
+        SetBearerToken(jwt);
+
+        var response =
+            await HttpClient.GetAsync(
+                "api/sync/roles");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error =
+                await response.Content.ReadAsStringAsync();
+
+            throw new Exception(
+                $"Get roles failed: {(int)response.StatusCode} {response.StatusCode}\n{error}");
+        }
+
+        var body =
+            await response.Content.ReadAsStringAsync();
+
+        return ReadItems<SyncRoleResponse>(body);
+    }
+
+    private static List<T> ReadItems<T>(string json)
+    {
+        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+        var list = TryDeserialize<ApiResponse<List<T>>>(json, options);
+        if (list?.Data != null)
+            return list.Data;
+
+        var paged = TryDeserialize<ApiResponse<PagedResult<T>>>(json, options);
+        if (paged?.Data?.Items != null)
+            return paged.Data.Items;
+
+        return TryDeserialize<List<T>>(json, options) ?? [];
+    }
+
+    private static T? TryDeserialize<T>(string json, JsonSerializerOptions options)
+    {
+        try
+        {
+            return JsonSerializer.Deserialize<T>(json, options);
+        }
+        catch (JsonException)
+        {
+            return default;
+        }
     }
 }

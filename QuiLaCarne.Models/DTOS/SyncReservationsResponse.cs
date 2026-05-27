@@ -14,9 +14,23 @@ public class SyncReservationResponse
 
     public string UserToken { get; set; } = "";
 
-    public DateTimeOffset ReservedFrom { get; set; }
+    public List<string> StatusTokens { get; set; } = [];
 
-    public DateTimeOffset? ReservedUntil { get; set; }
+    public DateTimeOffset StartTime { get; set; }
+
+    public DateTimeOffset? EndTime { get; set; }
+
+    public DateTimeOffset ReservedFrom
+    {
+        get => StartTime;
+        set => StartTime = value;
+    }
+
+    public DateTimeOffset? ReservedUntil
+    {
+        get => EndTime;
+        set => EndTime = value;
+    }
 
     public DateTimeOffset CreatedAt { get; set; }
 

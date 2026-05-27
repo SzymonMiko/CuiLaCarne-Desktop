@@ -12,6 +12,19 @@ namespace QuiLaCarne.Models.DTOS
 
         public string Name { get; set; } = "";
 
+        public string NamePl { get; set; } = "";
+
+        public string NameEn { get; set; } = "";
+
+        public string DisplayName =>
+            !string.IsNullOrWhiteSpace(NamePl)
+                ? NamePl
+                : !string.IsNullOrWhiteSpace(NameEn)
+                    ? NameEn
+                    : !string.IsNullOrWhiteSpace(Name)
+                        ? Name
+                        : Token;
+
         public DateTimeOffset CreatedAt { get; set; }
 
         public DateTimeOffset UpdatedAt { get; set; }

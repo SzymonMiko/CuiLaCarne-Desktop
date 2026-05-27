@@ -24,7 +24,7 @@
     <ProjectReference Include="..\QuiLaCarne.Data\QuiLaCarne.Data.csproj" />
     <ProjectReference Include="..\QuiLaCarne.Models\QuiLaCarne.Models.csproj" />
     <ProjectReference Include="..\QuiLaCarne.Services\QuiLaCarne.Services.csproj" />
-    <ProjectReference Include="..\ViewModels\QuiLaCarne.ViewModels.csproj" />
+    <ProjectReference Include="..\QuiLaCarne.ViewModels\QuiLaCarne.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

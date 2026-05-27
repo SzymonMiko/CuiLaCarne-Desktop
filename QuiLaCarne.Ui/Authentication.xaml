@@ -1,14 +1,10 @@
-﻿<Window
+﻿<Page
     x:Class="QuiLaCarne.Ui.Authentication"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Two Factor Authentication"
-    Width="1200"
-    Height="720"
-    WindowStartupLocation="CenterScreen"
     Background="#F5F5F5">
 
-    <Window.Resources>
+    <Page.Resources>
         <Style x:Key="PrimaryButtonStyle" TargetType="Button">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="#19A93A"/>
@@ -37,7 +33,7 @@
             <Setter Property="Background" Value="White"/>
             <Setter Property="Padding" Value="8 4"/>
         </Style>
-    </Window.Resources>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -54,10 +50,12 @@
                        Margin="24 0"/>
         </DockPanel>
 
-        <Grid Grid.Row="1">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+        <Grid>
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Width="520">
+                        MaxWidth="520"
+                        Margin="24">
 
                 <TextBlock FontSize="56"
                            FontWeight="Bold"
@@ -118,5 +116,6 @@
                 </Border>
             </StackPanel>
         </Grid>
+        </ScrollViewer>
     </Grid>
-</Window>
+</Page>

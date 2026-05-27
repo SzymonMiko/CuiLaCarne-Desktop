@@ -1,9 +1,9 @@
+using System.Windows.Controls;
 using QuiLaCarne.ViewModels;
-using System.Windows;
 
 namespace QuiLaCarne.Ui;
 
-public partial class KitchenMonitor : Window
+public partial class KitchenMonitor : Page
 {
     public KitchenMonitor(KitchenMonitorViewModel viewModel)
     {

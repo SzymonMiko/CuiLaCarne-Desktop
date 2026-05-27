@@ -11,14 +11,15 @@
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Background="#19A93A">
             <TextBlock Text="Qui la Carne" Foreground="White" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="24 0"/>
-            <TextBlock Text="Menu & Room Editor" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
+            <TextBlock Text="Menu &amp; Room Editor" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
 
-        <Grid Grid.Row="1" Margin="36">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid Margin="24" MinWidth="860">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="1.2*" MinWidth="450"/>
                 <ColumnDefinition Width="24"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*" MinWidth="360"/>
             </Grid.ColumnDefinitions>
 
             <Border Background="White" CornerRadius="22" Padding="18">
@@ -51,7 +52,8 @@
                 <Grid>
                     <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
                     <TextBlock FontSize="36" FontWeight="Bold" Margin="0 0 0 12"><Run Text="Room " Foreground="#E53935"/><Run Text="map" Foreground="#1B9A2F"/></TextBlock>
-                    <ItemsControl Grid.Row="1" ItemsSource="{Binding Tables}">
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Tables}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
@@ -66,6 +68,7 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+                    </ScrollViewer>
                     <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 14 0 0">
                         <TextBox Text="{Binding NewTableNumber}" Width="85" Height="36" Margin="0 0 8 0"/>
                         <TextBox Text="{Binding NewTableCapacity}" Width="85" Height="36" Margin="0 0 8 0"/>
@@ -74,5 +77,6 @@
                 </Grid>
             </Border>
         </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
