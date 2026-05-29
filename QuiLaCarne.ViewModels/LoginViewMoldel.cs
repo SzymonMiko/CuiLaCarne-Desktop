@@ -16,6 +16,7 @@ public partial class LoginViewModel : ObservableObject
     private readonly DishService _dishService;
     private readonly INavigationService _navigation;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
+    private readonly ISessionExpirationService _sessionExpirationService;
 
     [ObservableProperty]
     private string username = "";
@@ -31,7 +32,8 @@ public partial class LoginViewModel : ObservableObject
         SystemService systemService,
         AuthService authService,
         SyncService syncService,
-        LookupService lookupService
+        LookupService lookupService,
+        ISessionExpirationService sessionExpirationService
     )
     {
         _realtimeUpdateService = realtimeUpdateService;
@@ -42,6 +44,7 @@ public partial class LoginViewModel : ObservableObject
         _syncService = syncService;
         _lookupService = lookupService;
         _navigation = navigation;
+        _sessionExpirationService = sessionExpirationService;
     }
 
     [RelayCommand]
@@ -64,10 +67,22 @@ public partial class LoginViewModel : ObservableObject
             }
 
             var token = loginData.Token;
+            var isAdmin = loginData.Roles.Any(role =>
+                role.Equals("ROLE_MANAGER", StringComparison.OrdinalIgnoreCase)
+                || role.Equals("ROLE_ADMIN", StringComparison.OrdinalIgnoreCase)
+                || role.Equals("MANAGER", StringComparison.OrdinalIgnoreCase)
+                || role.Equals("ADMIN", StringComparison.OrdinalIgnoreCase)
+            );
+            if (!isAdmin)
+            {
+                MessageBox.Show("Access denied. Desktop app is only for administrators.");
+                return;
+            }
 
             SessionService.JwtToken = token;
             SessionService.RefreshToken = loginData.RefreshToken;
-            SessionService.IsAdmin = false;
+            SessionService.IsAdmin = true;
+            _sessionExpirationService.StartWatching(token);
 
             await _syncService.SyncWholeDatabaseAsync(token);
 

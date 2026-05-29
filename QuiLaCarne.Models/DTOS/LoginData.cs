@@ -12,5 +12,7 @@ public class LoginData
 
     public string Username { get; set; } = "";
 
+    public List<string> Roles { get; set; } = [];
+
     public bool Requires2fa { get; set; }
 }

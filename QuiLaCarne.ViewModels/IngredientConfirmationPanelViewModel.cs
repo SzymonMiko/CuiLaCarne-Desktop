@@ -44,9 +44,12 @@ public partial class IngredientConfirmationPanelViewModel : ObservableObject
     public async Task LoadIngredientsAsync()
     {
         var ingredients = await _db.Ingredients
-            .AsNoTracking()
-            .OrderBy(i => i.Name)
-            .ToListAsync();
+    .AsNoTracking()
+    .Where(i =>
+        !i.Name.StartsWith("DELETED_") &&
+        !i.Token.StartsWith("DELETED_"))
+    .OrderBy(i => i.Name)
+    .ToListAsync();
 
         Ingredients.Clear();
 

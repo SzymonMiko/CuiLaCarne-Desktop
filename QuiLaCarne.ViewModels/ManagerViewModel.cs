@@ -78,9 +78,13 @@ public partial class ManagerViewModel : ObservableObject
 
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
     {
-        if (e.EntityType != "DISH" &&
-            e.EntityType != "INGREDIENT" &&
-            e.EntityType != "CATEGORY")
+        var entityType = e.EntityType.ToUpperInvariant();
+
+        if (entityType != "DISH" &&
+            entityType != "DISH_AVAILABILITY" &&
+            entityType != "MENU_AVAILABILITY" &&
+            entityType != "INGREDIENT" &&
+            entityType != "CATEGORY")
         {
             return;
         }

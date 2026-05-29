@@ -179,11 +179,15 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
     {
-        if (e.EntityType != "DISH" &&
-            e.EntityType != "INGREDIENT" &&
-            e.EntityType != "CATEGORY" &&
-            e.EntityType != "TABLE" &&
-            e.EntityType != "TABLE_STATUS")
+        var entityType = e.EntityType.ToUpperInvariant();
+
+        if (entityType != "DISH" &&
+            entityType != "DISH_AVAILABILITY" &&
+            entityType != "MENU_AVAILABILITY" &&
+            entityType != "INGREDIENT" &&
+            entityType != "CATEGORY" &&
+            entityType != "TABLE" &&
+            entityType != "TABLE_STATUS")
         {
             return;
         }

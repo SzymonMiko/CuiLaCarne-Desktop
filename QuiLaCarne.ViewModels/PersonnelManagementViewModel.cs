@@ -18,6 +18,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
     private readonly IRealtimeUpdateService _realtimeUpdateService;
 
     public ObservableCollection<EmployeeRow> Employees { get; } = new();
+    public ObservableCollection<string> AvailableRoles { get; } = new(["Staff", "Admin"]);
 
     private EmployeeRow? selectedEmployee;
     public EmployeeRow? SelectedEmployee
@@ -54,6 +55,21 @@ public partial class PersonnelManagementViewModel : ObservableObject
         set => SetProperty(ref isAdmin, value);
     }
 
+    private string selectedRole = "Staff";
+    public string SelectedRole
+    {
+        get => selectedRole;
+        set
+        {
+            value ??= "Staff";
+
+            if (SetProperty(ref selectedRole, value))
+            {
+                IsAdmin = string.Equals(value, "Admin", StringComparison.OrdinalIgnoreCase);
+            }
+        }
+    }
+
     public PersonnelManagementViewModel(
         QuiLaCarneDbContext db,
         UserService userService,
@@ -72,6 +88,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
     {
         var users = await _db.Users
             .AsNoTracking()
+            .Include(x => x.Roles)
             .OrderBy(x => x.Username)
             .ToListAsync();
 
@@ -84,6 +101,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
                 Token = user.Token,
                 Username = user.Username,
                 Email = user.Email,
+                RolesText = string.Join(", ", user.Roles.Select(x => x.Name).OrderBy(x => x)),
                 IsEnabled = user.IsEnabled
             });
         }
@@ -118,6 +136,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
         NewEmail = "";
         NewPassword = "";
         IsAdmin = false;
+        SelectedRole = "Staff";
 
         MessageBox.Show("Employee change sent. The list will refresh after the server confirms it.");
     }
@@ -190,6 +209,8 @@ public class EmployeeRow
     public string Username { get; set; } = "";
 
     public string Email { get; set; } = "";
+
+    public string RolesText { get; set; } = "";
 
     public bool IsEnabled { get; set; }
 }

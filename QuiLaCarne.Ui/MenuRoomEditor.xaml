@@ -14,8 +14,7 @@
             <TextBlock Text="Menu &amp; Room Editor" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
 
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <Grid Margin="24" MinWidth="860">
+        <Grid Grid.Row="1" Margin="24" MinWidth="860">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.2*" MinWidth="450"/>
                 <ColumnDefinition Width="24"/>
@@ -77,6 +76,5 @@
                 </Grid>
             </Border>
         </Grid>
-        </ScrollViewer>
     </Grid>
 </Page>

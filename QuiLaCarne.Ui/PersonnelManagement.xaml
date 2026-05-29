@@ -34,8 +34,7 @@
             <TextBlock Text="Personnel Management" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
 
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <Grid Margin="24" MinWidth="860">
+        <Grid Grid.Row="1" Margin="24" MinWidth="860">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" MinWidth="500"/>
                 <ColumnDefinition Width="24"/>
@@ -78,10 +77,9 @@
                     <ComboBox ItemsSource="{Binding AvailableRoles}" SelectedItem="{Binding SelectedRole}" Height="36" Margin="0 4 0 18"/>
                     <Button Content="Add employee" Command="{Binding AddEmployeeCommand}" Style="{StaticResource PrimaryButtonStyle}" Height="42"/>
                     <Button Content="Change selected role" Command="{Binding ChangeRoleCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#19A93A" Height="42" Margin="0 10 0 0"/>
-                    <Button Content="Block / unblock account" Command="{Binding ToggleBlockCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#E53935" Height="42" Margin="0 10 0 0"/>
+                    <Button Content="Block / unblock account" Command="{Binding ChangeAvailabilityCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#E53935" Height="42" Margin="0 10 0 0"/>
                 </StackPanel>
             </Border>
         </Grid>
-        </ScrollViewer>
     </Grid>
 </Page>

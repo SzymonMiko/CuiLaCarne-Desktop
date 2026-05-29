@@ -9,8 +9,7 @@
             <TextBlock Text="Qui la Carne" Foreground="White" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="24 0"/>
             <TextBlock Text="Ingredient Confirmation" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-        <Grid Margin="24" MinWidth="820">
+        <Grid Grid.Row="1" Margin="24" MinWidth="820">
             <Grid.ColumnDefinitions><ColumnDefinition Width="1*" MinWidth="320"/><ColumnDefinition Width="24"/><ColumnDefinition Width="1.2*" MinWidth="380"/></Grid.ColumnDefinitions>
             <Border Background="White" CornerRadius="22" Padding="18" MinHeight="520">
                 <Border.Effect><DropShadowEffect BlurRadius="16" ShadowDepth="3" Opacity="0.18"/></Border.Effect>
@@ -43,6 +42,5 @@
                 </Grid>
             </Border>
         </Grid>
-        </ScrollViewer>
     </Grid>
 </Page>

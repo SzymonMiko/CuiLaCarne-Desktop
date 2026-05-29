@@ -60,7 +60,7 @@ public sealed class RealtimeUpdateService : IRealtimeUpdateService
         }
         catch
         {
-            // Realtime must not crash the WPF process. The next event or manual refresh can retry.
+           
         }
         finally
         {
@@ -74,9 +74,11 @@ public sealed class RealtimeUpdateService : IRealtimeUpdateService
         WebSocketEvent websocketEvent,
         string jwt)
     {
-        switch (websocketEvent.EntityType)
+        switch (websocketEvent.EntityType.ToUpperInvariant())
         {
             case "DISH":
+            case "DISH_AVAILABILITY":
+            case "MENU_AVAILABILITY":
                 await lookupService.GetDishCategoriesAsync(jwt);
                 await syncService.SyncIngredientsAsync(jwt);
                 await syncService.SyncDishesAsync(jwt);

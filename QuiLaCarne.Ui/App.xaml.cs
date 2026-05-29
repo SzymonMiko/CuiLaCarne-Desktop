@@ -26,11 +26,21 @@ public partial class App : Application
         AppHost = Host.CreateDefaultBuilder()
             .ConfigureServices(services =>
             {
-                services.AddSingleton(new HttpClient
-                {
-                    BaseAddress =
-         new Uri("https://api.quilacarne.com.pl/")
-                });
+                services.AddSingleton<SessionExpirationService>();
+                services.AddSingleton<ISessionExpirationService>(serviceProvider =>
+                    serviceProvider.GetRequiredService<SessionExpirationService>());
+                services.AddSingleton(serviceProvider =>
+                    {
+                        var sessionExpirationService =
+                            serviceProvider.GetRequiredService<SessionExpirationService>();
+
+                        sessionExpirationService.InnerHandler = new HttpClientHandler();
+
+                        return new HttpClient(sessionExpirationService)
+                        {
+                            BaseAddress = new Uri("https://api.quilacarne.com.pl/")
+                        };
+                    });
 
                 services.AddDbContext<QuiLaCarneDbContext>(options =>
                 {
@@ -95,6 +105,10 @@ public partial class App : Application
 
         await AppHost.StartAsync();
 
+        AppHost.Services
+            .GetRequiredService<ISessionExpirationService>()
+            .SessionExpired += OnSessionExpired;
+
         using (var scope = AppHost.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<QuiLaCarneDbContext>();
@@ -108,5 +122,42 @@ public partial class App : Application
         mainWindow.Show();
 
         base.OnStartup(e);
+    }
+
+    private void OnSessionExpired(object? sender, EventArgs e)
+    {
+        Dispatcher.InvokeAsync(() => _ = HandleSessionExpiredAsync());
+    }
+
+    private async Task HandleSessionExpiredAsync()
+    {
+        try
+        {
+            await AppHost.Services
+                .GetRequiredService<IRealtimeUpdateService>()
+                .StopAsync();
+        }
+        catch
+        {
+            // The login screen should still appear even if the realtime socket is already closed.
+        }
+
+        var navigation = AppHost.Services.GetRequiredService<INavigationService>();
+
+        if (!Windows.OfType<LoginPage>().Any())
+        {
+            navigation.ShowLogin();
+        }
+
+        foreach (var window in Windows.OfType<MainWindow>().ToList())
+        {
+            window.Close();
+        }
+
+        MessageBox.Show(
+            "Your session has expired. Please log in again.",
+            "Session expired",
+            MessageBoxButton.OK,
+            MessageBoxImage.Information);
     }
 }

@@ -134,25 +134,7 @@
                 FontWeight="Bold"
                 Foreground="#1B9A2F"
               />
-              <TextBlock
-                Text="{Binding SelectedDish.Name}"
-                FontSize="18"
-                FontWeight="SemiBold"
-                Margin="0 8 0 16"
-              />
 
-              <TextBlock
-                Text="Reason required when blocking:"
-                FontWeight="SemiBold"
-                Margin="0 0 0 6"
-              />
-              <TextBox
-                Text="{Binding UnavailableReason, UpdateSourceTrigger=PropertyChanged}"
-                Height="90"
-                TextWrapping="Wrap"
-                AcceptsReturn="True"
-                VerticalScrollBarVisibility="Auto"
-              />
 
               <Button
                 Content="Change availability"

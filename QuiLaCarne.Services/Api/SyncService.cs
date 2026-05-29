@@ -811,14 +811,21 @@ public class SyncService : BaseApiService
 
                     _db.Dishes.Add(existing);
                 }
-                else if (dto.UpdatedAt > existing.UpdatedAt)
+                else if (dto.UpdatedAt > existing.UpdatedAt ||
+                    existing.Name != dto.Name ||
+                    existing.Description != dto.Description ||
+                    existing.Price != dto.Price ||
+                    existing.AvailableFrom != dto.AvailableFrom ||
+                    existing.CategoryId != category.Id)
                 {
                     existing.Name = dto.Name;
                     existing.Description = dto.Description;
                     existing.Price = dto.Price;
                     existing.AvailableFrom = dto.AvailableFrom;
                     existing.CategoryId = category.Id;
-                    existing.UpdatedAt = dto.UpdatedAt;
+                    existing.UpdatedAt = dto.UpdatedAt > existing.UpdatedAt
+                        ? dto.UpdatedAt
+                        : existing.UpdatedAt;
                 }
 
                 existing.Ingredients.Clear();
