@@ -92,9 +92,10 @@ public class DishService : BaseApiService
 
         if (!string.IsNullOrWhiteSpace(photoPath) && File.Exists(photoPath))
         {
+            var contentType = GetImageContentType(photoPath);
             var stream = File.OpenRead(photoPath);
             var fileContent = new StreamContent(stream);
-            fileContent.Headers.ContentType = new MediaTypeHeaderValue(GetImageContentType(photoPath));
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(contentType);
 
             form.Add(fileContent, "photo", Path.GetFileName(photoPath));
         }
@@ -151,10 +152,11 @@ public class DishService : BaseApiService
 
         if (!string.IsNullOrWhiteSpace(photoPath) && File.Exists(photoPath))
         {
+            var contentType = GetImageContentType(photoPath);
             var stream = File.OpenRead(photoPath);
 
             var fileContent = new StreamContent(stream);
-            fileContent.Headers.ContentType = new MediaTypeHeaderValue(GetImageContentType(photoPath));
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(contentType);
 
             form.Add(fileContent, "photo", Path.GetFileName(photoPath));
         }

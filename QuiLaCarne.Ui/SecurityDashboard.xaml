@@ -7,13 +7,13 @@
         <Grid.RowDefinitions><RowDefinition Height="64"/><RowDefinition Height="*"/></Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Background="#19A93A">
             <TextBlock Text="Qui la Carne" Foreground="White" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="24 0"/>
-            <TextBlock Text="Security Dashboard / SIEM" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
+            <TextBlock Text="Panel bezpieczeństwa / SIEM" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
         <Grid Grid.Row="1" Margin="24" MinWidth="760">
             <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="16"/><RowDefinition Height="Auto"/><RowDefinition Height="16"/><RowDefinition Height="*"/></Grid.RowDefinitions>
             <StackPanel>
-                <TextBlock FontSize="42" FontWeight="Bold"><Run Text="Security " Foreground="#E53935"/><Run Text="events" Foreground="#1B9A2F"/></TextBlock>
-                <TextBlock Text="Audit logs: price changes, failed logins, user actions and IP addresses when backend returns them." Foreground="#333" FontSize="15"/>
+                <TextBlock FontSize="42" FontWeight="Bold"><Run Text="Zdarzenia " Foreground="#E53935"/><Run Text="bezpieczeństwa" Foreground="#1B9A2F"/></TextBlock>
+                <TextBlock Text="Logi audytu: zmiany cen, nieudane logowania, akcje użytkowników i adresy IP, jeśli backend je zwraca." Foreground="#333" FontSize="15"/>
             </StackPanel>
             <Border Grid.Row="2" Background="White" CornerRadius="8" Padding="12">
                 <Border.Effect><DropShadowEffect BlurRadius="8" ShadowDepth="1" Opacity="0.12"/></Border.Effect>
@@ -27,21 +27,21 @@
                         <ColumnDefinition Width="8"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="System cache" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    <TextBlock Text="Cache systemu" FontWeight="SemiBold" VerticalAlignment="Center"/>
                     <ComboBox Grid.Column="2" ItemsSource="{Binding Caches}" SelectedItem="{Binding SelectedCache}" Height="32"/>
-                    <Button Grid.Column="4" Content="Clear selected" Command="{Binding ClearSelectedCacheCommand}" Height="32" Padding="12 4" Background="#555555" Foreground="White" BorderThickness="0"/>
-                    <Button Grid.Column="6" Content="Clear all" Command="{Binding ClearAllCachesCommand}" Height="32" Padding="12 4" Background="#E53935" Foreground="White" BorderThickness="0"/>
+                    <Button Grid.Column="4" Content="Wyczyść wybrany" Command="{Binding ClearSelectedCacheCommand}" Height="32" Padding="12 4" Background="#555555" Foreground="White" BorderThickness="0"/>
+                    <Button Grid.Column="6" Content="Wyczyść wszystko" Command="{Binding ClearAllCachesCommand}" Height="32" Padding="12 4" Background="#E53935" Foreground="White" BorderThickness="0"/>
                 </Grid>
             </Border>
             <Border Grid.Row="4" Background="White" CornerRadius="22" Padding="18">
                 <Border.Effect><DropShadowEffect BlurRadius="16" ShadowDepth="3" Opacity="0.18"/></Border.Effect>
                 <DataGrid ItemsSource="{Binding Logs}" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="42" FontSize="14" GridLinesVisibility="None">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Time" Binding="{Binding CreatedAt}" Width="150"/>
-                        <DataGridTextColumn Header="User" Binding="{Binding Username}" Width="160"/>
-                        <DataGridTextColumn Header="Action" Binding="{Binding Action}" Width="180"/>
+                        <DataGridTextColumn Header="Czas" Binding="{Binding CreatedAt}" Width="150"/>
+                        <DataGridTextColumn Header="Użytkownik" Binding="{Binding Username}" Width="160"/>
+                        <DataGridTextColumn Header="Akcja" Binding="{Binding Action}" Width="180"/>
                         <DataGridTextColumn Header="IP" Binding="{Binding IpAddress}" Width="130"/>
-                        <DataGridTextColumn Header="Details" Binding="{Binding Details}" Width="*"/>
+                        <DataGridTextColumn Header="Szczegóły" Binding="{Binding Details}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>

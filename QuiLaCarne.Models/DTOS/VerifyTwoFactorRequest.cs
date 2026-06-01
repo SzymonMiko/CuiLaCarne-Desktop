@@ -9,5 +9,5 @@ public class VerifyTwoFactorRequest
 {
     public string PreAuthToken { get; set; } = "";
 
-    public int Code { get; set; }
+    public string Code { get; set; } = "";
 }

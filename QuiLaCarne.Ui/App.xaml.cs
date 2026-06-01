@@ -1,6 +1,8 @@
-﻿using System;
+using System;
+using System.Globalization;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Data.Sqlite;
@@ -12,6 +14,7 @@ using QuiLaCarne.Data;
 using QuiLaCarne.Services.Api;
 using QuiLaCarne.Services.IServices;
 using QuiLaCarne.Ui.Navigation;
+using QuiLaCarne.Ui.Services;
 using QuiLaCarne.ViewModels;
 using SQLitePCL;
 
@@ -79,6 +82,10 @@ public partial class App : Application
                 services.AddSingleton<IRestaurantWebSocketService, RestaurantWebSocketService>();
                 services.AddSingleton<IRealtimeUpdateService, RealtimeUpdateService>();
                 services.AddSingleton<INavigationService, NavigationService>();
+                services.AddSingleton<IAppDialogService, WpfDialogService>();
+                services.AddSingleton<IFilePickerService, WpfFilePickerService>();
+                services.AddSingleton<IUiDispatcherService, WpfUiDispatcherService>();
+                services.AddSingleton<ILocalizationService, WpfLocalizationService>();
 
 
 
@@ -101,6 +108,12 @@ public partial class App : Application
 
     protected override async void OnStartup(StartupEventArgs e)
     {
+        var culture = new CultureInfo("pl-PL");
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
+        Thread.CurrentThread.CurrentCulture = culture;
+        Thread.CurrentThread.CurrentUICulture = culture;
+
         Batteries_V2.Init();
 
         await AppHost.StartAsync();
@@ -155,8 +168,8 @@ public partial class App : Application
         }
 
         MessageBox.Show(
-            "Your session has expired. Please log in again.",
-            "Session expired",
+            "Sesja wygasła. Zaloguj się ponownie.",
+            "Sesja wygasła",
             MessageBoxButton.OK,
             MessageBoxImage.Information);
     }

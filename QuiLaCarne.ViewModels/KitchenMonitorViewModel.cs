@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +14,8 @@ public partial class KitchenMonitorViewModel : ObservableObject
 {
     private readonly QuiLaCarneDbContext _db;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
+    private readonly IAppDialogService _dialog;
+    private readonly IUiDispatcherService _uiDispatcher;
     private readonly DispatcherTimer _refreshTimer;
     private bool _isLoading;
 
@@ -24,11 +25,15 @@ public partial class KitchenMonitorViewModel : ObservableObject
 
     public KitchenMonitorViewModel(
         QuiLaCarneDbContext db,
-        IRealtimeUpdateService realtimeUpdateService
+        IRealtimeUpdateService realtimeUpdateService,
+        IAppDialogService dialog,
+        IUiDispatcherService uiDispatcher
     )
     {
         _db = db;
         _realtimeUpdateService = realtimeUpdateService;
+        _dialog = dialog;
+        _uiDispatcher = uiDispatcher;
 
         _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
 
@@ -91,7 +96,7 @@ public partial class KitchenMonitorViewModel : ObservableObject
             var viewItem = new KdsOrderItem
             {
                 Token = item.Token,
-                DishName = item.Dish?.Name ?? "Unknown dish",
+                DishName = item.Dish?.Name ?? "Nieznane danie",
                 Quantity = item.Quantity,
                 TableNumber = item.Order?.Table?.TableNumber ?? 0,
                 Note = item.Note ?? "",
@@ -136,7 +141,7 @@ public partial class KitchenMonitorViewModel : ObservableObject
          *     "IN_PROGRESS_STATUS_TOKEN");
          */
 
-        MessageBox.Show($"TODO: change order item {item.Token} to IN_PROGRESS.");
+        _dialog.ShowMessage($"TODO: zmień pozycję zamówienia {item.Token} na W_TRAKCIE.");
     }
 
     [RelayCommand]
@@ -155,7 +160,7 @@ public partial class KitchenMonitorViewModel : ObservableObject
          *     "READY_STATUS_TOKEN");
          */
 
-        MessageBox.Show($"TODO: change order item {item.Token} to READY.");
+        _dialog.ShowMessage($"TODO: zmień pozycję zamówienia {item.Token} na GOTOWE.");
     }
 
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
@@ -171,17 +176,14 @@ public partial class KitchenMonitorViewModel : ObservableObject
             return;
         }
 
-        Application.Current.Dispatcher.Invoke(async () =>
-        {
-            await LoadOrdersAsync();
-        });
+        _ = _uiDispatcher.InvokeAsync(LoadOrdersAsync);
     }
 
     private static string GetStatusName(OrderItems item)
     {
         var status = item.Statuses.FirstOrDefault();
 
-        return status?.Name ?? "ToDo";
+        return status?.Name ?? "Do zrobienia";
     }
 
     private static Reservations? FindMatchingReservation(
@@ -276,7 +278,7 @@ public partial class KdsOrderItem : ObservableObject
         }
     }
 
-    public string OrderTimeText => $"Zamowienie: {CreatedAt:HH:mm}";
+    public string OrderTimeText => $"Zamówienie: {CreatedAt:HH:mm}";
 
     public string ReservationTimeText =>
         ReservationAt.HasValue ? $"Rezerwacja: {ReservationAt.Value:HH:mm}" : "";

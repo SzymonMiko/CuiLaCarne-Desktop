@@ -32,7 +32,7 @@
 
     <DockPanel Grid.Row="0" Background="#19A93A">
       <TextBlock Text="Qui la Carne" Foreground="White" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="16 0" />
-      <TextBlock Text="Menu Management" DockPanel.Dock="Right" Foreground="White" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 16 0" />
+      <TextBlock Text="Zarządzanie menu" DockPanel.Dock="Right" Foreground="White" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 16 0" />
     </DockPanel>
 
     <Grid Grid.Row="1" Margin="16">
@@ -44,10 +44,10 @@
 
       <StackPanel>
         <TextBlock FontSize="28" FontWeight="Bold">
-          <Run Text="Menu " Foreground="#E53935" />
-          <Run Text="Management" Foreground="#1B9A2F" />
+          <Run Text="Zarządzanie " Foreground="#E53935" />
+          <Run Text="menu" Foreground="#1B9A2F" />
         </TextBlock>
-        <TextBlock Text="Block dishes, update availability, and wait for WebSocket confirmation." Foreground="#333333" FontSize="13" TextWrapping="Wrap" />
+        <TextBlock Text="Blokuj dania, aktualizuj dostępność i czekaj na potwierdzenie przez WebSocket." Foreground="#333333" FontSize="13" TextWrapping="Wrap" />
       </StackPanel>
 
       <Border Grid.Row="2" Background="White" CornerRadius="8" Padding="12">
@@ -72,18 +72,18 @@
             RowHeight="34"
             FontSize="13">
             <DataGrid.Columns>
-              <DataGridTextColumn Header="Dish" Binding="{Binding Name}" Width="*" />
-              <DataGridCheckBoxColumn Header="Available" Binding="{Binding IsAvailable}" Width="92" />
-              <DataGridTextColumn Header="Reason" Binding="{Binding UnavailableReason}" Width="2*" />
+              <DataGridTextColumn Header="Danie" Binding="{Binding Name}" Width="*" />
+              <DataGridCheckBoxColumn Header="Dostępne" Binding="{Binding IsAvailable}" Width="92" />
+              <DataGridTextColumn Header="Powód" Binding="{Binding UnavailableReason}" Width="2*" />
             </DataGrid.Columns>
           </DataGrid>
 
           <Border Grid.Column="2" Background="#FAFAFA" CornerRadius="8" Padding="12" BorderBrush="#E5E5E5" BorderThickness="1">
             <StackPanel>
-              <TextBlock Text="Selected Dish" FontSize="18" FontWeight="Bold" Foreground="#1B9A2F" Margin="0 0 0 10" />
-              <Button Content="Block selected" Command="{Binding BlockSelectedDishCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#E53935" Margin="0 0 0 8" />
-              <Button Content="Make available" Command="{Binding MakeSelectedDishAvailableCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#19A93A" Margin="0 0 0 8" />
-              <Button Content="Refresh" Command="{Binding LoadDishesCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#333333" />
+              <TextBlock Text="Wybrane danie" FontSize="18" FontWeight="Bold" Foreground="#1B9A2F" Margin="0 0 0 10" />
+              <Button Content="Zablokuj wybrane" Command="{Binding BlockSelectedDishCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#E53935" Margin="0 0 0 8" />
+              <Button Content="Ustaw dostępne" Command="{Binding MakeSelectedDishAvailableCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#19A93A" Margin="0 0 0 8" />
+              <Button Content="Odśwież" Command="{Binding LoadDishesCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#333333" />
             </StackPanel>
           </Border>
         </Grid>

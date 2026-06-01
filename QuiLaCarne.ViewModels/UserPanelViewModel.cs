@@ -2,14 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using QuiLaCarne.Data;
 using QuiLaCarne.Models;
+using QuiLaCarne.Services.IServices;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace QuiLaCarne.ViewModels;
 
 public partial class UsersPanelViewModel : ObservableObject
 {
     private readonly QuiLaCarneDbContext _db;
+    private readonly IAppDialogService _dialog;
 
     public ObservableCollection<ClientRow> Clients { get; } = [];
 
@@ -30,9 +31,10 @@ public partial class UsersPanelViewModel : ObservableObject
         }
     }
 
-    public UsersPanelViewModel(QuiLaCarneDbContext db)
+    public UsersPanelViewModel(QuiLaCarneDbContext db, IAppDialogService dialog)
     {
         _db = db;
+        _dialog = dialog;
     }
 
     public async Task LoadAsync()
@@ -100,7 +102,7 @@ public partial class UsersPanelViewModel : ObservableObject
                         ? ""
                         : string.Join(", ", order.Statuses.Select(x => x.Name).OrderBy(x => x)),
                     DishesText = order.Items.Count == 0
-                        ? "No dishes"
+                        ? "Brak dań"
                         : string.Join(", ", order.Items
                             .OrderBy(x => x.Dish.Name)
                             .Select(x => $"{x.Quantity}x {x.Dish.Name}"))
@@ -129,7 +131,7 @@ public partial class UsersPanelViewModel : ObservableObject
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Could not load client details.\n{ex.Message}");
+            _dialog.ShowMessage($"Nie udało się załadować szczegółów klienta.\n{ex.Message}");
         }
     }
 

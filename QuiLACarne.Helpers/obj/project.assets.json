@@ -9284,11 +9284,11 @@
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
-      "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.16",
       "QuiLaCarne.Models >= 1.0.0",
       "QuiLaCarne.Services >= 1.0.0",
-      "QuiLaCarne.Ui >= 1.0.0"
+      "QuiLaCarne.Ui >= 1.0.0",
+      "QuiLaCarne.ViewModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -9332,8 +9332,8 @@
             "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj": {
               "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj"
             },
-            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj": {
-              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj"
+            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj": {
+              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj"
             }
           }
         }
@@ -9382,15 +9382,6 @@
     }
   },
   "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
-      "targetGraphs": [
-        "net9.0-windows7.0"
-      ]
-    },
     {
       "code": "NU1701",
       "level": "Warning",

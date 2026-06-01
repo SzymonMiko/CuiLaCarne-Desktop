@@ -7,7 +7,7 @@
         <Grid.RowDefinitions><RowDefinition Height="64"/><RowDefinition Height="*"/></Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Background="#19A93A">
             <TextBlock Text="Qui la Carne" Foreground="White" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="24 0"/>
-            <TextBlock Text="Ingredient Confirmation" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
+            <TextBlock Text="Potwierdzenie składnika" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
         <Grid Grid.Row="1" Margin="24" MinWidth="820">
             <Grid.ColumnDefinitions><ColumnDefinition Width="1*" MinWidth="320"/><ColumnDefinition Width="24"/><ColumnDefinition Width="1.2*" MinWidth="380"/></Grid.ColumnDefinitions>
@@ -21,22 +21,22 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBlock FontSize="36" FontWeight="Bold"><Run Text="Missing " Foreground="#E53935"/><Run Text="ingredient" Foreground="#1B9A2F"/></TextBlock>
-                    <TextBlock Grid.Row="1" Text="Choose ingredient and confirm it is unavailable. Related dishes can be blocked and WebSocket will notify other clients." TextWrapping="Wrap" Foreground="#333" Margin="0 8 0 18"/>
+                    <TextBlock FontSize="36" FontWeight="Bold"><Run Text="Brakujący " Foreground="#E53935"/><Run Text="składnik" Foreground="#1B9A2F"/></TextBlock>
+                    <TextBlock Grid.Row="1" Text="Wybierz składnik i potwierdź jego niedostępność. Powiązane dania mogą zostać zablokowane, a WebSocket powiadomi pozostałych klientów." TextWrapping="Wrap" Foreground="#333" Margin="0 8 0 18"/>
                     <ListBox Grid.Row="2" ItemsSource="{Binding Ingredients}" SelectedItem="{Binding SelectedIngredient}" DisplayMemberPath="DisplayName" MinHeight="220"/>
                     <TextBox Grid.Row="3" Text="{Binding Reason, UpdateSourceTrigger=PropertyChanged}" Height="40" Margin="0 14 0 10"/>
-                    <Button Grid.Row="4" Content="Confirm missing ingredient" Command="{Binding ConfirmMissingIngredientCommand}" Height="42" Background="#E53935" Foreground="White" BorderThickness="0"/>
+                    <Button Grid.Row="4" Content="Potwierdź brak składnika" Command="{Binding ConfirmMissingIngredientCommand}" Height="42" Background="#E53935" Foreground="White" BorderThickness="0"/>
                 </Grid>
             </Border>
             <Border Grid.Column="2" Background="White" CornerRadius="22" Padding="18" MinHeight="520">
                 <Border.Effect><DropShadowEffect BlurRadius="16" ShadowDepth="3" Opacity="0.18"/></Border.Effect>
                 <Grid>
                     <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
-                    <TextBlock Text="Affected dishes" FontSize="30" FontWeight="Bold" Margin="0 0 0 12"/>
+                    <TextBlock Text="Powiązane dania" FontSize="30" FontWeight="Bold" Margin="0 0 0 12"/>
                     <DataGrid Grid.Row="1" ItemsSource="{Binding AffectedDishes}" AutoGenerateColumns="False" IsReadOnly="True" GridLinesVisibility="None" RowHeight="42">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Dish" Binding="{Binding Name}" Width="*"/>
-                            <DataGridCheckBoxColumn Header="Available" Binding="{Binding IsAvailable}" Width="100"/>
+                            <DataGridTextColumn Header="Danie" Binding="{Binding Name}" Width="*"/>
+                            <DataGridCheckBoxColumn Header="Dostępne" Binding="{Binding IsAvailable}" Width="100"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

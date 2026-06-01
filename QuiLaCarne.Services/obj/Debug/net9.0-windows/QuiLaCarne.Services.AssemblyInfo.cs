@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuiLaCarne.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de9b4465c6470a577cdf676b91737bb9241a8d01")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0531f4285d782bee9eda002f1f8e9e4c8ac88553")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuiLaCarne.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuiLaCarne.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

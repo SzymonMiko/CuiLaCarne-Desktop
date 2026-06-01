@@ -6,8 +6,6 @@ using QuiLaCarne.Models;
 using QuiLaCarne.Services.Api;
 using QuiLaCarne.Services.IServices;
 using System.Collections.ObjectModel;
-using System.Windows;
-using Microsoft.Win32;
 
 namespace QuiLaCarne.ViewModels;
 
@@ -19,6 +17,9 @@ public partial class MenuRoomEditorViewModel : ObservableObject
     private readonly ReservationService _reservationService;
     private readonly SyncService _syncService;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
+    private readonly IAppDialogService _dialog;
+    private readonly IFilePickerService _filePicker;
+    private readonly IUiDispatcherService _uiDispatcher;
     private readonly HashSet<string> _hiddenDishTokens = new(StringComparer.OrdinalIgnoreCase);
     private readonly HashSet<string> _hiddenTableTokens = new(StringComparer.OrdinalIgnoreCase);
     private readonly HashSet<string> _hiddenLookupTokens = new(StringComparer.OrdinalIgnoreCase);
@@ -38,12 +39,12 @@ public partial class MenuRoomEditorViewModel : ObservableObject
     public ObservableCollection<DeleteTargetTypeRow> DeleteTargetTypes { get; } =
         new(
         [
-            new("Dish category", "dish-category"),
-            new("Ingredient", "ingredient"),
-            new("Allergen", "allergen"),
-            new("Table status", "table-status"),
-            new("Order status", "order-status"),
-            new("Order item status", "order-item-status")
+            new("Kategoria dania", "dish-category"),
+            new("Składnik", "ingredient"),
+            new("Alergen", "allergen"),
+            new("Status stolika", "table-status"),
+            new("Status zamówienia", "order-status"),
+            new("Status pozycji zamówienia", "order-item-status")
         ]);
 
     public ObservableCollection<DeleteLookupRow> DeleteLookupItems { get; } = new();
@@ -90,7 +91,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
     public string SelectedDishPhotoName =>
         string.IsNullOrWhiteSpace(SelectedDishPhotoPath)
-            ? "No new photo selected"
+            ? "Nie wybrano nowego zdjęcia"
             : Path.GetFileName(SelectedDishPhotoPath);
 
     private string newIngredientNamePl = "";
@@ -136,7 +137,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
     public string NewDishPhotoName =>
         string.IsNullOrWhiteSpace(NewDishPhotoPath)
-            ? "No photo selected"
+            ? "Nie wybrano zdjęcia"
             : Path.GetFileName(NewDishPhotoPath);
 
     private DishCategoryOption? selectedDishCategory;
@@ -178,7 +179,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         }
     }
 
-    private string selectedTableOrdersText = "Select a table to see orders.";
+    private string selectedTableOrdersText = "Wybierz stolik, aby zobaczyć zamówienia.";
     public string SelectedTableOrdersText
     {
         get => selectedTableOrdersText;
@@ -211,7 +212,10 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         LookupService lookupService,
         ReservationService reservationService,
         SyncService syncService,
-        IRealtimeUpdateService realtimeUpdateService)
+        IRealtimeUpdateService realtimeUpdateService,
+        IAppDialogService dialog,
+        IFilePickerService filePicker,
+        IUiDispatcherService uiDispatcher)
     {
         _db = db;
         _dishService = dishService;
@@ -219,6 +223,9 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         _reservationService = reservationService;
         _syncService = syncService;
         _realtimeUpdateService = realtimeUpdateService;
+        _dialog = dialog;
+        _filePicker = filePicker;
+        _uiDispatcher = uiDispatcher;
         _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
 
         selectedDeleteTargetType = DeleteTargetTypes.FirstOrDefault();
@@ -343,7 +350,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
                 Capacity = t.Capacity,
                 StatusCode = statusCode,
                 StatusText = statusNames.Count == 0
-                    ? "No status"
+                    ? "Brak statusu"
                     : string.Join(", ", statusNames),
                 IsSelected = t.Token == selectedTableToken
             });
@@ -410,7 +417,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             dishToken: SelectedDish.Token,
             price: (int)EditedPrice);
 
-        MessageBox.Show("Price change sent. The editor will refresh after the server confirms it.");
+        _dialog.ShowMessage("Zmiana ceny wysłana. Edytor odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -423,7 +430,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
         if (string.IsNullOrWhiteSpace(BlockReason))
         {
-            MessageBox.Show("Reason is required when blocking dish.");
+            _dialog.ShowMessage("Powód jest wymagany przy blokowaniu dania.");
             return;
         }
 
@@ -433,7 +440,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             false,
             BlockReason);
 
-        MessageBox.Show("Dish block request sent. The editor will refresh after the server confirms it.");
+        _dialog.ShowMessage("Prośba o blokadę dania wysłana. Edytor odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -450,7 +457,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             true,
             null);
 
-        MessageBox.Show("Dish available request sent. The editor will refresh after the server confirms it.");
+        _dialog.ShowMessage("Prośba o przywrócenie dostępności dania wysłana. Edytor odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -458,7 +465,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(NewIngredientNamePl))
         {
-            MessageBox.Show("Ingredient name is required.");
+            _dialog.ShowMessage("Nazwa składnika jest wymagana.");
             return;
         }
 
@@ -475,7 +482,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
         if (!added)
         {
-            MessageBox.Show("Ingredient was not added.");
+            _dialog.ShowMessage("Składnik nie został dodany.");
             return;
         }
 
@@ -489,7 +496,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         await _syncService.SyncIngredientsAsync(SessionService.JwtToken);
         await LoadAsync();
 
-        MessageBox.Show("Ingredient added.");
+        _dialog.ShowMessage("Składnik dodany.");
     }
 
     [RelayCommand]
@@ -497,19 +504,19 @@ public partial class MenuRoomEditorViewModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(NewDishName))
         {
-            MessageBox.Show("Dish name is required.");
+            _dialog.ShowMessage("Nazwa dania jest wymagana.");
             return;
         }
 
         if (NewDishPrice <= 0)
         {
-            MessageBox.Show("Dish price must be greater than 0.");
+            _dialog.ShowMessage("Cena dania musi być większa od 0.");
             return;
         }
 
         if (SelectedDishCategory == null)
         {
-            MessageBox.Show("Dish category is required.");
+            _dialog.ShowMessage("Kategoria dania jest wymagana.");
             return;
         }
 
@@ -520,7 +527,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
         if (ingredientTokens.Count == 0)
         {
-            MessageBox.Show("Choose at least one ingredient.");
+            _dialog.ShowMessage("Wybierz przynajmniej jeden składnik.");
             return;
         }
 
@@ -544,40 +551,28 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         await _syncService.SyncDishesAsync(SessionService.JwtToken);
         await LoadAsync();
 
-        MessageBox.Show("Dish added.");
+        _dialog.ShowMessage("Danie dodane.");
     }
 
     [RelayCommand]
     private void SelectDishPhoto()
     {
-        var dialog = new OpenFileDialog
-        {
-            Title = "Choose dish photo",
-            Filter = "Image files (*.jpg;*.jpeg;*.png;*.webp)|*.jpg;*.jpeg;*.png;*.webp",
-            CheckFileExists = true,
-            Multiselect = false
-        };
+        var path = _filePicker.PickImageFile("Wybierz zdjęcie dania");
 
-        if (dialog.ShowDialog() == true)
+        if (!string.IsNullOrWhiteSpace(path))
         {
-            NewDishPhotoPath = dialog.FileName;
+            NewDishPhotoPath = path;
         }
     }
 
     [RelayCommand]
     private void SelectSelectedDishPhoto()
     {
-        var dialog = new OpenFileDialog
-        {
-            Title = "Choose new dish photo",
-            Filter = "Image files (*.jpg;*.jpeg;*.png;*.webp)|*.jpg;*.jpeg;*.png;*.webp",
-            CheckFileExists = true,
-            Multiselect = false
-        };
+        var path = _filePicker.PickImageFile("Wybierz nowe zdjęcie dania");
 
-        if (dialog.ShowDialog() == true)
+        if (!string.IsNullOrWhiteSpace(path))
         {
-            SelectedDishPhotoPath = dialog.FileName;
+            SelectedDishPhotoPath = path;
         }
     }
 
@@ -586,13 +581,13 @@ public partial class MenuRoomEditorViewModel : ObservableObject
     {
         if (SelectedDish == null)
         {
-            MessageBox.Show("Select a dish first.");
+            _dialog.ShowMessage("Najpierw wybierz danie.");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(SelectedDishPhotoPath))
         {
-            MessageBox.Show("Choose a photo first.");
+            _dialog.ShowMessage("Najpierw wybierz zdjęcie.");
             return;
         }
 
@@ -606,7 +601,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         await _syncService.SyncDishesAsync(SessionService.JwtToken);
         await LoadAsync();
 
-        MessageBox.Show("Dish photo change sent.");
+        _dialog.ShowMessage("Zmiana zdjęcia dania wysłana.");
     }
 
     [RelayCommand]
@@ -617,13 +612,11 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             return;
         }
 
-        var result = MessageBox.Show(
-            $"Delete {SelectedDish.Name}?",
-            "Delete dish",
-            MessageBoxButton.YesNo,
-            MessageBoxImage.Warning);
+        var confirmed = _dialog.Confirm(
+            $"Usunąć {SelectedDish.Name}?",
+            "Usuń danie");
 
-        if (result != MessageBoxResult.Yes)
+        if (!confirmed)
         {
             return;
         }
@@ -634,7 +627,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
         if (!deleted)
         {
-            MessageBox.Show("Dish was not deleted.");
+            _dialog.ShowMessage("Danie nie zostało usunięte.");
             return;
         }
 
@@ -644,7 +637,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         EditedPrice = 0;
         BlockReason = "";
 
-        MessageBox.Show("Dish delete request sent.");
+        _dialog.ShowMessage("Prośba o usunięcie dania wysłana.");
     }
 
     [RelayCommand]
@@ -664,7 +657,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         NewTableNumber = 0;
         NewTableCapacity = 2;
 
-        MessageBox.Show("Table change sent. The editor will refresh after the server confirms it.");
+        _dialog.ShowMessage("Zmiana stolika wysłana. Edytor odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -675,13 +668,11 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             return;
         }
 
-        var result = MessageBox.Show(
-            $"Delete table {SelectedTable.TableNumber}?",
-            "Delete table",
-            MessageBoxButton.YesNo,
-            MessageBoxImage.Warning);
+        var confirmed = _dialog.Confirm(
+            $"Usunąć stolik {SelectedTable.TableNumber}?",
+            "Usuń stolik");
 
-        if (result != MessageBoxResult.Yes)
+        if (!confirmed)
         {
             return;
         }
@@ -692,7 +683,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
         if (!deleted)
         {
-            MessageBox.Show("Table was not deleted.");
+            _dialog.ShowMessage("Stolik nie został usunięty.");
             return;
         }
 
@@ -700,9 +691,9 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         Tables.Remove(SelectedTable);
         SelectedTable = null;
         SelectedTableOrders.Clear();
-        SelectedTableOrdersText = "Select a table to see orders.";
+        SelectedTableOrdersText = "Wybierz stolik, aby zobaczyć zamówienia.";
 
-        MessageBox.Show("Table deleted.");
+        _dialog.ShowMessage("Stolik usunięty.");
     }
 
     [RelayCommand]
@@ -713,13 +704,11 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             return;
         }
 
-        var result = MessageBox.Show(
-            $"Delete {SelectedDeleteLookupItem.Name}?",
-            $"Delete {SelectedDeleteTargetType.Name}",
-            MessageBoxButton.YesNo,
-            MessageBoxImage.Warning);
+        var confirmed = _dialog.Confirm(
+            $"Usunąć {SelectedDeleteLookupItem.Name}?",
+            $"Usuń {SelectedDeleteTargetType.Name}");
 
-        if (result != MessageBoxResult.Yes)
+        if (!confirmed)
         {
             return;
         }
@@ -757,7 +746,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         await LoadDeleteLookupItemsAsync();
         await LoadAsync();
 
-        MessageBox.Show("Delete request completed.");
+        _dialog.ShowMessage("Prośba o usunięcie zakończona.");
     }
 
     [RelayCommand]
@@ -778,7 +767,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
         if (SelectedTable == null)
         {
-            SelectedTableOrdersText = "Select a table to see orders.";
+            SelectedTableOrdersText = "Wybierz stolik, aby zobaczyć zamówienia.";
             return;
         }
 
@@ -801,16 +790,16 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             .ToList();
 
         SelectedTableOrdersText = tableOrders.Count == 0
-            ? "No orders found for this table."
-            : $"{tableOrders.Count} order(s) on this table.";
+            ? "Nie znaleziono zamówień dla tego stolika."
+            : $"Zamówienia na tym stoliku: {tableOrders.Count}.";
 
         foreach (var order in tableOrders)
         {
             var dishes = order.Items.Count == 0
-                ? "No dishes"
+                ? "Brak dań"
                 : string.Join(", ", order.Items
                     .OrderBy(i => i.Dish?.Name ?? "")
-                    .Select(i => $"{i.Quantity}x {i.Dish?.Name ?? "Dish"}"));
+                    .Select(i => $"{i.Quantity}x {i.Dish?.Name ?? "Danie"}"));
 
             SelectedTableOrders.Add(new TableOrderRow
             {
@@ -818,7 +807,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
                 CreatedAt = order.CreatedAt.LocalDateTime,
                 Guest = order.User.Username,
                 StatusText = order.Statuses.Count == 0
-                    ? "No status"
+                    ? "Brak statusu"
                     : string.Join(", ", order.Statuses.OrderBy(s => s.Name).Select(s => s.Name)),
                 DishesText = dishes
             });
@@ -909,10 +898,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             return;
         }
 
-        Application.Current.Dispatcher.Invoke(async () =>
-        {
-            await LoadAsync();
-        });
+        _ = _uiDispatcher.InvokeAsync(LoadAsync);
     }
 }
 

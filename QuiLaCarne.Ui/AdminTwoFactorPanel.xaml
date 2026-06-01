@@ -7,18 +7,20 @@
         <Grid.RowDefinitions><RowDefinition Height="64"/><RowDefinition Height="*"/></Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Background="#19A93A">
             <TextBlock Text="Qui la Carne" Foreground="White" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="24 0"/>
-            <TextBlock Text="Administrative 2FA" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
+            <TextBlock Text="Administracyjne 2FA" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
         <Grid Margin="24">
             <Border Background="White" CornerRadius="22" Padding="30" MaxWidth="760" MinWidth="320" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Border.Effect><DropShadowEffect BlurRadius="16" ShadowDepth="3" Opacity="0.18"/></Border.Effect>
                 <StackPanel>
-                    <TextBlock FontSize="42" FontWeight="Bold" HorizontalAlignment="Center"><Run Text="2FA " Foreground="#E53935"/><Run Text="required" Foreground="#1B9A2F"/></TextBlock>
-                    <TextBlock Text="Administrative roles should enable two-factor authentication before using sensitive panels." TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0 12 0 24" TextAlignment="Center"/>
-                    <Button Content="Generate 2FA secret / QR" Command="{Binding GenerateTwoFactorCommand}" Height="44" Background="#19A93A" Foreground="White" BorderThickness="0"/>
+                    <TextBlock FontSize="42" FontWeight="Bold" HorizontalAlignment="Center"><Run Text="2FA " Foreground="#E53935"/><Run Text="wymagane" Foreground="#1B9A2F"/></TextBlock>
+                    <TextBlock Text="Konta administracyjne powinny włączyć uwierzytelnianie dwuetapowe przed użyciem wrażliwych paneli." TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0 12 0 24" TextAlignment="Center"/>
+                    <Button Content="Wygeneruj sekret 2FA / QR" Command="{Binding GenerateTwoFactorCommand}" Height="44" Background="#19A93A" Foreground="White" BorderThickness="0"/>
+                    <Image Source="{Binding QrCodeImageUrl}" Width="180" Height="180" Margin="0 16 0 8" Stretch="Uniform"/>
+                    <TextBox Text="{Binding ManualEntryKey}" IsReadOnly="True" Height="34" Margin="0 0 0 8" HorizontalContentAlignment="Center" FontSize="13"/>
                     <TextBox Text="{Binding VerificationCode, UpdateSourceTrigger=PropertyChanged}" Height="42" Margin="0 18 0 8" HorizontalContentAlignment="Center" FontSize="18"/>
-                    <Button Content="Enable 2FA" Command="{Binding EnableTwoFactorCommand}" Height="44" Background="#E53935" Foreground="White" BorderThickness="0"/>
+                    <Button Content="Włącz 2FA" Command="{Binding EnableTwoFactorCommand}" Height="44" Background="#E53935" Foreground="White" BorderThickness="0"/>
                     <TextBlock Text="{Binding StatusMessage}" Margin="0 18 0 0" FontWeight="SemiBold" TextAlignment="Center"/>
                 </StackPanel>
             </Border>

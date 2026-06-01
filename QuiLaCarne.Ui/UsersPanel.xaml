@@ -30,7 +30,7 @@
 
     <DockPanel Grid.Row="0" Background="#19A93A">
       <TextBlock Text="Qui la Carne" Foreground="White" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="16 0" />
-      <TextBlock Text="Clients" DockPanel.Dock="Right" Foreground="White" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 16 0" />
+      <TextBlock Text="Klienci" DockPanel.Dock="Right" Foreground="White" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 16 0" />
     </DockPanel>
 
     <Grid Grid.Row="1" Margin="16" MinWidth="720">
@@ -42,10 +42,10 @@
 
       <StackPanel>
         <TextBlock FontSize="28" FontWeight="Bold">
-          <Run Text="Clients " Foreground="#E53935" />
-          <Run Text="List" Foreground="#1B9A2F" />
+          <Run Text="Lista " Foreground="#E53935" />
+          <Run Text="klientów" Foreground="#1B9A2F" />
         </TextBlock>
-        <TextBlock Text="Client orders and reports from the local synchronized cache." Foreground="#333333" FontSize="13" />
+        <TextBlock Text="Zamówienia i zgłoszenia klientów z lokalnej zsynchronizowanej bazy." Foreground="#333333" FontSize="13" />
       </StackPanel>
 
       <Border Grid.Row="2" Background="White" CornerRadius="8" Padding="12">
@@ -70,10 +70,10 @@
             RowHeight="34"
             FontSize="13">
             <DataGrid.Columns>
-              <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="*" />
+              <DataGridTextColumn Header="Użytkownik" Binding="{Binding Username}" Width="*" />
               <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="1.8*" />
-              <DataGridCheckBoxColumn Header="Enabled" Binding="{Binding IsEnabled}" Width="80" />
-              <DataGridTextColumn Header="Roles" Binding="{Binding RolesText}" Width="*" />
+              <DataGridCheckBoxColumn Header="Aktywny" Binding="{Binding IsEnabled}" Width="80" />
+              <DataGridTextColumn Header="Role" Binding="{Binding RolesText}" Width="*" />
             </DataGrid.Columns>
           </DataGrid>
 
@@ -87,7 +87,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel>
-              <TextBlock Text="{Binding SelectedClient.Username, StringFormat=Selected client: {0}, TargetNullValue=Select a client}" FontWeight="Bold" FontSize="16" />
+              <TextBlock Text="{Binding SelectedClient.Username, StringFormat=Wybrany klient: {0}, TargetNullValue=Wybierz klienta}" FontWeight="Bold" FontSize="16" />
               <TextBlock Text="{Binding SelectedClient.Email}" Foreground="#555" FontSize="12" />
             </StackPanel>
 
@@ -97,7 +97,7 @@
                 <RowDefinition Height="6" />
                 <RowDefinition Height="*" />
               </Grid.RowDefinitions>
-              <TextBlock Text="Orders" FontWeight="Bold" FontSize="14" />
+              <TextBlock Text="Zamówienia" FontWeight="Bold" FontSize="14" />
               <DataGrid
                 Grid.Row="2"
                 ItemsSource="{Binding ClientOrders}"
@@ -108,10 +108,10 @@
                 RowHeight="30"
                 FontSize="12">
                 <DataGrid.Columns>
-                  <DataGridTextColumn Header="Time" Binding="{Binding CreatedAtText}" Width="112" />
-                  <DataGridTextColumn Header="Table" Binding="{Binding TableNumber}" Width="64" />
+                  <DataGridTextColumn Header="Czas" Binding="{Binding CreatedAtText}" Width="112" />
+                  <DataGridTextColumn Header="Stolik" Binding="{Binding TableNumber}" Width="64" />
                   <DataGridTextColumn Header="Status" Binding="{Binding StatusesText}" Width="90" />
-                  <DataGridTextColumn Header="Dishes" Binding="{Binding DishesText}" Width="*" />
+                  <DataGridTextColumn Header="Dania" Binding="{Binding DishesText}" Width="*" />
                 </DataGrid.Columns>
               </DataGrid>
             </Grid>
@@ -122,7 +122,7 @@
                 <RowDefinition Height="6" />
                 <RowDefinition Height="*" />
               </Grid.RowDefinitions>
-              <TextBlock Text="Reports" FontWeight="Bold" FontSize="14" />
+              <TextBlock Text="Zgłoszenia" FontWeight="Bold" FontSize="14" />
               <DataGrid
                 Grid.Row="2"
                 ItemsSource="{Binding ClientReports}"
@@ -133,10 +133,10 @@
                 RowHeight="30"
                 FontSize="12">
                 <DataGrid.Columns>
-                  <DataGridTextColumn Header="Time" Binding="{Binding CreatedAtText}" Width="112" />
-                  <DataGridTextColumn Header="Reporter" Binding="{Binding Reporter}" Width="90" />
+                  <DataGridTextColumn Header="Czas" Binding="{Binding CreatedAtText}" Width="112" />
+                  <DataGridTextColumn Header="Zgłaszający" Binding="{Binding Reporter}" Width="90" />
                   <DataGridTextColumn Header="Status" Binding="{Binding StatusesText}" Width="90" />
-                  <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                  <DataGridTextColumn Header="Opis" Binding="{Binding Description}" Width="*" />
                 </DataGrid.Columns>
               </DataGrid>
             </Grid>

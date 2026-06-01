@@ -39,7 +39,7 @@
 
     <DockPanel Grid.Row="0" Background="#19A93A">
       <TextBlock Text="Qui la Carne" Foreground="White" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="16 0" />
-      <TextBlock Text="Management Panel" DockPanel.Dock="Right" Foreground="White" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 16 0" />
+      <TextBlock Text="Panel zarządzania" DockPanel.Dock="Right" Foreground="White" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 16 0" />
     </DockPanel>
 
     <Grid Grid.Row="1" Margin="16" MinWidth="820">
@@ -62,15 +62,15 @@
           </Grid.RowDefinitions>
 
           <TextBlock FontSize="24" FontWeight="Bold" Margin="0 0 0 10">
-            <Run Text="Menu " Foreground="#E53935" />
-            <Run Text="Editor" Foreground="#1B9A2F" />
+            <Run Text="Edytor " Foreground="#E53935" />
+            <Run Text="menu" Foreground="#1B9A2F" />
           </TextBlock>
 
           <DataGrid Grid.Row="1" ItemsSource="{Binding Dishes}" SelectedItem="{Binding SelectedDish}" AutoGenerateColumns="False" RowHeight="34" FontSize="13" GridLinesVisibility="None">
             <DataGrid.Columns>
-              <DataGridTextColumn Header="Dish" Binding="{Binding Name}" Width="*" />
-              <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="78" />
-              <DataGridCheckBoxColumn Header="Available" Binding="{Binding IsAvailable}" Width="88" />
+              <DataGridTextColumn Header="Danie" Binding="{Binding Name}" Width="*" />
+              <DataGridTextColumn Header="Cena" Binding="{Binding Price}" Width="78" />
+              <DataGridCheckBoxColumn Header="Dostępne" Binding="{Binding IsAvailable}" Width="88" />
             </DataGrid.Columns>
           </DataGrid>
 
@@ -84,18 +84,18 @@
                 <ColumnDefinition Width="Auto" />
               </Grid.ColumnDefinitions>
               <StackPanel>
-                <TextBlock Text="Price" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Cena" FontWeight="SemiBold" FontSize="12" />
                 <TextBox Text="{Binding EditedPrice, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 0" />
               </StackPanel>
               <StackPanel Grid.Column="2">
-                <TextBlock Text="Block reason" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Powód blokady" FontWeight="SemiBold" FontSize="12" />
                 <TextBox Text="{Binding BlockReason, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 0" />
               </StackPanel>
               <StackPanel Grid.Column="4" Orientation="Horizontal" VerticalAlignment="Bottom">
-                <Button Content="Save" Command="{Binding SavePriceCommand}" Style="{StaticResource ActionButtonStyle}" Width="84" />
-                <Button Content="Block" Command="{Binding BlockDishCommand}" Style="{StaticResource ActionButtonStyle}" Width="84" Background="#E53935" Margin="8 0 0 0" />
-                <Button Content="Available" Command="{Binding MakeDishAvailableCommand}" Style="{StaticResource ActionButtonStyle}" Width="90" Background="#19A93A" Margin="8 0 0 0" />
-                <Button Content="Delete" Command="{Binding DeleteDishCommand}" Style="{StaticResource ActionButtonStyle}" Width="84" Background="#555555" Margin="8 0 0 0" />
+                <Button Content="Zapisz" Command="{Binding SavePriceCommand}" Style="{StaticResource ActionButtonStyle}" Width="84" />
+                <Button Content="Zablokuj" Command="{Binding BlockDishCommand}" Style="{StaticResource ActionButtonStyle}" Width="84" Background="#E53935" Margin="8 0 0 0" />
+                <Button Content="Dostępne" Command="{Binding MakeDishAvailableCommand}" Style="{StaticResource ActionButtonStyle}" Width="90" Background="#19A93A" Margin="8 0 0 0" />
+                <Button Content="Usuń" Command="{Binding DeleteDishCommand}" Style="{StaticResource ActionButtonStyle}" Width="84" Background="#555555" Margin="8 0 0 0" />
               </StackPanel>
             </Grid>
 
@@ -108,13 +108,13 @@
                 <ColumnDefinition Width="Auto" />
               </Grid.ColumnDefinitions>
               <TextBlock Text="{Binding SelectedDishPhotoName}" Foreground="#555" FontSize="12" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
-              <Button Grid.Column="2" Content="Choose photo" Command="{Binding SelectSelectedDishPhotoCommand}" Style="{StaticResource ActionButtonStyle}" Width="112" Background="#555555" />
-              <Button Grid.Column="4" Content="Change photo" Command="{Binding ChangeSelectedDishPhotoCommand}" Style="{StaticResource ActionButtonStyle}" Width="116" Background="#555555" />
+              <Button Grid.Column="2" Content="Wybierz zdjęcie" Command="{Binding SelectSelectedDishPhotoCommand}" Style="{StaticResource ActionButtonStyle}" Width="126" Background="#555555" />
+              <Button Grid.Column="4" Content="Zmień zdjęcie" Command="{Binding ChangeSelectedDishPhotoCommand}" Style="{StaticResource ActionButtonStyle}" Width="116" Background="#555555" />
             </Grid>
 
             <Border Height="1" Background="#E6E6E6" Margin="0 12 0 10" />
 
-            <TextBlock Text="Add ingredient" FontWeight="Bold" FontSize="13" Margin="0 0 0 6" />
+            <TextBlock Text="Dodaj składnik" FontWeight="Bold" FontSize="13" Margin="0 0 0 6" />
             <Grid>
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -124,14 +124,14 @@
                 <ColumnDefinition Width="Auto" />
               </Grid.ColumnDefinitions>
               <StackPanel>
-                <TextBlock Text="Name PL" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Nazwa PL" FontWeight="SemiBold" FontSize="12" />
                 <TextBox Text="{Binding NewIngredientNamePl, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 0" />
               </StackPanel>
               <StackPanel Grid.Column="2">
-                <TextBlock Text="Name EN" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Nazwa EN" FontWeight="SemiBold" FontSize="12" />
                 <TextBox Text="{Binding NewIngredientNameEn, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 0" />
               </StackPanel>
-              <Button Grid.Column="4" Content="Add ingredient" Command="{Binding AddIngredientCommand}" Style="{StaticResource ActionButtonStyle}" Width="120" VerticalAlignment="Bottom" />
+              <Button Grid.Column="4" Content="Dodaj składnik" Command="{Binding AddIngredientCommand}" Style="{StaticResource ActionButtonStyle}" Width="124" VerticalAlignment="Bottom" />
             </Grid>
             <Grid Margin="0 8 0 0">
               <Grid.ColumnDefinitions>
@@ -139,7 +139,7 @@
                 <ColumnDefinition Width="8" />
                 <ColumnDefinition Width="*" />
               </Grid.ColumnDefinitions>
-              <TextBlock Text="Allergens" FontWeight="SemiBold" FontSize="12" VerticalAlignment="Top" Margin="0 4 0 0" />
+              <TextBlock Text="Alergeny" FontWeight="SemiBold" FontSize="12" VerticalAlignment="Top" Margin="0 4 0 0" />
               <ListBox Grid.Column="2" ItemsSource="{Binding AllergensForIngredient}" Height="58" ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <ListBox.ItemTemplate>
                   <DataTemplate>
@@ -149,7 +149,7 @@
               </ListBox>
             </Grid>
 
-            <TextBlock Text="Add dish" FontWeight="Bold" FontSize="13" Margin="0 12 0 6" />
+            <TextBlock Text="Dodaj danie" FontWeight="Bold" FontSize="13" Margin="0 12 0 6" />
             <Grid>
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.1*" />
@@ -159,15 +159,15 @@
                 <ColumnDefinition Width="1*" />
               </Grid.ColumnDefinitions>
               <StackPanel>
-                <TextBlock Text="Dish name" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Nazwa dania" FontWeight="SemiBold" FontSize="12" />
                 <TextBox Text="{Binding NewDishName, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 0" />
               </StackPanel>
               <StackPanel Grid.Column="2">
-                <TextBlock Text="Price" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Cena" FontWeight="SemiBold" FontSize="12" />
                 <TextBox Text="{Binding NewDishPrice, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 0" />
               </StackPanel>
               <StackPanel Grid.Column="4">
-                <TextBlock Text="Category" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Kategoria" FontWeight="SemiBold" FontSize="12" />
                 <ComboBox ItemsSource="{Binding DishCategories}" SelectedItem="{Binding SelectedDishCategory}" DisplayMemberPath="Name" Height="32" Margin="0 3 0 0" />
               </StackPanel>
             </Grid>
@@ -179,7 +179,7 @@
                 <ColumnDefinition Width="Auto" />
               </Grid.ColumnDefinitions>
               <TextBlock Text="{Binding NewDishPhotoName}" Foreground="#555" FontSize="12" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
-              <Button Grid.Column="2" Content="Choose photo" Command="{Binding SelectDishPhotoCommand}" Style="{StaticResource ActionButtonStyle}" Width="112" />
+              <Button Grid.Column="2" Content="Wybierz zdjęcie" Command="{Binding SelectDishPhotoCommand}" Style="{StaticResource ActionButtonStyle}" Width="126" />
             </Grid>
 
             <Grid Margin="0 8 0 0">
@@ -195,12 +195,12 @@
                   </DataTemplate>
                 </ListBox.ItemTemplate>
               </ListBox>
-              <Button Grid.Column="2" Content="Add dish" Command="{Binding AddDishCommand}" Style="{StaticResource ActionButtonStyle}" Width="100" VerticalAlignment="Bottom" />
+              <Button Grid.Column="2" Content="Dodaj danie" Command="{Binding AddDishCommand}" Style="{StaticResource ActionButtonStyle}" Width="104" VerticalAlignment="Bottom" />
             </Grid>
 
             <Border Height="1" Background="#E6E6E6" Margin="0 12 0 10" />
 
-            <TextBlock Text="Delete lookup" FontWeight="Bold" FontSize="13" Margin="0 0 0 6" />
+            <TextBlock Text="Usuń słownik" FontWeight="Bold" FontSize="13" Margin="0 0 0 6" />
             <Grid>
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.9*" />
@@ -211,7 +211,7 @@
               </Grid.ColumnDefinitions>
               <ComboBox ItemsSource="{Binding DeleteTargetTypes}" SelectedItem="{Binding SelectedDeleteTargetType}" DisplayMemberPath="Name" Height="32" />
               <ComboBox Grid.Column="2" ItemsSource="{Binding DeleteLookupItems}" SelectedItem="{Binding SelectedDeleteLookupItem}" DisplayMemberPath="Name" Height="32" />
-              <Button Grid.Column="4" Content="Delete" Command="{Binding DeleteLookupCommand}" Style="{StaticResource ActionButtonStyle}" Width="84" Background="#555555" />
+              <Button Grid.Column="4" Content="Usuń" Command="{Binding DeleteLookupCommand}" Style="{StaticResource ActionButtonStyle}" Width="84" Background="#555555" />
             </Grid>
           </StackPanel>
         </Grid>
@@ -230,8 +230,8 @@
           </Grid.RowDefinitions>
 
           <TextBlock FontSize="24" FontWeight="Bold" Margin="0 0 0 10">
-            <Run Text="Room " Foreground="#E53935" />
-            <Run Text="Map" Foreground="#1B9A2F" />
+            <Run Text="Mapa " Foreground="#E53935" />
+            <Run Text="sali" Foreground="#1B9A2F" />
           </TextBlock>
 
           <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
@@ -246,8 +246,8 @@
                   <Button Command="{Binding DataContext.SelectTableCommand, RelativeSource={RelativeSource AncestorType=Page}}" CommandParameter="{Binding}" Style="{StaticResource TableCardButtonStyle}">
                     <Border Width="118" Height="92" CornerRadius="8" Background="{Binding CardBackground}" BorderBrush="{Binding CardBorderBrush}" BorderThickness="{Binding CardBorderThickness}" Padding="8">
                       <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="{Binding TableNumber, StringFormat=Table {0}}" FontWeight="Bold" HorizontalAlignment="Center" FontSize="13" />
-                        <TextBlock Text="{Binding Capacity, StringFormat={}{0} seats}" Foreground="#555" HorizontalAlignment="Center" FontSize="12" Margin="0 1 0 5" />
+                        <TextBlock Text="{Binding TableNumber, StringFormat=Stolik {0}}" FontWeight="Bold" HorizontalAlignment="Center" FontSize="13" />
+                        <TextBlock Text="{Binding Capacity, StringFormat={}{0} miejsc}" Foreground="#555" HorizontalAlignment="Center" FontSize="12" Margin="0 1 0 5" />
                         <Border Background="{Binding StatusBadgeBackground}" CornerRadius="5" Padding="6 2" MaxWidth="98">
                           <TextBlock Text="{Binding StatusLabel}" Foreground="{Binding StatusBadgeForeground}" FontWeight="SemiBold" HorizontalAlignment="Center" FontSize="10" TextTrimming="CharacterEllipsis" />
                         </Border>
@@ -276,8 +276,8 @@
                   <ColumnDefinition Width="*" />
                   <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding SelectedTable.TableNumber, StringFormat=Table {0}, TargetNullValue=Select a table}" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" />
-                <Button Grid.Column="1" Content="Delete table" Command="{Binding DeleteSelectedTableCommand}" Style="{StaticResource ActionButtonStyle}" Background="#555555" Height="28" Padding="10 4" />
+                <TextBlock Text="{Binding SelectedTable.TableNumber, StringFormat=Stolik {0}, TargetNullValue=Wybierz stolik}" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" />
+                <Button Grid.Column="1" Content="Usuń stolik" Command="{Binding DeleteSelectedTableCommand}" Style="{StaticResource ActionButtonStyle}" Background="#555555" Height="28" Padding="10 4" />
               </Grid>
               <TextBlock Grid.Row="2" Text="{Binding SelectedTable.StatusText, StringFormat=Status: {0}, TargetNullValue=Status: -}" Foreground="#555" FontSize="12" />
               <TextBlock Grid.Row="4" Text="{Binding SelectedTableOrdersText}" Foreground="#555" FontSize="12" />
@@ -292,10 +292,10 @@
                 RowHeight="30"
                 FontSize="12">
                 <DataGrid.Columns>
-                  <DataGridTextColumn Header="Time" Binding="{Binding CreatedAtText}" Width="112" />
-                  <DataGridTextColumn Header="Guest" Binding="{Binding Guest}" Width="80" />
+                  <DataGridTextColumn Header="Czas" Binding="{Binding CreatedAtText}" Width="112" />
+                  <DataGridTextColumn Header="Gość" Binding="{Binding Guest}" Width="80" />
                   <DataGridTextColumn Header="Status" Binding="{Binding StatusText}" Width="90" />
-                  <DataGridTextColumn Header="Dishes" Binding="{Binding DishesText}" Width="*" />
+                  <DataGridTextColumn Header="Dania" Binding="{Binding DishesText}" Width="*" />
                 </DataGrid.Columns>
               </DataGrid>
             </Grid>
@@ -312,14 +312,14 @@
               </Grid.ColumnDefinitions>
 
               <StackPanel>
-                <TextBlock Text="Table" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Stolik" FontWeight="SemiBold" FontSize="12" />
                 <TextBox Text="{Binding NewTableNumber, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 0" />
               </StackPanel>
               <StackPanel Grid.Column="2">
-                <TextBlock Text="Seats" FontWeight="SemiBold" FontSize="12" />
+                <TextBlock Text="Miejsca" FontWeight="SemiBold" FontSize="12" />
                 <TextBox Text="{Binding NewTableCapacity, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 0" />
               </StackPanel>
-              <Button Grid.Column="4" Content="Add table" Command="{Binding AddTableCommand}" Width="100" Style="{StaticResource ActionButtonStyle}" VerticalAlignment="Bottom" />
+              <Button Grid.Column="4" Content="Dodaj stolik" Command="{Binding AddTableCommand}" Width="104" Style="{StaticResource ActionButtonStyle}" VerticalAlignment="Bottom" />
             </Grid>
           </Border>
         </Grid>

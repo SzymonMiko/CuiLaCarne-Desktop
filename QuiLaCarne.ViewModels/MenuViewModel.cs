@@ -7,10 +7,29 @@ namespace QuiLaCarne.ViewModels;
 public partial class MenuViewModel : ObservableObject
 {
     private readonly INavigationService _navigation;
+    private readonly ILocalizationService _localization;
 
-    public MenuViewModel(INavigationService navigation)
+    [ObservableProperty]
+    private string languageSwitchText;
+
+    public MenuViewModel(INavigationService navigation, ILocalizationService localization)
     {
         _navigation = navigation;
+        _localization = localization;
+        languageSwitchText = _localization.LanguageSwitchText;
+        _localization.PropertyChanged += (_, e) =>
+        {
+            if (e.PropertyName == nameof(ILocalizationService.LanguageSwitchText))
+            {
+                LanguageSwitchText = _localization.LanguageSwitchText;
+            }
+        };
+    }
+
+    [RelayCommand]
+    private void ToggleLanguage()
+    {
+        _localization.ToggleLanguage();
     }
 
     [RelayCommand]

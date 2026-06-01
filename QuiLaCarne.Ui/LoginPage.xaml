@@ -74,7 +74,7 @@
                            Foreground="White"
                            FontWeight="SemiBold"
                            Margin="0 0 24 0"/>
-                <TextBlock Text="Kitchen"
+                <TextBlock Text="Kuchnia"
                            Foreground="White"
                            FontWeight="SemiBold"/>
             </StackPanel>
@@ -120,7 +120,7 @@
                     </Border.Effect>
 
                     <StackPanel>
-                        <TextBlock Text="Username / Email"
+                        <TextBlock Text="Nazwa użytkownika / Email"
                                    FontWeight="SemiBold"
                                    Margin="0 0 0 6"/>
 
@@ -128,7 +128,7 @@
                                  Text="{Binding Username,
                                                 UpdateSourceTrigger=PropertyChanged}"/>
 
-                        <TextBlock Text="Password"
+                        <TextBlock Text="Hasło"
                                    FontWeight="SemiBold"
                                    Margin="0 0 0 6"/>
 
@@ -136,7 +136,7 @@
                                      Style="{StaticResource InputPasswordBoxStyle}"
                                      PasswordChanged="PasswordBox_PasswordChanged"/>
 
-                        <Button Content="Login"
+                        <Button Content="Zaloguj"
                                 Style="{StaticResource PrimaryButtonStyle}"
                                 Command="{Binding LoginCommand}"/>
 
@@ -151,4 +151,3 @@
         </Grid>
     </Grid>
 </Window>
-

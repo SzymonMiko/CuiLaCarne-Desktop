@@ -6,13 +6,14 @@ using QuiLaCarne.Models;
 using QuiLaCarne.Services.Api;
 using QuiLaCarne.Services.IServices;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 public partial class ManagerViewModel : ObservableObject
 {
     private readonly QuiLaCarneDbContext _db;
     private readonly DishService _dishService;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
+    private readonly IAppDialogService _dialog;
+    private readonly IUiDispatcherService _uiDispatcher;
 
     [ObservableProperty]
     private ObservableCollection<DishManagerItem> dishes = new();
@@ -21,16 +22,20 @@ public partial class ManagerViewModel : ObservableObject
     private DishManagerItem? selectedDish;
 
     [ObservableProperty]
-    private string unavailableReason = "Test WebSocket";
+    private string unavailableReason = "Niedostępne";
 
     public ManagerViewModel(
         QuiLaCarneDbContext db,
         DishService dishService,
-        IRealtimeUpdateService realtimeUpdateService)
+        IRealtimeUpdateService realtimeUpdateService,
+        IAppDialogService dialog,
+        IUiDispatcherService uiDispatcher)
     {
         _db = db;
         _dishService = dishService;
         _realtimeUpdateService = realtimeUpdateService;
+        _dialog = dialog;
+        _uiDispatcher = uiDispatcher;
         _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
     }
 
@@ -61,7 +66,7 @@ public partial class ManagerViewModel : ObservableObject
     {
         if (SelectedDish == null)
         {
-            MessageBox.Show("Choose dish first.");
+            _dialog.ShowMessage("Najpierw wybierz danie.");
             return;
         }
 
@@ -73,7 +78,7 @@ public partial class ManagerViewModel : ObservableObject
             newAvailable,
             newAvailable ? "" : UnavailableReason);
 
-        MessageBox.Show("Change sent. The list will refresh after the server confirms it.");
+        _dialog.ShowMessage("Zmiana wysłana. Lista odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -81,7 +86,7 @@ public partial class ManagerViewModel : ObservableObject
     {
         if (SelectedDish == null)
         {
-            MessageBox.Show("Choose dish first.");
+            _dialog.ShowMessage("Najpierw wybierz danie.");
             return;
         }
 
@@ -91,7 +96,7 @@ public partial class ManagerViewModel : ObservableObject
             false,
             UnavailableReason);
 
-        MessageBox.Show("Block request sent. The list will refresh after the server confirms it.");
+        _dialog.ShowMessage("Prośba o blokadę wysłana. Lista odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -99,7 +104,7 @@ public partial class ManagerViewModel : ObservableObject
     {
         if (SelectedDish == null)
         {
-            MessageBox.Show("Choose dish first.");
+            _dialog.ShowMessage("Najpierw wybierz danie.");
             return;
         }
 
@@ -109,7 +114,7 @@ public partial class ManagerViewModel : ObservableObject
             true,
             null);
 
-        MessageBox.Show("Available request sent. The list will refresh after the server confirms it.");
+        _dialog.ShowMessage("Prośba o przywrócenie dostępności wysłana. Lista odświeży się po potwierdzeniu z serwera.");
     }
 
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
@@ -125,10 +130,7 @@ public partial class ManagerViewModel : ObservableObject
             return;
         }
 
-        Application.Current.Dispatcher.Invoke(async () =>
-        {
-            await LoadDishesAsync();
-        });
+        _ = _uiDispatcher.InvokeAsync(LoadDishesAsync);
     }
 }
 

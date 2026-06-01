@@ -1,4 +1,3 @@
-﻿using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using QuiLaCarne.Services.Api;
@@ -17,6 +16,7 @@ public partial class LoginViewModel : ObservableObject
     private readonly INavigationService _navigation;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
     private readonly ISessionExpirationService _sessionExpirationService;
+    private readonly IAppDialogService _dialog;
 
     [ObservableProperty]
     private string username = "";
@@ -33,7 +33,8 @@ public partial class LoginViewModel : ObservableObject
         AuthService authService,
         SyncService syncService,
         LookupService lookupService,
-        ISessionExpirationService sessionExpirationService
+        ISessionExpirationService sessionExpirationService,
+        IAppDialogService dialog
     )
     {
         _realtimeUpdateService = realtimeUpdateService;
@@ -45,6 +46,7 @@ public partial class LoginViewModel : ObservableObject
         _lookupService = lookupService;
         _navigation = navigation;
         _sessionExpirationService = sessionExpirationService;
+        _dialog = dialog;
     }
 
     [RelayCommand]
@@ -56,13 +58,25 @@ public partial class LoginViewModel : ObservableObject
 
             if (loginData == null || string.IsNullOrWhiteSpace(loginData.Token))
             {
-                MessageBox.Show("Login failed");
+                _dialog.ShowMessage("Logowanie nie powiodło się.");
                 return;
             }
 
             if (loginData.Requires2fa)
             {
-                MessageBox.Show("2FA required");
+                if (string.IsNullOrWhiteSpace(loginData.Token))
+                {
+                    _dialog.ShowMessage("Wymagane 2FA, ale serwer nie zwrócił tokenu weryfikacyjnego.");
+                    return;
+                }
+
+                SessionService.PendingTwoFactorToken = loginData.Token;
+                SessionService.PendingTwoFactorUsername = string.IsNullOrWhiteSpace(loginData.Username)
+                    ? Username
+                    : loginData.Username;
+
+                _navigation.ShowTwoFactor();
+                _navigation.CloseLogin();
                 return;
             }
 
@@ -75,7 +89,7 @@ public partial class LoginViewModel : ObservableObject
             );
             if (!isAdmin)
             {
-                MessageBox.Show("Access denied. Desktop app is only for administrators.");
+                _dialog.ShowMessage("Brak dostępu. Aplikacja desktopowa jest tylko dla administratorów.");
                 return;
             }
 
@@ -87,7 +101,7 @@ public partial class LoginViewModel : ObservableObject
 
             await _syncService.SyncWholeDatabaseAsync(token);
 
-            MessageBox.Show("Sync finished");
+            _dialog.ShowMessage("Synchronizacja zakończona.");
 
             await _realtimeUpdateService.StartAsync(token);
 
@@ -96,15 +110,15 @@ public partial class LoginViewModel : ObservableObject
         }
         catch (HttpRequestException ex)
         {
-            MessageBox.Show($"HTTP error:\n{ex.Message}");
+            _dialog.ShowMessage($"Błąd HTTP:\n{ex.Message}");
         }
         catch (UnauthorizedAccessException ex)
         {
-            MessageBox.Show($"Authorization error:\n{ex.Message}");
+            _dialog.ShowMessage($"Błąd autoryzacji:\n{ex.Message}");
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Unexpected error:\n{ex}");
+            _dialog.ShowMessage($"Nieoczekiwany błąd:\n{ex}");
         }
     }
 }

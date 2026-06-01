@@ -41,7 +41,7 @@
 
         <DockPanel Grid.Row="0" Background="#19A93A">
             <TextBlock Text="Qui la Carne" Foreground="White" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" Margin="24 0"/>
-            <TextBlock Text="Kitchen Display System" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
+            <TextBlock Text="Monitor kuchni" DockPanel.Dock="Right" Foreground="White" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 24 0"/>
         </DockPanel>
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
@@ -55,7 +55,7 @@
             <StackPanel>
                 <TextBlock FontSize="46" FontWeight="Bold">
                     <Run Text="Monitor " Foreground="#E53935"/>
-                    <Run Text="ZamĂłwieĹ„" Foreground="#1B9A2F"/>
+                    <Run Text="Zamówień" Foreground="#1B9A2F"/>
                 </TextBlock>
 
                 <Grid Margin="0 8 0 18" Height="6" MaxWidth="420" HorizontalAlignment="Left">
@@ -70,8 +70,8 @@
                 </Grid>
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Kafelkowy system kuchni: ToDo â†’ InProgress â†’ Ready" Foreground="#333333" FontSize="16"/>
-                    <Button Content="OdĹ›wieĹĽ" Command="{Binding LoadOrdersCommand}" Style="{StaticResource PrimaryButtonStyle}" Margin="24 0 0 0"/>
+                    <TextBlock Text="Kafelkowy system kuchni: Do zrobienia → W trakcie → Gotowe" Foreground="#333333" FontSize="16"/>
+                    <Button Content="Odśwież" Command="{Binding LoadOrdersCommand}" Style="{StaticResource PrimaryButtonStyle}" Margin="24 0 0 0"/>
                 </StackPanel>
             </StackPanel>
 
@@ -86,7 +86,7 @@
 
                 <Border Style="{StaticResource ColumnCardStyle}">
                     <DockPanel>
-                        <TextBlock DockPanel.Dock="Top" Text="ToDo" FontSize="28" FontWeight="Bold" Foreground="#E53935" Margin="0 0 0 12"/>
+                        <TextBlock DockPanel.Dock="Top" Text="Do zrobienia" FontSize="28" FontWeight="Bold" Foreground="#E53935" Margin="0 0 0 12"/>
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
                             <ItemsControl ItemsSource="{Binding TodoItems}">
                                 <ItemsControl.ItemTemplate>
@@ -112,7 +112,7 @@
 
                 <Border Grid.Column="2" Style="{StaticResource ColumnCardStyle}">
                     <DockPanel>
-                        <TextBlock DockPanel.Dock="Top" Text="InProgress" FontSize="28" FontWeight="Bold" Foreground="#1B9A2F" Margin="0 0 0 12"/>
+                        <TextBlock DockPanel.Dock="Top" Text="W trakcie" FontSize="28" FontWeight="Bold" Foreground="#1B9A2F" Margin="0 0 0 12"/>
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
                             <ItemsControl ItemsSource="{Binding InProgressItems}">
                                 <ItemsControl.ItemTemplate>
@@ -125,7 +125,7 @@
                                                 <TextBlock Text="{Binding OrderTimeText}" FontSize="14" Foreground="#555555"/>
                                                 <TextBlock Text="{Binding ReservationTimeText}" FontSize="14" Foreground="#555555"/>
                                                 <TextBlock Text="{Binding WaitingText}" FontSize="14" FontWeight="SemiBold" Foreground="#E53935" Margin="0 8 0 10"/>
-                                                <Button Content="Ready" Command="{Binding DataContext.ReadyItemCommand, RelativeSource={RelativeSource AncestorType=Page}}" CommandParameter="{Binding}" Style="{StaticResource PrimaryButtonStyle}" Background="#E53935"/>
+                                                <Button Content="Gotowe" Command="{Binding DataContext.ReadyItemCommand, RelativeSource={RelativeSource AncestorType=Page}}" CommandParameter="{Binding}" Style="{StaticResource PrimaryButtonStyle}" Background="#E53935"/>
                                             </StackPanel>
                                         </Border>
                                     </DataTemplate>
@@ -137,7 +137,7 @@
 
                 <Border Grid.Column="4" Style="{StaticResource ColumnCardStyle}">
                     <DockPanel>
-                        <TextBlock DockPanel.Dock="Top" Text="Ready" FontSize="28" FontWeight="Bold" Foreground="#333333" Margin="0 0 0 12"/>
+                        <TextBlock DockPanel.Dock="Top" Text="Gotowe" FontSize="28" FontWeight="Bold" Foreground="#333333" Margin="0 0 0 12"/>
                         <ScrollViewer VerticalScrollBarVisibility="Auto">
                             <ItemsControl ItemsSource="{Binding ReadyItems}">
                                 <ItemsControl.ItemTemplate>

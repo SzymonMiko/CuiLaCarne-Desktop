@@ -50,6 +50,19 @@
         VerticalAlignment="Center"
         Margin="24 0"
       />
+      <Button
+        DockPanel.Dock="Right"
+        Content="{Binding LanguageSwitchText}"
+        Command="{Binding ToggleLanguageCommand}"
+        Width="96"
+        Height="34"
+        Margin="0 0 24 0"
+        VerticalAlignment="Center"
+        Background="#333333"
+        Foreground="White"
+        FontWeight="SemiBold"
+        BorderThickness="0"
+      />
     </DockPanel>
 
     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
@@ -94,7 +107,7 @@
 
         <UniformGrid Columns="3" Margin="12">
           <Button
-            Content="Management"
+            Content="Zarządzanie"
             Command="{Binding OpenManagerCommand}"
             Style="{StaticResource PrimaryButtonStyle}"
             Margin="8"
@@ -102,7 +115,7 @@
             MinWidth="180"
           />
           <Button
-            Content="Kitchen"
+            Content="Kuchnia"
             Command="{Binding OpenKitchenCommand}"
             Style="{StaticResource PrimaryButtonStyle}"
             Margin="8"
@@ -110,7 +123,7 @@
             MinWidth="180"
           />
           <Button
-            Content="Clients"
+            Content="Klienci"
             Command="{Binding OpenUsersCommand}"
             Style="{StaticResource PrimaryButtonStyle}"
             Margin="8"
@@ -118,7 +131,7 @@
             MinWidth="180"
           />
           <Button
-            Content="Personnel"
+            Content="Personel"
             Command="{Binding OpenPersonnelCommand}"
             Style="{StaticResource PrimaryButtonStyle}"
             Margin="8"
@@ -126,7 +139,7 @@
             MinWidth="180"
           />
           <Button
-            Content="Security"
+            Content="Bezpieczeństwo"
             Command="{Binding OpenSecurityCommand}"
             Style="{StaticResource PrimaryButtonStyle}"
             Margin="8"
@@ -134,7 +147,7 @@
             MinWidth="180"
           />
           <Button
-            Content="Ingredients"
+            Content="Składniki"
             Command="{Binding OpenIngredientConfirmationCommand}"
             Style="{StaticResource PrimaryButtonStyle}"
             Margin="8"
@@ -150,7 +163,7 @@
             MinWidth="180"
           />
           <Button
-            Content="2FA Check"
+            Content="Sprawdź 2FA"
             Command="{Binding OpenTwoFactorCommand}"
             Style="{StaticResource PrimaryButtonStyle}"
             Margin="8"

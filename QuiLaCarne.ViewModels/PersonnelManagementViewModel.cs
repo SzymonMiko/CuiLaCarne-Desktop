@@ -7,7 +7,6 @@ using QuiLaCarne.Models.DTOS;
 using QuiLaCarne.Services.Api;
 using QuiLaCarne.Services.IServices;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace QuiLaCarne.ViewModels;
 
@@ -17,9 +16,11 @@ public partial class PersonnelManagementViewModel : ObservableObject
     private readonly UserService _userService;
     private readonly SyncService _syncService;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
+    private readonly IAppDialogService _dialog;
+    private readonly IUiDispatcherService _uiDispatcher;
 
     public ObservableCollection<EmployeeRow> Employees { get; } = new();
-    public ObservableCollection<string> AvailableRoles { get; } = new(["Staff", "Admin"]);
+    public ObservableCollection<string> AvailableRoles { get; } = new(["Pracownik", "Admin"]);
 
     private EmployeeRow? selectedEmployee;
     public EmployeeRow? SelectedEmployee
@@ -70,13 +71,13 @@ public partial class PersonnelManagementViewModel : ObservableObject
         set => SetProperty(ref isAdmin, value);
     }
 
-    private string selectedRole = "Staff";
+    private string selectedRole = "Pracownik";
     public string SelectedRole
     {
         get => selectedRole;
         set
         {
-            value ??= "Staff";
+            value ??= "Pracownik";
 
             if (SetProperty(ref selectedRole, value))
             {
@@ -89,12 +90,16 @@ public partial class PersonnelManagementViewModel : ObservableObject
         QuiLaCarneDbContext db,
         UserService userService,
         SyncService syncService,
-        IRealtimeUpdateService realtimeUpdateService)
+        IRealtimeUpdateService realtimeUpdateService,
+        IAppDialogService dialog,
+        IUiDispatcherService uiDispatcher)
     {
         _db = db;
         _userService = userService;
         _syncService = syncService;
         _realtimeUpdateService = realtimeUpdateService;
+        _dialog = dialog;
+        _uiDispatcher = uiDispatcher;
         _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
     }
 
@@ -141,7 +146,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
             string.IsNullOrWhiteSpace(NewEmail) ||
             string.IsNullOrWhiteSpace(NewPassword))
         {
-            MessageBox.Show("Username, email and password are required.");
+            _dialog.ShowMessage("Nazwa użytkownika, email i hasło są wymagane.");
             return;
         }
 
@@ -163,9 +168,9 @@ public partial class PersonnelManagementViewModel : ObservableObject
         NewEmail = "";
         NewPassword = "";
         IsAdmin = false;
-        SelectedRole = "Staff";
+        SelectedRole = "Pracownik";
 
-        MessageBox.Show("Employee change sent. The list will refresh after the server confirms it.");
+        _dialog.ShowMessage("Zmiana pracownika wysłana. Lista odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -181,7 +186,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
             SelectedEmployee.Token,
             IsAdmin);
 
-        MessageBox.Show("Role change sent. The list will refresh after the server confirms it.");
+        _dialog.ShowMessage("Zmiana roli wysłana. Lista odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -197,7 +202,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
             SelectedEmployee.Token,
             available: !SelectedEmployee.IsEnabled);
 
-        MessageBox.Show("Availability change sent. The list will refresh after the server confirms it.");
+        _dialog.ShowMessage("Zmiana dostępności wysłana. Lista odświeży się po potwierdzeniu z serwera.");
     }
 
     [RelayCommand]
@@ -205,26 +210,26 @@ public partial class PersonnelManagementViewModel : ObservableObject
     {
         if (SelectedEmployee == null)
         {
-            MessageBox.Show("Select an employee first.");
+            _dialog.ShowMessage("Najpierw wybierz pracownika.");
             return;
         }
 
         if (string.Equals(SelectedEmployee.Username, SessionService.Username, StringComparison.OrdinalIgnoreCase))
         {
-            MessageBox.Show("Managers cannot change their own password here.");
+            _dialog.ShowMessage("Manager nie może tutaj zmienić własnego hasła.");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(EmployeePassword) ||
             string.IsNullOrWhiteSpace(EmployeeConfirmPassword))
         {
-            MessageBox.Show("Password and confirmation are required.");
+            _dialog.ShowMessage("Hasło i potwierdzenie są wymagane.");
             return;
         }
 
         if (!string.Equals(EmployeePassword, EmployeeConfirmPassword, StringComparison.Ordinal))
         {
-            MessageBox.Show("Passwords do not match.");
+            _dialog.ShowMessage("Hasła nie są takie same.");
             return;
         }
 
@@ -237,7 +242,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
         EmployeePassword = "";
         EmployeeConfirmPassword = "";
 
-        MessageBox.Show("Employee password changed.");
+        _dialog.ShowMessage("Hasło pracownika zostało zmienione.");
     }
 
     [RelayCommand]
@@ -252,7 +257,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
             SessionService.JwtToken,
             SelectedEmployee.Token);
 
-        MessageBox.Show("Delete request sent. The list will refresh after the server confirms it.");
+        _dialog.ShowMessage("Prośba o usunięcie wysłana. Lista odświeży się po potwierdzeniu z serwera.");
     }
 
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
@@ -262,10 +267,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
             return;
         }
 
-        Application.Current.Dispatcher.Invoke(async () =>
-        {
-            await LoadAsync();
-        });
+        _ = _uiDispatcher.InvokeAsync(LoadAsync);
     }
 }
 

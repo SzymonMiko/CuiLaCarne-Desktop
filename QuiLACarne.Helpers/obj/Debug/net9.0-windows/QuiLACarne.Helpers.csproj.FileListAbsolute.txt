@@ -27,3 +27,10 @@ C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLACarne.Helpers\obj\Debug\n
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLACarne.Helpers\obj\Debug\net9.0-windows\QuiLACarne.Helpers.pdb
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLACarne.Helpers\obj\Debug\net9.0-windows\QuiLACarne.Helpers.genruntimeconfig.cache
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLACarne.Helpers\obj\Debug\net9.0-windows\ref\QuiLACarne.Helpers.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\helpers-reference-fix\QuiLaCarne.Ui.deps.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\helpers-reference-fix\QuiLaCarne.Ui.runtimeconfig.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\helpers-reference-fix\QuiLaCarne.Ui.exe
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\helpers-reference-fix\QuiLACarne.Helpers.deps.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\helpers-reference-fix\QuiLACarne.Helpers.runtimeconfig.json
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\helpers-reference-fix\QuiLACarne.Helpers.dll
+C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\helpers-reference-fix\QuiLACarne.Helpers.pdb

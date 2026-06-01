@@ -3,13 +3,14 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
 using QuiLaCarne.Data;
 using QuiLaCarne.Services.Api;
+using QuiLaCarne.Services.IServices;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 public partial class SecurityDashboardViewModel : ObservableObject
 {
     private readonly QuiLaCarneDbContext _db;
     private readonly SystemService _systemService;
+    private readonly IAppDialogService _dialog;
 
     public ObservableCollection<SecurityLogRow> Logs { get; } = new();
     public ObservableCollection<string> Caches { get; } = new();
@@ -21,10 +22,14 @@ public partial class SecurityDashboardViewModel : ObservableObject
         set => SetProperty(ref selectedCache, value);
     }
 
-    public SecurityDashboardViewModel(QuiLaCarneDbContext db, SystemService systemService)
+    public SecurityDashboardViewModel(
+        QuiLaCarneDbContext db,
+        SystemService systemService,
+        IAppDialogService dialog)
     {
         _db = db;
         _systemService = systemService;
+        _dialog = dialog;
         _ = LoadLogsAsync();
         _ = LoadCachesAsync();
     }
@@ -90,40 +95,36 @@ public partial class SecurityDashboardViewModel : ObservableObject
             return;
         }
 
-        var result = MessageBox.Show(
-            $"Clear cache {SelectedCache}?",
-            "Clear cache",
-            MessageBoxButton.YesNo,
-            MessageBoxImage.Warning);
+        var confirmed = _dialog.Confirm(
+            $"Wyczyścić cache {SelectedCache}?",
+            "Wyczyść cache");
 
-        if (result != MessageBoxResult.Yes)
+        if (!confirmed)
         {
             return;
         }
 
         var cleared = await _systemService.ClearCacheAsync(SessionService.JwtToken, SelectedCache);
 
-        MessageBox.Show(cleared ? "Cache cleared." : "Cache was not cleared.");
+        _dialog.ShowMessage(cleared ? "Cache wyczyszczony." : "Cache nie został wyczyszczony.");
         await LoadCachesAsync();
     }
 
     [RelayCommand]
     private async Task ClearAllCachesAsync()
     {
-        var result = MessageBox.Show(
-            "Clear all system caches?",
-            "Clear all caches",
-            MessageBoxButton.YesNo,
-            MessageBoxImage.Warning);
+        var confirmed = _dialog.Confirm(
+            "Wyczyścić wszystkie cache systemu?",
+            "Wyczyść wszystkie cache");
 
-        if (result != MessageBoxResult.Yes)
+        if (!confirmed)
         {
             return;
         }
 
         var cleared = await _systemService.ClearAllCachesAsync(SessionService.JwtToken);
 
-        MessageBox.Show(cleared ? "All caches cleared." : "Caches were not cleared.");
+        _dialog.ShowMessage(cleared ? "Wszystkie cache wyczyszczone." : "Cache nie zostały wyczyszczone.");
         await LoadCachesAsync();
     }
 }

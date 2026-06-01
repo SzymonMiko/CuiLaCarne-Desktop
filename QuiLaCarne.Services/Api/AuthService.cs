@@ -110,7 +110,7 @@ public class AuthService : BaseApiService
     }
     public async Task<LoginData?> Verify2FaAsync(
     string preAuthToken,
-    int code)
+    string code)
     {
         var request =
             new VerifyTwoFactorRequest

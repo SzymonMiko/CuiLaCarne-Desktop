@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +12,8 @@ public partial class IngredientConfirmationPanelViewModel : ObservableObject
     private readonly QuiLaCarneDbContext _db;
     private readonly LookupService _lookupService;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
+    private readonly IAppDialogService _dialog;
+    private readonly IUiDispatcherService _uiDispatcher;
 
     public ObservableCollection<Ingredients> Ingredients { get; } = new();
 
@@ -22,16 +23,20 @@ public partial class IngredientConfirmationPanelViewModel : ObservableObject
     private Ingredients? selectedIngredient;
 
     [ObservableProperty]
-    private string reason = "Ingredient missing in kitchen";
+    private string reason = "Brak składnika w kuchni";
     
     public IngredientConfirmationPanelViewModel(
         QuiLaCarneDbContext db,
         LookupService lookupService,
-        IRealtimeUpdateService realtimeUpdateService)
+        IRealtimeUpdateService realtimeUpdateService,
+        IAppDialogService dialog,
+        IUiDispatcherService uiDispatcher)
     {
         _db = db;
         _lookupService = lookupService;
         _realtimeUpdateService = realtimeUpdateService;
+        _dialog = dialog;
+        _uiDispatcher = uiDispatcher;
         _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
     }
 
@@ -99,7 +104,7 @@ public partial class IngredientConfirmationPanelViewModel : ObservableObject
 
         if (string.IsNullOrWhiteSpace(Reason))
         {
-            MessageBox.Show("Reason is required.");
+            _dialog.ShowMessage("Powód jest wymagany.");
             return;
         }
 
@@ -109,16 +114,16 @@ public partial class IngredientConfirmationPanelViewModel : ObservableObject
                 SessionService.JwtToken,
                 SelectedIngredient.Token);
 
-            MessageBox.Show("Ingredient change sent. Local data will refresh after the server confirms it.");
+            _dialog.ShowMessage("Zmiana składnika wysłana. Dane lokalne odświeżą się po potwierdzeniu z serwera.");
         }
         catch (Exception ex) when (ex.Message.Contains("403 Forbidden"))
         {
-            MessageBox.Show(
-                "The backend refused this change. This account does not have permission to delete ingredients, so no WebSocket update was sent.");
+            _dialog.ShowMessage(
+                "Backend odrzucił zmianę. To konto nie ma uprawnień do usuwania składników, więc WebSocket nie wysłał aktualizacji.");
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Ingredient change failed:\n{ex.Message}");
+            _dialog.ShowMessage($"Zmiana składnika nie powiodła się:\n{ex.Message}");
         }
     }
 
@@ -134,7 +139,7 @@ public partial class IngredientConfirmationPanelViewModel : ObservableObject
             return;
         }
 
-        Application.Current.Dispatcher.Invoke(async () =>
+        _ = _uiDispatcher.InvokeAsync(async () =>
         {
             await LoadIngredientsAsync();
             await LoadAffectedDishesAsync();
