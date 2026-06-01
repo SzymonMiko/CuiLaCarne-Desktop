@@ -99,15 +99,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "QuiLaCarne.Tests",
+              "Title": "QuiLaCarne.Tests.csproj",
               "DocumentMoniker": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Tests\\QuiLaCarne.Tests.csproj",
               "RelativeDocumentMoniker": "QuiLaCarne.Tests\\QuiLaCarne.Tests.csproj",
               "ToolTip": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Tests\\QuiLaCarne.Tests.csproj",
               "RelativeToolTip": "QuiLaCarne.Tests\\QuiLaCarne.Tests.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-01T17:35:53.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-01T17:35:53.51Z"
             }
           ]
         },

@@ -24,7 +24,7 @@ public sealed class WpfLocalizationService : ILocalizationService
     public WpfLocalizationService()
     {
         _plToEn = BuildPolishToEnglishDictionary();
-        _enToPl = _plToEn.ToDictionary(pair => pair.Value, pair => pair.Key, StringComparer.Ordinal);
+        _enToPl = BuildEnglishToPolishDictionary(_plToEn);
     }
 
     public string CurrentLanguage => _currentLanguage;
@@ -249,6 +249,26 @@ public sealed class WpfLocalizationService : ILocalizationService
 
         translated = $"{targetPrefix}{value}{suffix}";
         return true;
+    }
+
+    private static Dictionary<string, string> BuildEnglishToPolishDictionary(IReadOnlyDictionary<string, string> plToEn)
+    {
+        var enToPl = new Dictionary<string, string>(StringComparer.Ordinal);
+
+        foreach (var pair in plToEn)
+        {
+            var polish = pair.Key;
+            var english = pair.Value;
+
+            if (!enToPl.TryGetValue(english, out var existingPolish) ||
+                (string.Equals(existingPolish, english, StringComparison.Ordinal) &&
+                 !string.Equals(polish, english, StringComparison.Ordinal)))
+            {
+                enToPl[english] = polish;
+            }
+        }
+
+        return enToPl;
     }
 
     private static Dictionary<string, string> BuildPolishToEnglishDictionary()
