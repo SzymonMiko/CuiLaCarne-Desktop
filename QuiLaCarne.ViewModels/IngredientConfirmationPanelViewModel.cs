@@ -124,7 +124,12 @@ public partial class IngredientConfirmationPanelViewModel : ObservableObject
 
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
     {
-        if (e.EntityType != "INGREDIENT" && e.EntityType != "DISH")
+        var entityType = e.EntityType.ToUpperInvariant();
+
+        if (entityType != "INGREDIENT" &&
+            entityType != "DISH" &&
+            entityType != "DISH_AVAILABILITY" &&
+            entityType != "MENU_AVAILABILITY")
         {
             return;
         }

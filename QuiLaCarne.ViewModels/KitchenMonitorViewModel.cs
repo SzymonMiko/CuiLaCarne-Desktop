@@ -7,6 +7,7 @@ using QuiLaCarne.Data;
 using QuiLaCarne.Models;
 using QuiLaCarne.Services.Api;
 using QuiLaCarne.Services.IServices;
+using System.Windows.Threading;
 
 namespace QuiLaCarne.ViewModels;
 
@@ -14,6 +15,8 @@ public partial class KitchenMonitorViewModel : ObservableObject
 {
     private readonly QuiLaCarneDbContext _db;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
+    private readonly DispatcherTimer _refreshTimer;
+    private bool _isLoading;
 
     public ObservableCollection<KdsOrderItem> TodoItems { get; } = new();
     public ObservableCollection<KdsOrderItem> InProgressItems { get; } = new();
@@ -29,12 +32,30 @@ public partial class KitchenMonitorViewModel : ObservableObject
 
         _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
 
+        _refreshTimer = new DispatcherTimer
+        {
+            Interval = TimeSpan.FromMinutes(1)
+        };
+        _refreshTimer.Tick += async (_, _) => await LoadOrdersAsync();
+        _refreshTimer.Start();
+
         _ = LoadOrdersAsync();
     }
 
     [RelayCommand]
     public async Task LoadOrdersAsync()
     {
+        if (_isLoading)
+        {
+            return;
+        }
+
+        _isLoading = true;
+
+        try
+        {
+        var now = DateTimeOffset.Now;
+
         var items = await _db
             .OrderItems.AsNoTracking()
             .Include(i => i.Dish)
@@ -43,14 +64,28 @@ public partial class KitchenMonitorViewModel : ObservableObject
             .Include(i => i.Statuses)
             .ToListAsync();
 
-        items = items.OrderBy(i => i.CreatedAt).ToList();
+        var reservations = await _db
+            .Reservations.AsNoTracking()
+            .ToListAsync();
 
         TodoItems.Clear();
         InProgressItems.Clear();
         ReadyItems.Clear();
 
-        foreach (var item in items)
+        var visibleItems = items
+            .Select(item => new
+            {
+                Item = item,
+                Reservation = FindMatchingReservation(item.Order, reservations),
+            })
+            .Where(x => ShouldShowInKitchen(x.Item, x.Reservation, now))
+            .OrderBy(x => x.Reservation?.ReservedFrom ?? x.Item.CreatedAt)
+            .ThenBy(x => x.Item.CreatedAt)
+            .ToList();
+
+        foreach (var entry in visibleItems)
         {
+            var item = entry.Item;
             var status = GetStatusName(item);
 
             var viewItem = new KdsOrderItem
@@ -60,7 +95,8 @@ public partial class KitchenMonitorViewModel : ObservableObject
                 Quantity = item.Quantity,
                 TableNumber = item.Order?.Table?.TableNumber ?? 0,
                 Note = item.Note ?? "",
-                CreatedAt = item.CreatedAt.DateTime,
+                CreatedAt = item.CreatedAt.LocalDateTime,
+                ReservationAt = entry.Reservation?.ReservedFrom.LocalDateTime,
                 Status = status,
             };
 
@@ -76,6 +112,11 @@ public partial class KitchenMonitorViewModel : ObservableObject
             {
                 TodoItems.Add(viewItem);
             }
+        }
+        }
+        finally
+        {
+            _isLoading = false;
         }
     }
 
@@ -124,6 +165,7 @@ public partial class KitchenMonitorViewModel : ObservableObject
             && e.EntityType != "ORDER_ITEM"
             && e.EntityType != "ORDER_STATUS"
             && e.EntityType != "ORDER_ITEM_STATUS"
+            && e.EntityType != "RESERVATION"
         )
         {
             return;
@@ -140,6 +182,42 @@ public partial class KitchenMonitorViewModel : ObservableObject
         var status = item.Statuses.FirstOrDefault();
 
         return status?.Name ?? "ToDo";
+    }
+
+    private static Reservations? FindMatchingReservation(
+        Orders? order,
+        IEnumerable<Reservations> reservations)
+    {
+        if (order == null)
+        {
+            return null;
+        }
+
+        return reservations
+            .Where(reservation =>
+                reservation.TableId == order.TableId &&
+                reservation.UserId == order.UserId &&
+                (reservation.ReservedUntil == null || order.CreatedAt <= reservation.ReservedUntil))
+            .OrderBy(reservation => reservation.ReservedFrom)
+            .FirstOrDefault();
+    }
+
+    private static bool ShouldShowInKitchen(
+        OrderItems item,
+        Reservations? reservation,
+        DateTimeOffset now)
+    {
+        if (IsReady(GetStatusName(item)))
+        {
+            return true;
+        }
+
+        if (reservation == null)
+        {
+            return true;
+        }
+
+        return now >= reservation.ReservedFrom.AddMinutes(-30);
     }
 
     private static bool IsInProgress(string status)
@@ -180,6 +258,8 @@ public partial class KdsOrderItem : ObservableObject
 
     public DateTime CreatedAt { get; set; }
 
+    public DateTime? ReservationAt { get; set; }
+
     public string Status { get; set; } = "";
 
     public string QuantityText => $"Ilość: {Quantity}";
@@ -195,4 +275,9 @@ public partial class KdsOrderItem : ObservableObject
             return $"Czas oczekiwania: {minutes} min";
         }
     }
+
+    public string OrderTimeText => $"Zamowienie: {CreatedAt:HH:mm}";
+
+    public string ReservationTimeText =>
+        ReservationAt.HasValue ? $"Rezerwacja: {ReservationAt.Value:HH:mm}" : "";
 }

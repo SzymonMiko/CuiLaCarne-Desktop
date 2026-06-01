@@ -47,11 +47,11 @@ public class DishService : BaseApiService
     {
         SetBearerToken(jwt);
 
-        var request = new
+        var request = new ChangeDishAvailabilityRequest
         {
-            token = dishToken,
-            unavailableReason = unavailableReason ?? "",
-            available = available,
+            Token = dishToken,
+            UnavailableReason = available ? null : unavailableReason,
+            Available = available,
         };
 
         var response = await HttpClient.PatchAsJsonAsync("api/dishes", request);

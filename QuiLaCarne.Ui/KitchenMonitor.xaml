@@ -96,6 +96,8 @@
                                                 <TextBlock Text="{Binding DishName}" FontSize="20" FontWeight="Bold"/>
                                                 <TextBlock Text="{Binding QuantityText}" FontSize="15" Foreground="#333333"/>
                                                 <TextBlock Text="{Binding TableText}" FontSize="14" Foreground="#555555"/>
+                                                <TextBlock Text="{Binding OrderTimeText}" FontSize="14" Foreground="#555555"/>
+                                                <TextBlock Text="{Binding ReservationTimeText}" FontSize="14" Foreground="#555555"/>
                                                 <TextBlock Text="{Binding WaitingText}" FontSize="14" FontWeight="SemiBold" Foreground="#E53935" Margin="0 8 0 0"/>
                                                 <TextBlock Text="{Binding Note}" FontSize="13" Foreground="#777777" TextWrapping="Wrap" Margin="0 4 0 10"/>
                                                 <Button Content="Start" Command="{Binding DataContext.StartItemCommand, RelativeSource={RelativeSource AncestorType=Page}}" CommandParameter="{Binding}" Style="{StaticResource PrimaryButtonStyle}"/>
@@ -120,6 +122,8 @@
                                                 <TextBlock Text="{Binding DishName}" FontSize="20" FontWeight="Bold"/>
                                                 <TextBlock Text="{Binding QuantityText}" FontSize="15" Foreground="#333333"/>
                                                 <TextBlock Text="{Binding TableText}" FontSize="14" Foreground="#555555"/>
+                                                <TextBlock Text="{Binding OrderTimeText}" FontSize="14" Foreground="#555555"/>
+                                                <TextBlock Text="{Binding ReservationTimeText}" FontSize="14" Foreground="#555555"/>
                                                 <TextBlock Text="{Binding WaitingText}" FontSize="14" FontWeight="SemiBold" Foreground="#E53935" Margin="0 8 0 10"/>
                                                 <Button Content="Ready" Command="{Binding DataContext.ReadyItemCommand, RelativeSource={RelativeSource AncestorType=Page}}" CommandParameter="{Binding}" Style="{StaticResource PrimaryButtonStyle}" Background="#E53935"/>
                                             </StackPanel>
@@ -143,6 +147,8 @@
                                                 <TextBlock Text="{Binding DishName}" FontSize="20" FontWeight="Bold"/>
                                                 <TextBlock Text="{Binding QuantityText}" FontSize="15" Foreground="#333333"/>
                                                 <TextBlock Text="{Binding TableText}" FontSize="14" Foreground="#555555"/>
+                                                <TextBlock Text="{Binding OrderTimeText}" FontSize="14" Foreground="#555555"/>
+                                                <TextBlock Text="{Binding ReservationTimeText}" FontSize="14" Foreground="#555555"/>
                                                 <TextBlock Text="{Binding WaitingText}" FontSize="14" FontWeight="SemiBold" Foreground="#1B9A2F" Margin="0 8 0 0"/>
                                             </StackPanel>
                                         </Border>

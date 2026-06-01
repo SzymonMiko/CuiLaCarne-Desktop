@@ -76,6 +76,42 @@ public partial class ManagerViewModel : ObservableObject
         MessageBox.Show("Change sent. The list will refresh after the server confirms it.");
     }
 
+    [RelayCommand]
+    public async Task BlockSelectedDishAsync()
+    {
+        if (SelectedDish == null)
+        {
+            MessageBox.Show("Choose dish first.");
+            return;
+        }
+
+        await _dishService.ChangeDishAvailabilityAsync(
+            SessionService.JwtToken,
+            SelectedDish.Token,
+            false,
+            UnavailableReason);
+
+        MessageBox.Show("Block request sent. The list will refresh after the server confirms it.");
+    }
+
+    [RelayCommand]
+    public async Task MakeSelectedDishAvailableAsync()
+    {
+        if (SelectedDish == null)
+        {
+            MessageBox.Show("Choose dish first.");
+            return;
+        }
+
+        await _dishService.ChangeDishAvailabilityAsync(
+            SessionService.JwtToken,
+            SelectedDish.Token,
+            true,
+            null);
+
+        MessageBox.Show("Available request sent. The list will refresh after the server confirms it.");
+    }
+
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
     {
         var entityType = e.EntityType.ToUpperInvariant();

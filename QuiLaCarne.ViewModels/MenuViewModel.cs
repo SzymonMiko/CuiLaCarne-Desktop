@@ -40,7 +40,7 @@ public partial class MenuViewModel : ObservableObject
     [RelayCommand]
     private void OpenMenuRoom()
     {
-        _navigation.ShowMenuRoomEditor();
+        _navigation.ShowManagerPanel();
     }
 
     [RelayCommand]

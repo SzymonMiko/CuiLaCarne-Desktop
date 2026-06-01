@@ -1,127 +1,148 @@
-﻿<Page
-    x:Class="QuiLaCarne.Ui.UsersPanel"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Background="#F5F5F5">
+<Page
+  x:Class="QuiLaCarne.Ui.UsersPanel"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  Background="#F5F5F5">
+  <Page.Resources>
+    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Background" Value="#19A93A" />
+      <Setter Property="Padding" Value="12 6" />
+      <Setter Property="FontWeight" Value="SemiBold" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border Background="{TemplateBinding Background}" CornerRadius="6">
+              <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </Page.Resources>
 
-    <Page.Resources>
-        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#19A93A"/>
-            <Setter Property="Padding" Value="18 8"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                                CornerRadius="20">
-                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Page.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="52" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="64"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <DockPanel Grid.Row="0" Background="#19A93A">
+      <TextBlock Text="Qui la Carne" Foreground="White" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="16 0" />
+      <TextBlock Text="Clients" DockPanel.Dock="Right" Foreground="White" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0 0 16 0" />
+    </DockPanel>
 
-        <DockPanel Grid.Row="0" Background="#19A93A">
-            <TextBlock Text="Qui la Carne"
-                       Foreground="White"
-                       FontSize="22"
-                       FontWeight="Bold"
-                       VerticalAlignment="Center"
-                       Margin="24 0"/>
+    <Grid Grid.Row="1" Margin="16" MinWidth="720">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="10" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
 
-            <TextBlock Text="Users Panel"
-                       DockPanel.Dock="Right"
-                       Foreground="White"
-                       FontSize="16"
-                       FontWeight="SemiBold"
-                       VerticalAlignment="Center"
-                       Margin="0 0 24 0"/>
-        </DockPanel>
+      <StackPanel>
+        <TextBlock FontSize="28" FontWeight="Bold">
+          <Run Text="Clients " Foreground="#E53935" />
+          <Run Text="List" Foreground="#1B9A2F" />
+        </TextBlock>
+        <TextBlock Text="Client orders and reports from the local synchronized cache." Foreground="#333333" FontSize="13" />
+      </StackPanel>
 
-        <Grid Grid.Row="1" Margin="24" MinWidth="760">
+      <Border Grid.Row="2" Background="White" CornerRadius="8" Padding="12">
+        <Border.Effect>
+          <DropShadowEffect BlurRadius="8" ShadowDepth="1" Opacity="0.12" />
+        </Border.Effect>
+
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MinWidth="360" />
+            <ColumnDefinition Width="12" />
+            <ColumnDefinition Width="1.35*" MinWidth="460" />
+          </Grid.ColumnDefinitions>
+
+          <DataGrid
+            ItemsSource="{Binding Clients}"
+            SelectedItem="{Binding SelectedClient}"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            HeadersVisibility="Column"
+            GridLinesVisibility="None"
+            RowHeight="34"
+            FontSize="13">
+            <DataGrid.Columns>
+              <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="*" />
+              <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="1.8*" />
+              <DataGridCheckBoxColumn Header="Enabled" Binding="{Binding IsEnabled}" Width="80" />
+              <DataGridTextColumn Header="Roles" Binding="{Binding RolesText}" Width="*" />
+            </DataGrid.Columns>
+          </DataGrid>
+
+          <Grid Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="16"/>
-                <RowDefinition Height="*"/>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="8" />
+              <RowDefinition Height="*" />
+              <RowDefinition Height="12" />
+              <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <StackPanel>
-                <TextBlock FontSize="46"
-                           FontWeight="Bold">
-                    <Run Text="Users " Foreground="#E53935"/>
-                    <Run Text="Management" Foreground="#1B9A2F"/>
-                </TextBlock>
-
-                <Grid Margin="0 8 0 18"
-                      Height="6"
-                      MaxWidth="360"
-                      HorizontalAlignment="Left">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle Fill="#19A93A" RadiusX="3" RadiusY="3"/>
-                    <Rectangle Grid.Column="1" Fill="#E0E0E0" RadiusX="3" RadiusY="3"/>
-                    <Rectangle Grid.Column="2" Fill="#E53935" RadiusX="3" RadiusY="3"/>
-                </Grid>
-
-                <TextBlock Text="Lista użytkowników zsynchronizowana z lokalnej bazy SQLite"
-                           Foreground="#333333"
-                           FontSize="16"/>
+              <TextBlock Text="{Binding SelectedClient.Username, StringFormat=Selected client: {0}, TargetNullValue=Select a client}" FontWeight="Bold" FontSize="16" />
+              <TextBlock Text="{Binding SelectedClient.Email}" Foreground="#555" FontSize="12" />
             </StackPanel>
 
-            <Border Grid.Row="2"
-                    Background="White"
-                    CornerRadius="22"
-                    Padding="18">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="16"
-                                      ShadowDepth="3"
-                                      Opacity="0.18"/>
-                </Border.Effect>
+            <Grid Grid.Row="2">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="6" />
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+              <TextBlock Text="Orders" FontWeight="Bold" FontSize="14" />
+              <DataGrid
+                Grid.Row="2"
+                ItemsSource="{Binding ClientOrders}"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                HeadersVisibility="Column"
+                GridLinesVisibility="None"
+                RowHeight="30"
+                FontSize="12">
+                <DataGrid.Columns>
+                  <DataGridTextColumn Header="Time" Binding="{Binding CreatedAtText}" Width="112" />
+                  <DataGridTextColumn Header="Table" Binding="{Binding TableNumber}" Width="64" />
+                  <DataGridTextColumn Header="Status" Binding="{Binding StatusesText}" Width="90" />
+                  <DataGridTextColumn Header="Dishes" Binding="{Binding DishesText}" Width="*" />
+                </DataGrid.Columns>
+              </DataGrid>
+            </Grid>
 
-                <DataGrid ItemsSource="{Binding Users}"
-                          AutoGenerateColumns="False"
-                          IsReadOnly="True"
-                          HeadersVisibility="Column"
-                          GridLinesVisibility="None"
-                          RowHeight="42"
-                          FontSize="14">
-
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Username"
-                                            Binding="{Binding Username}"
-                                            Width="*"/>
-
-                        <DataGridTextColumn Header="Email"
-                                            Binding="{Binding Email}"
-                                            Width="2*"/>
-
-                        <DataGridCheckBoxColumn Header="Enabled"
-                                                Binding="{Binding IsEnabled}"
-                                                Width="Auto"/>
-
-                        <DataGridTextColumn Header="Token"
-                                            Binding="{Binding Token}"
-                                            Width="2*"/>
-
-                        <DataGridTextColumn Header="Updated"
-                                            Binding="{Binding UpdatedAt}"
-                                            Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Border>
+            <Grid Grid.Row="4">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="6" />
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+              <TextBlock Text="Reports" FontWeight="Bold" FontSize="14" />
+              <DataGrid
+                Grid.Row="2"
+                ItemsSource="{Binding ClientReports}"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                HeadersVisibility="Column"
+                GridLinesVisibility="None"
+                RowHeight="30"
+                FontSize="12">
+                <DataGrid.Columns>
+                  <DataGridTextColumn Header="Time" Binding="{Binding CreatedAtText}" Width="112" />
+                  <DataGridTextColumn Header="Reporter" Binding="{Binding Reporter}" Width="90" />
+                  <DataGridTextColumn Header="Status" Binding="{Binding StatusesText}" Width="90" />
+                  <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                </DataGrid.Columns>
+              </DataGrid>
+            </Grid>
+          </Grid>
         </Grid>
+      </Border>
     </Grid>
+  </Grid>
 </Page>

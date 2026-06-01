@@ -15,6 +15,7 @@ public partial class PersonnelManagementViewModel : ObservableObject
 {
     private readonly QuiLaCarneDbContext _db;
     private readonly UserService _userService;
+    private readonly SyncService _syncService;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
 
     public ObservableCollection<EmployeeRow> Employees { get; } = new();
@@ -73,14 +74,26 @@ public partial class PersonnelManagementViewModel : ObservableObject
     public PersonnelManagementViewModel(
         QuiLaCarneDbContext db,
         UserService userService,
+        SyncService syncService,
         IRealtimeUpdateService realtimeUpdateService)
     {
         _db = db;
         _userService = userService;
+        _syncService = syncService;
         _realtimeUpdateService = realtimeUpdateService;
         _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
+    }
 
-        _ = LoadAsync();
+    [RelayCommand]
+    public async Task RefreshAsync()
+    {
+        if (!string.IsNullOrWhiteSpace(SessionService.JwtToken))
+        {
+            await _syncService.SyncRolesAsync(SessionService.JwtToken);
+            await _syncService.SyncUsersAsync(SessionService.JwtToken);
+        }
+
+        await LoadAsync();
     }
 
     [RelayCommand]

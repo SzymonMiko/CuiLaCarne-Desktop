@@ -23,11 +23,11 @@ public class NavigationService : INavigationService
         Application.Current.Windows.OfType<LoginPage>().FirstOrDefault()?.Close();
     }
 
-    public void ShowManagerPanel() => NavigateTo<ManagerTab>("Manager Panel");
+    public void ShowManagerPanel() => NavigateTo<MenuRoomEditor>("Management Panel");
 
     public void ShowKitchenMonitor() => NavigateTo<KitchenMonitor>("Kitchen Display System");
 
-    public void ShowUsersPanel() => NavigateTo<UsersPanel>("Users Panel");
+    public void ShowUsersPanel() => NavigateTo<UsersPanel>("Clients Panel");
 
     public void ShowTwoFactor() => NavigateTo<Authentication>("Two Factor Authentication");
 
@@ -38,7 +38,7 @@ public class NavigationService : INavigationService
 
     public void ShowPersonnelManagement() => NavigateTo<PersonnelManagement>("Personnel Management");
 
-    public void ShowMenuRoomEditor() => NavigateTo<MenuRoomEditor>("Menu & Room Editor");
+    public void ShowMenuRoomEditor() => NavigateTo<MenuRoomEditor>("Management Panel");
 
     public void ShowSecurityDashboard() => NavigateTo<SecurityDashboard>("Security Dashboard");
 

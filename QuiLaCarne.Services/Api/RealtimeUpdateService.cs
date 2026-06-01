@@ -1,4 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using QuiLaCarne.Data;
 using QuiLaCarne.Models;
 using QuiLaCarne.Services.IServices;
 
@@ -53,7 +55,10 @@ public sealed class RealtimeUpdateService : IRealtimeUpdateService
             using var scope = _scopeFactory.CreateScope();
             var syncService = scope.ServiceProvider.GetRequiredService<SyncService>();
             var lookupService = scope.ServiceProvider.GetRequiredService<LookupService>();
+            var db = scope.ServiceProvider.GetRequiredService<QuiLaCarneDbContext>();
 
+            await ApplyDeleteEventAsync(db, websocketEvent);
+            await ApplyDishAvailabilityEventAsync(db, websocketEvent);
             await SyncForEventAsync(syncService, lookupService, websocketEvent, _jwt);
 
             LocalDataChanged?.Invoke(this, websocketEvent);
@@ -68,6 +73,116 @@ public sealed class RealtimeUpdateService : IRealtimeUpdateService
         }
     }
 
+    private static async Task ApplyDishAvailabilityEventAsync(
+        QuiLaCarneDbContext db,
+        WebSocketEvent websocketEvent)
+    {
+        var entityType = websocketEvent.EntityType.ToUpperInvariant();
+
+        if (entityType != "DISH_AVAILABILITY" && entityType != "MENU_AVAILABILITY")
+        {
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(websocketEvent.Token))
+        {
+            return;
+        }
+
+        var dish = await db.Dishes.FirstOrDefaultAsync(x => x.Token == websocketEvent.Token);
+
+        if (dish == null)
+        {
+            return;
+        }
+
+        var available = TryReadPayloadBool(websocketEvent, "available")
+            ?? TryReadPayloadBool(websocketEvent, "isAvailable");
+        var availableFrom = TryReadPayloadDateTimeOffset(websocketEvent, "availableFrom");
+
+        if (available == true)
+        {
+            dish.AvailableFrom = null;
+        }
+        else if (available == null && PayloadHasNullProperty(websocketEvent, "availableFrom"))
+        {
+            dish.AvailableFrom = null;
+        }
+        else
+        {
+            dish.AvailableFrom = availableFrom ?? DateTimeOffset.MaxValue;
+        }
+
+        await db.SaveChangesAsync();
+    }
+
+    private static bool? TryReadPayloadBool(WebSocketEvent websocketEvent, string propertyName)
+    {
+        if (websocketEvent.Payload is not { ValueKind: System.Text.Json.JsonValueKind.Object } payload ||
+            !payload.TryGetProperty(propertyName, out var property) ||
+            property.ValueKind is not System.Text.Json.JsonValueKind.True and not System.Text.Json.JsonValueKind.False)
+        {
+            return null;
+        }
+
+        return property.GetBoolean();
+    }
+
+    private static DateTimeOffset? TryReadPayloadDateTimeOffset(
+        WebSocketEvent websocketEvent,
+        string propertyName)
+    {
+        if (websocketEvent.Payload is not { ValueKind: System.Text.Json.JsonValueKind.Object } payload ||
+            !payload.TryGetProperty(propertyName, out var property) ||
+            property.ValueKind != System.Text.Json.JsonValueKind.String)
+        {
+            return null;
+        }
+
+        return DateTimeOffset.TryParse(property.GetString(), out var value) ? value : null;
+    }
+
+    private static bool PayloadHasNullProperty(WebSocketEvent websocketEvent, string propertyName)
+    {
+        return websocketEvent.Payload is { ValueKind: System.Text.Json.JsonValueKind.Object } payload &&
+            payload.TryGetProperty(propertyName, out var property) &&
+            property.ValueKind == System.Text.Json.JsonValueKind.Null;
+    }
+
+    private static async Task ApplyDeleteEventAsync(
+        QuiLaCarneDbContext db,
+        WebSocketEvent websocketEvent)
+    {
+        if (!websocketEvent.EventType.Equals("DELETED", StringComparison.OrdinalIgnoreCase) ||
+            string.IsNullOrWhiteSpace(websocketEvent.Token))
+        {
+            return;
+        }
+
+        var entityType = websocketEvent.EntityType.ToUpperInvariant();
+
+        if (!string.IsNullOrWhiteSpace(entityType) && entityType != "INGREDIENT")
+        {
+            return;
+        }
+
+        var ingredient = await db.Ingredients
+            .FirstOrDefaultAsync(x => x.Token == websocketEvent.Token);
+
+        if (ingredient == null)
+        {
+            return;
+        }
+
+        db.Ingredients.Remove(ingredient);
+        await db.SaveChangesAsync();
+
+        if (string.IsNullOrWhiteSpace(websocketEvent.EntityType))
+        {
+            websocketEvent.EntityType = "INGREDIENT";
+        }
+    }
+
     private static async Task SyncForEventAsync(
         SyncService syncService,
         LookupService lookupService,
@@ -77,10 +192,13 @@ public sealed class RealtimeUpdateService : IRealtimeUpdateService
         switch (websocketEvent.EntityType.ToUpperInvariant())
         {
             case "DISH":
-            case "DISH_AVAILABILITY":
-            case "MENU_AVAILABILITY":
                 await lookupService.GetDishCategoriesAsync(jwt);
                 await syncService.SyncIngredientsAsync(jwt);
+                await syncService.SyncDishesAsync(jwt);
+                break;
+
+            case "DISH_AVAILABILITY":
+            case "MENU_AVAILABILITY":
                 await syncService.SyncDishesAsync(jwt);
                 break;
 
