@@ -238,7 +238,22 @@ public class SyncService : BaseApiService
 
     public async Task SyncOrdersAsync(string jwt)
     {
+        try
+        {
+            await SyncOrdersCoreAsync(jwt);
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            _db.ChangeTracker.Clear();
+            await SyncOrdersCoreAsync(jwt);
+        }
+    }
+
+    private async Task SyncOrdersCoreAsync(string jwt)
+    {
         SetBearerToken(jwt);
+        _db.ChangeTracker.Clear();
+
         var syncedTokens = StartTokenCapture(OrdersModule);
 
         int page = 1;

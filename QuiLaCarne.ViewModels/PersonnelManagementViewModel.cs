@@ -49,6 +49,20 @@ public partial class PersonnelManagementViewModel : ObservableObject
         set => SetProperty(ref newPassword, value);
     }
 
+    private string employeePassword = "";
+    public string EmployeePassword
+    {
+        get => employeePassword;
+        set => SetProperty(ref employeePassword, value);
+    }
+
+    private string employeeConfirmPassword = "";
+    public string EmployeeConfirmPassword
+    {
+        get => employeeConfirmPassword;
+        set => SetProperty(ref employeeConfirmPassword, value);
+    }
+
     private bool isAdmin;
     public bool IsAdmin
     {
@@ -184,6 +198,46 @@ public partial class PersonnelManagementViewModel : ObservableObject
             available: !SelectedEmployee.IsEnabled);
 
         MessageBox.Show("Availability change sent. The list will refresh after the server confirms it.");
+    }
+
+    [RelayCommand]
+    private async Task ChangeEmployeePasswordAsync()
+    {
+        if (SelectedEmployee == null)
+        {
+            MessageBox.Show("Select an employee first.");
+            return;
+        }
+
+        if (string.Equals(SelectedEmployee.Username, SessionService.Username, StringComparison.OrdinalIgnoreCase))
+        {
+            MessageBox.Show("Managers cannot change their own password here.");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(EmployeePassword) ||
+            string.IsNullOrWhiteSpace(EmployeeConfirmPassword))
+        {
+            MessageBox.Show("Password and confirmation are required.");
+            return;
+        }
+
+        if (!string.Equals(EmployeePassword, EmployeeConfirmPassword, StringComparison.Ordinal))
+        {
+            MessageBox.Show("Passwords do not match.");
+            return;
+        }
+
+        await _userService.ChangeEmployeePasswordAsync(
+            SessionService.JwtToken,
+            SelectedEmployee.Token,
+            EmployeePassword,
+            EmployeeConfirmPassword);
+
+        EmployeePassword = "";
+        EmployeeConfirmPassword = "";
+
+        MessageBox.Show("Employee password changed.");
     }
 
     [RelayCommand]

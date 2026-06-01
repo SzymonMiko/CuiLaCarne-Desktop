@@ -27,4 +27,8 @@
     <ProjectReference Include="..\QuiLaCarne.ViewModels\QuiLaCarne.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="Assets\qui-la-carne-logo.png" />
+  </ItemGroup>
+
 </Project>

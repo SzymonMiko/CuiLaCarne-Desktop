@@ -94,6 +94,7 @@ public class DishService : BaseApiService
         {
             var stream = File.OpenRead(photoPath);
             var fileContent = new StreamContent(stream);
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(GetImageContentType(photoPath));
 
             form.Add(fileContent, "photo", Path.GetFileName(photoPath));
         }
@@ -153,10 +154,7 @@ public class DishService : BaseApiService
             var stream = File.OpenRead(photoPath);
 
             var fileContent = new StreamContent(stream);
-
-            fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(
-                "image/jpeg"
-            );
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(GetImageContentType(photoPath));
 
             form.Add(fileContent, "photo", Path.GetFileName(photoPath));
         }
@@ -193,4 +191,14 @@ public class DishService : BaseApiService
     }
 
    
+    private static string GetImageContentType(string photoPath)
+    {
+        return Path.GetExtension(photoPath).ToLowerInvariant() switch
+        {
+            ".jpg" or ".jpeg" => "image/jpeg",
+            ".png" => "image/png",
+            ".webp" => "image/webp",
+            _ => throw new InvalidOperationException("Only JPEG, PNG, and WEBP images are allowed.")
+        };
+    }
 }

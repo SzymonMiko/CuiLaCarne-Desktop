@@ -81,6 +81,7 @@ public partial class LoginViewModel : ObservableObject
 
             SessionService.JwtToken = token;
             SessionService.RefreshToken = loginData.RefreshToken;
+            SessionService.Username = loginData.Username;
             SessionService.IsAdmin = true;
             _sessionExpirationService.StartWatching(token);
 

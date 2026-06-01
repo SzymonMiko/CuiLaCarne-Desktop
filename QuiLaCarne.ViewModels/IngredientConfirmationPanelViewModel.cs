@@ -23,7 +23,7 @@ public partial class IngredientConfirmationPanelViewModel : ObservableObject
 
     [ObservableProperty]
     private string reason = "Ingredient missing in kitchen";
-
+    
     public IngredientConfirmationPanelViewModel(
         QuiLaCarneDbContext db,
         LookupService lookupService,

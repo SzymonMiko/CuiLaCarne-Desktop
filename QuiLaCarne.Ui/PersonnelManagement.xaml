@@ -87,6 +87,16 @@
           <Button Content="Add employee" Command="{Binding AddEmployeeCommand}" Style="{StaticResource PrimaryButtonStyle}" />
           <Button Content="Change role" Command="{Binding ChangeRoleCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#19A93A" Margin="0 8 0 0" />
           <Button Content="Block / unblock" Command="{Binding ChangeAvailabilityCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#E53935" Margin="0 8 0 0" />
+
+          <Border Height="1" Background="#E5E5E5" Margin="0 14 0 12" />
+
+          <TextBlock Text="Change employee password" FontSize="16" FontWeight="Bold" Margin="0 0 0 8" />
+          <TextBlock Text="{Binding SelectedEmployee.Username, StringFormat=Selected: {0}, TargetNullValue=Select an employee}" Foreground="#555555" FontSize="12" Margin="0 0 0 8" />
+          <TextBlock Text="New password" FontWeight="SemiBold" FontSize="12" />
+          <TextBox Text="{Binding EmployeePassword, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 8" />
+          <TextBlock Text="Confirm password" FontWeight="SemiBold" FontSize="12" />
+          <TextBox Text="{Binding EmployeeConfirmPassword, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0 3 0 10" />
+          <Button Content="Change password" Command="{Binding ChangeEmployeePasswordCommand}" Style="{StaticResource PrimaryButtonStyle}" Background="#555555" />
         </StackPanel>
       </Border>
     </Grid>

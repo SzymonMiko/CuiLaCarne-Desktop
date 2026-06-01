@@ -59,6 +59,14 @@
         MaxWidth="900"
         Margin="24"
       >
+        <Image
+          Source="/QuiLaCarne.Ui;component/Assets/qui-la-carne-logo.png"
+          Width="210"
+          Height="210"
+          Stretch="Uniform"
+          Margin="0 0 0 10"
+        />
+
         <TextBlock FontSize="56" FontWeight="Bold" TextAlignment="Center">
           <Run Text="Qui " Foreground="#E53935" />
           <Run Text="la Carne" Foreground="#1B9A2F" />

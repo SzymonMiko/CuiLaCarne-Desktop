@@ -2,17 +2,31 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
 using QuiLaCarne.Data;
+using QuiLaCarne.Services.Api;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 public partial class SecurityDashboardViewModel : ObservableObject
 {
     private readonly QuiLaCarneDbContext _db;
-    public ObservableCollection<SecurityLogRow> Logs { get; } = new();
+    private readonly SystemService _systemService;
 
-    public SecurityDashboardViewModel(QuiLaCarneDbContext db)
+    public ObservableCollection<SecurityLogRow> Logs { get; } = new();
+    public ObservableCollection<string> Caches { get; } = new();
+
+    private string? selectedCache;
+    public string? SelectedCache
+    {
+        get => selectedCache;
+        set => SetProperty(ref selectedCache, value);
+    }
+
+    public SecurityDashboardViewModel(QuiLaCarneDbContext db, SystemService systemService)
     {
         _db = db;
+        _systemService = systemService;
         _ = LoadLogsAsync();
+        _ = LoadCachesAsync();
     }
 
     [RelayCommand]
@@ -47,6 +61,70 @@ public partial class SecurityDashboardViewModel : ObservableObject
         if (index < 0) return "-";
         var rest = details[(index + marker.Length)..];
         return rest.Split(' ', ';', ',', '|').FirstOrDefault() ?? "-";
+    }
+
+    [RelayCommand]
+    private async Task LoadCachesAsync()
+    {
+        if (string.IsNullOrWhiteSpace(SessionService.JwtToken))
+        {
+            return;
+        }
+
+        var caches = await _systemService.GetCacheListAsync(SessionService.JwtToken);
+
+        Caches.Clear();
+        foreach (var cache in caches.OrderBy(x => x))
+        {
+            Caches.Add(cache);
+        }
+
+        SelectedCache = Caches.FirstOrDefault();
+    }
+
+    [RelayCommand]
+    private async Task ClearSelectedCacheAsync()
+    {
+        if (string.IsNullOrWhiteSpace(SelectedCache))
+        {
+            return;
+        }
+
+        var result = MessageBox.Show(
+            $"Clear cache {SelectedCache}?",
+            "Clear cache",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+        if (result != MessageBoxResult.Yes)
+        {
+            return;
+        }
+
+        var cleared = await _systemService.ClearCacheAsync(SessionService.JwtToken, SelectedCache);
+
+        MessageBox.Show(cleared ? "Cache cleared." : "Cache was not cleared.");
+        await LoadCachesAsync();
+    }
+
+    [RelayCommand]
+    private async Task ClearAllCachesAsync()
+    {
+        var result = MessageBox.Show(
+            "Clear all system caches?",
+            "Clear all caches",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+        if (result != MessageBoxResult.Yes)
+        {
+            return;
+        }
+
+        var cleared = await _systemService.ClearAllCachesAsync(SessionService.JwtToken);
+
+        MessageBox.Show(cleared ? "All caches cleared." : "Caches were not cleared.");
+        await LoadCachesAsync();
     }
 }
 

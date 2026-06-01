@@ -7,6 +7,7 @@ using QuiLaCarne.Services.Api;
 using QuiLaCarne.Services.IServices;
 using System.Collections.ObjectModel;
 using System.Windows;
+using Microsoft.Win32;
 
 namespace QuiLaCarne.ViewModels;
 
@@ -19,6 +20,8 @@ public partial class MenuRoomEditorViewModel : ObservableObject
     private readonly SyncService _syncService;
     private readonly IRealtimeUpdateService _realtimeUpdateService;
     private readonly HashSet<string> _hiddenDishTokens = new(StringComparer.OrdinalIgnoreCase);
+    private readonly HashSet<string> _hiddenTableTokens = new(StringComparer.OrdinalIgnoreCase);
+    private readonly HashSet<string> _hiddenLookupTokens = new(StringComparer.OrdinalIgnoreCase);
 
     public ObservableCollection<MenuDishRow> Dishes { get; } = new();
 
@@ -26,9 +29,24 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
     public ObservableCollection<IngredientSelectionRow> IngredientsForDish { get; } = new();
 
+    public ObservableCollection<AllergenSelectionRow> AllergensForIngredient { get; } = new();
+
     public ObservableCollection<TableMapRow> Tables { get; } = new();
 
     public ObservableCollection<TableOrderRow> SelectedTableOrders { get; } = new();
+
+    public ObservableCollection<DeleteTargetTypeRow> DeleteTargetTypes { get; } =
+        new(
+        [
+            new("Dish category", "dish-category"),
+            new("Ingredient", "ingredient"),
+            new("Allergen", "allergen"),
+            new("Table status", "table-status"),
+            new("Order status", "order-status"),
+            new("Order item status", "order-item-status")
+        ]);
+
+    public ObservableCollection<DeleteLookupRow> DeleteLookupItems { get; } = new();
 
     private MenuDishRow? selectedDish;
     public MenuDishRow? SelectedDish
@@ -57,6 +75,24 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         set => SetProperty(ref blockReason, value);
     }
 
+    private string selectedDishPhotoPath = "";
+    public string SelectedDishPhotoPath
+    {
+        get => selectedDishPhotoPath;
+        set
+        {
+            if (SetProperty(ref selectedDishPhotoPath, value))
+            {
+                OnPropertyChanged(nameof(SelectedDishPhotoName));
+            }
+        }
+    }
+
+    public string SelectedDishPhotoName =>
+        string.IsNullOrWhiteSpace(SelectedDishPhotoPath)
+            ? "No new photo selected"
+            : Path.GetFileName(SelectedDishPhotoPath);
+
     private string newIngredientNamePl = "";
     public string NewIngredientNamePl
     {
@@ -84,6 +120,24 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         get => newDishPrice;
         set => SetProperty(ref newDishPrice, value);
     }
+
+    private string newDishPhotoPath = "";
+    public string NewDishPhotoPath
+    {
+        get => newDishPhotoPath;
+        set
+        {
+            if (SetProperty(ref newDishPhotoPath, value))
+            {
+                OnPropertyChanged(nameof(NewDishPhotoName));
+            }
+        }
+    }
+
+    public string NewDishPhotoName =>
+        string.IsNullOrWhiteSpace(NewDishPhotoPath)
+            ? "No photo selected"
+            : Path.GetFileName(NewDishPhotoPath);
 
     private DishCategoryOption? selectedDishCategory;
     public DishCategoryOption? SelectedDishCategory
@@ -131,6 +185,26 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         set => SetProperty(ref selectedTableOrdersText, value);
     }
 
+    private DeleteTargetTypeRow? selectedDeleteTargetType;
+    public DeleteTargetTypeRow? SelectedDeleteTargetType
+    {
+        get => selectedDeleteTargetType;
+        set
+        {
+            if (SetProperty(ref selectedDeleteTargetType, value))
+            {
+                _ = LoadDeleteLookupItemsAsync();
+            }
+        }
+    }
+
+    private DeleteLookupRow? selectedDeleteLookupItem;
+    public DeleteLookupRow? SelectedDeleteLookupItem
+    {
+        get => selectedDeleteLookupItem;
+        set => SetProperty(ref selectedDeleteLookupItem, value);
+    }
+
     public MenuRoomEditorViewModel(
         QuiLaCarneDbContext db,
         DishService dishService,
@@ -147,6 +221,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         _realtimeUpdateService = realtimeUpdateService;
         _realtimeUpdateService.LocalDataChanged += OnRealtimeDataChanged;
 
+        selectedDeleteTargetType = DeleteTargetTypes.FirstOrDefault();
         _ = LoadAsync();
     }
 
@@ -156,6 +231,10 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         var selectedCategoryToken = SelectedDishCategory?.Token;
         var selectedTableToken = SelectedTable?.Token;
         var selectedIngredientTokens = IngredientsForDish
+            .Where(i => i.IsSelected)
+            .Select(i => i.Token)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var selectedAllergenTokens = AllergensForIngredient
             .Where(i => i.IsSelected)
             .Select(i => i.Token)
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
@@ -220,9 +299,28 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             });
         }
 
+        var allergens = await _db.Allergens
+            .AsNoTracking()
+            .Where(a => !a.Name.StartsWith("DELETED_") && !a.Token.StartsWith("DELETED_"))
+            .OrderBy(a => a.Name)
+            .ToListAsync();
+
+        AllergensForIngredient.Clear();
+
+        foreach (var allergen in allergens)
+        {
+            AllergensForIngredient.Add(new AllergenSelectionRow
+            {
+                Token = allergen.Token,
+                Name = allergen.Name,
+                IsSelected = selectedAllergenTokens.Contains(allergen.Token)
+            });
+        }
+
         var tables = await _db.RestaurantTables
             .AsNoTracking()
             .Include(t => t.TableStatus)
+            .Where(t => !_hiddenTableTokens.Contains(t.Token))
             .OrderBy(t => t.TableNumber)
             .ToListAsync();
 
@@ -230,15 +328,23 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
         foreach (var t in tables)
         {
+            var statusNames = t.TableStatus
+                .Select(s => s.Name)
+                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .OrderBy(s => s)
+                .ToList();
+            var statusCode = GetPrimaryTableStatus(statusNames);
+
             Tables.Add(new TableMapRow
             {
                 Token = t.Token,
                 Id = t.Id,
                 TableNumber = t.TableNumber,
                 Capacity = t.Capacity,
-                StatusText = t.TableStatus.Count == 0
+                StatusCode = statusCode,
+                StatusText = statusNames.Count == 0
                     ? "No status"
-                    : string.Join(", ", t.TableStatus.OrderBy(s => s.Name).Select(s => s.Name)),
+                    : string.Join(", ", statusNames),
                 IsSelected = t.Token == selectedTableToken
             });
         }
@@ -251,6 +357,44 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         {
             SelectedTable = null;
         }
+
+        await LoadDeleteLookupItemsAsync();
+    }
+
+    private static string GetPrimaryTableStatus(IReadOnlyCollection<string> statusNames)
+    {
+        if (statusNames.Count == 0)
+        {
+            return "NO_STATUS";
+        }
+
+        string[] priority =
+        [
+            "OUT_OF_SERVICE",
+            "CLEANING",
+            "OCCUPIED",
+            "AVAILABLE"
+        ];
+
+        foreach (var status in priority)
+        {
+            if (statusNames.Any(name => NormalizeStatus(name) == status))
+            {
+                return status;
+            }
+        }
+
+        return NormalizeStatus(statusNames.First());
+    }
+
+    private static string NormalizeStatus(string status)
+    {
+        return status
+            .Trim()
+            .Replace("ROLE_", "", StringComparison.OrdinalIgnoreCase)
+            .Replace(" ", "_")
+            .Replace("-", "_")
+            .ToUpperInvariant();
     }
 
     [RelayCommand]
@@ -327,7 +471,7 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             SessionService.JwtToken,
             namePl,
             nameEn,
-            []);
+            AllergensForIngredient.Where(a => a.IsSelected).Select(a => a.Token).ToList());
 
         if (!added)
         {
@@ -337,6 +481,10 @@ public partial class MenuRoomEditorViewModel : ObservableObject
 
         NewIngredientNamePl = "";
         NewIngredientNameEn = "";
+        foreach (var allergen in AllergensForIngredient)
+        {
+            allergen.IsSelected = false;
+        }
 
         await _syncService.SyncIngredientsAsync(SessionService.JwtToken);
         await LoadAsync();
@@ -382,10 +530,11 @@ public partial class MenuRoomEditorViewModel : ObservableObject
             (int)NewDishPrice,
             SelectedDishCategory.Token,
             ingredientTokens,
-            null);
+            string.IsNullOrWhiteSpace(NewDishPhotoPath) ? null : NewDishPhotoPath);
 
         NewDishName = "";
         NewDishPrice = 0;
+        NewDishPhotoPath = "";
 
         foreach (var ingredient in IngredientsForDish)
         {
@@ -396,6 +545,68 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         await LoadAsync();
 
         MessageBox.Show("Dish added.");
+    }
+
+    [RelayCommand]
+    private void SelectDishPhoto()
+    {
+        var dialog = new OpenFileDialog
+        {
+            Title = "Choose dish photo",
+            Filter = "Image files (*.jpg;*.jpeg;*.png;*.webp)|*.jpg;*.jpeg;*.png;*.webp",
+            CheckFileExists = true,
+            Multiselect = false
+        };
+
+        if (dialog.ShowDialog() == true)
+        {
+            NewDishPhotoPath = dialog.FileName;
+        }
+    }
+
+    [RelayCommand]
+    private void SelectSelectedDishPhoto()
+    {
+        var dialog = new OpenFileDialog
+        {
+            Title = "Choose new dish photo",
+            Filter = "Image files (*.jpg;*.jpeg;*.png;*.webp)|*.jpg;*.jpeg;*.png;*.webp",
+            CheckFileExists = true,
+            Multiselect = false
+        };
+
+        if (dialog.ShowDialog() == true)
+        {
+            SelectedDishPhotoPath = dialog.FileName;
+        }
+    }
+
+    [RelayCommand]
+    private async Task ChangeSelectedDishPhotoAsync()
+    {
+        if (SelectedDish == null)
+        {
+            MessageBox.Show("Select a dish first.");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(SelectedDishPhotoPath))
+        {
+            MessageBox.Show("Choose a photo first.");
+            return;
+        }
+
+        await _dishService.EditDishAsync(
+            SessionService.JwtToken,
+            dishToken: SelectedDish.Token,
+            photoPath: SelectedDishPhotoPath);
+
+        SelectedDishPhotoPath = "";
+
+        await _syncService.SyncDishesAsync(SessionService.JwtToken);
+        await LoadAsync();
+
+        MessageBox.Show("Dish photo change sent.");
     }
 
     [RelayCommand]
@@ -454,6 +665,99 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         NewTableCapacity = 2;
 
         MessageBox.Show("Table change sent. The editor will refresh after the server confirms it.");
+    }
+
+    [RelayCommand]
+    private async Task DeleteSelectedTableAsync()
+    {
+        if (SelectedTable == null)
+        {
+            return;
+        }
+
+        var result = MessageBox.Show(
+            $"Delete table {SelectedTable.TableNumber}?",
+            "Delete table",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+        if (result != MessageBoxResult.Yes)
+        {
+            return;
+        }
+
+        var deleted = await _reservationService.DeleteTableAsync(
+            SessionService.JwtToken,
+            SelectedTable.Token);
+
+        if (!deleted)
+        {
+            MessageBox.Show("Table was not deleted.");
+            return;
+        }
+
+        _hiddenTableTokens.Add(SelectedTable.Token);
+        Tables.Remove(SelectedTable);
+        SelectedTable = null;
+        SelectedTableOrders.Clear();
+        SelectedTableOrdersText = "Select a table to see orders.";
+
+        MessageBox.Show("Table deleted.");
+    }
+
+    [RelayCommand]
+    private async Task DeleteLookupAsync()
+    {
+        if (SelectedDeleteTargetType == null || SelectedDeleteLookupItem == null)
+        {
+            return;
+        }
+
+        var result = MessageBox.Show(
+            $"Delete {SelectedDeleteLookupItem.Name}?",
+            $"Delete {SelectedDeleteTargetType.Name}",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Warning);
+
+        if (result != MessageBoxResult.Yes)
+        {
+            return;
+        }
+
+        var token = SelectedDeleteLookupItem.Token;
+
+        switch (SelectedDeleteTargetType.Key)
+        {
+            case "dish-category":
+                await _lookupService.DeleteDishCategoryAsync(SessionService.JwtToken, token);
+                break;
+
+            case "ingredient":
+                await _lookupService.DeleteIngredientAsync(SessionService.JwtToken, token);
+                break;
+
+            case "allergen":
+                await _lookupService.DeleteAllergenAsync(SessionService.JwtToken, token);
+                break;
+
+            case "table-status":
+                await _lookupService.DeleteTableStatusAsync(SessionService.JwtToken, token);
+                break;
+
+            case "order-status":
+                await _lookupService.DeleteOrderStatusAsync(SessionService.JwtToken, token);
+                break;
+
+            case "order-item-status":
+                await _lookupService.DeleteOrderItemStatusAsync(SessionService.JwtToken, token);
+                break;
+        }
+
+        _hiddenLookupTokens.Add($"{SelectedDeleteTargetType.Key}:{token}");
+        await LoadDeleteLookupItemsAsync();
+        await LoadAsync();
+
+        MessageBox.Show("Delete request completed.");
     }
 
     [RelayCommand]
@@ -521,6 +825,71 @@ public partial class MenuRoomEditorViewModel : ObservableObject
         }
     }
 
+    private async Task LoadDeleteLookupItemsAsync()
+    {
+        DeleteLookupItems.Clear();
+
+        if (SelectedDeleteTargetType == null)
+        {
+            return;
+        }
+
+        var items = SelectedDeleteTargetType.Key switch
+        {
+            "dish-category" => await _db.DishesCategories
+                .AsNoTracking()
+                .Where(x => !x.Name.StartsWith("DELETED_") && !x.Token.StartsWith("DELETED_"))
+                .OrderBy(x => x.Name)
+                .Select(x => new DeleteLookupRow { Token = x.Token, Name = x.Name })
+                .ToListAsync(),
+
+            "ingredient" => await _db.Ingredients
+                .AsNoTracking()
+                .Where(x => !x.Name.StartsWith("DELETED_") && !x.Token.StartsWith("DELETED_"))
+                .OrderBy(x => x.Name)
+                .Select(x => new DeleteLookupRow { Token = x.Token, Name = x.DisplayName })
+                .ToListAsync(),
+
+            "allergen" => await _db.Allergens
+                .AsNoTracking()
+                .Where(x => !x.Name.StartsWith("DELETED_") && !x.Token.StartsWith("DELETED_"))
+                .OrderBy(x => x.Name)
+                .Select(x => new DeleteLookupRow { Token = x.Token, Name = x.Name })
+                .ToListAsync(),
+
+            "table-status" => await _db.TableStatuses
+                .AsNoTracking()
+                .Where(x => !x.Name.StartsWith("DELETED_") && !x.Token.StartsWith("DELETED_"))
+                .OrderBy(x => x.Name)
+                .Select(x => new DeleteLookupRow { Token = x.Token, Name = x.Name })
+                .ToListAsync(),
+
+            "order-status" => await _db.OrderStatuses
+                .AsNoTracking()
+                .Where(x => !x.Name.StartsWith("DELETED_") && !x.Token.StartsWith("DELETED_"))
+                .OrderBy(x => x.Name)
+                .Select(x => new DeleteLookupRow { Token = x.Token, Name = x.Name })
+                .ToListAsync(),
+
+            "order-item-status" => await _db.OrderItemsStatuses
+                .AsNoTracking()
+                .Where(x => !x.Name.StartsWith("DELETED_") && !x.Token.StartsWith("DELETED_"))
+                .OrderBy(x => x.Name)
+                .Select(x => new DeleteLookupRow { Token = x.Token, Name = x.Name })
+                .ToListAsync(),
+
+            _ => []
+        };
+
+        foreach (var item in items.Where(item =>
+            !_hiddenLookupTokens.Contains($"{SelectedDeleteTargetType.Key}:{item.Token}")))
+        {
+            DeleteLookupItems.Add(item);
+        }
+
+        SelectedDeleteLookupItem = DeleteLookupItems.FirstOrDefault();
+    }
+
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
     {
         var entityType = e.EntityType.ToUpperInvariant();
@@ -565,7 +934,26 @@ public class DishCategoryOption
     public string Name { get; set; } = "";
 }
 
+public record DeleteTargetTypeRow(string Name, string Key);
+
+public class DeleteLookupRow
+{
+    public string Token { get; set; } = "";
+
+    public string Name { get; set; } = "";
+}
+
 public partial class IngredientSelectionRow : ObservableObject
+{
+    public string Token { get; set; } = "";
+
+    public string Name { get; set; } = "";
+
+    [ObservableProperty]
+    private bool isSelected;
+}
+
+public partial class AllergenSelectionRow : ObservableObject
 {
     public string Token { get; set; } = "";
 
@@ -587,16 +975,49 @@ public partial class TableMapRow : ObservableObject
 
     public string StatusText { get; set; } = "";
 
-    public string CardBackground => IsSelected ? "#EAF7ED" : "#F5F5F5";
+    public string StatusCode { get; set; } = "NO_STATUS";
 
-    public string CardBorderBrush => IsSelected ? "#E53935" : "#19A93A";
+    public string StatusLabel => StatusCode == "NO_STATUS"
+        ? "NO STATUS"
+        : StatusCode;
 
-    public string CardBorderThickness => IsSelected ? "2" : "1";
+    public string CardBackground => StatusCode switch
+    {
+        "AVAILABLE" => "#EAF7ED",
+        "OCCUPIED" => "#FFECEC",
+        "CLEANING" => "#FFF8E1",
+        "OUT_OF_SERVICE" => "#EDEDED",
+        _ => "#F5F5F5"
+    };
+
+    public string CardBorderBrush => IsSelected ? "#111827" : StatusCode switch
+    {
+        "AVAILABLE" => "#19A93A",
+        "OCCUPIED" => "#E53935",
+        "CLEANING" => "#D99A00",
+        "OUT_OF_SERVICE" => "#666666",
+        _ => "#BDBDBD"
+    };
+
+    public string StatusBadgeBackground => StatusCode switch
+    {
+        "AVAILABLE" => "#19A93A",
+        "OCCUPIED" => "#E53935",
+        "CLEANING" => "#D99A00",
+        "OUT_OF_SERVICE" => "#666666",
+        _ => "#9E9E9E"
+    };
+
+    public string StatusBadgeForeground => "White";
+
+    public string CardBorderThickness => IsSelected ? "3" : "1";
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(CardBackground))]
     [NotifyPropertyChangedFor(nameof(CardBorderBrush))]
     [NotifyPropertyChangedFor(nameof(CardBorderThickness))]
+    [NotifyPropertyChangedFor(nameof(StatusBadgeBackground))]
+    [NotifyPropertyChangedFor(nameof(StatusBadgeForeground))]
     private bool isSelected;
 }
 

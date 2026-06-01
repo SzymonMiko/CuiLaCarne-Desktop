@@ -52,7 +52,7 @@ namespace QuiLaCarne.Ui {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/QuiLaCarne.Ui;V1.0.0.0;component/userspanel.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/QuiLaCarne.Ui;component/userspanel.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\UsersPanel.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
