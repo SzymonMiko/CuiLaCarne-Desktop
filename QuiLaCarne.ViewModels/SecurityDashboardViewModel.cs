@@ -37,12 +37,13 @@ public partial class SecurityDashboardViewModel : ObservableObject
     [RelayCommand]
     public async Task LoadLogsAsync()
     {
-        var logs = await _db.AuditLogs
+        var logs = (await _db.AuditLogs
             .Include(l => l.User)
             .AsNoTracking()
+            .ToListAsync())
             .OrderByDescending(l => l.CreatedAt)
             .Take(200)
-            .ToListAsync();
+            .ToList();
 
         Logs.Clear();
         foreach (var log in logs)

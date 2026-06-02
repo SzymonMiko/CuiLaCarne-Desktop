@@ -116,7 +116,9 @@ public class SyncService : BaseApiService
                     var existing = await _db
                         .Users.Include(x => x.Roles)
                         .FirstOrDefaultAsync(x =>
-                            x.Token == dto.Token || x.Username == dto.Username
+                            x.Token == dto.Token ||
+                            x.Username == dto.Username ||
+                            x.Email == dto.Email
                         );
 
                     if (existing == null)
@@ -148,6 +150,12 @@ public class SyncService : BaseApiService
                         existing.IsEnabled = dto.IsActive ?? false;
 
                         existing.UpdatedAt = dto.UpdatedAt;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(dto.Token) &&
+                        !string.Equals(existing.Token, dto.Token, StringComparison.Ordinal))
+                    {
+                        existing.Token = dto.Token;
                     }
 
                     existing.Roles.Clear();

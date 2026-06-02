@@ -10,9 +10,27 @@ public class SyncOrderItemsResponse
 {
     public string Token { get; set; } = "";
 
+    public string OrderItemToken
+    {
+        get => Token;
+        set => Token = value;
+    }
+
     public string OrderToken { get; set; } = "";
 
+    public string ReservationToken
+    {
+        get => OrderToken;
+        set => OrderToken = value;
+    }
+
     public string DishToken { get; set; } = "";
+
+    public string MenuItemToken
+    {
+        get => DishToken;
+        set => DishToken = value;
+    }
 
     public int Quantity { get; set; }
 

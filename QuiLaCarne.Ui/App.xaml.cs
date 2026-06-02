@@ -86,6 +86,7 @@ public partial class App : Application
                 services.AddSingleton<IFilePickerService, WpfFilePickerService>();
                 services.AddSingleton<IUiDispatcherService, WpfUiDispatcherService>();
                 services.AddSingleton<ILocalizationService, WpfLocalizationService>();
+                services.AddSingleton<RealtimeNotificationService>();
 
 
 
@@ -121,6 +122,7 @@ public partial class App : Application
         AppHost.Services
             .GetRequiredService<ISessionExpirationService>()
             .SessionExpired += OnSessionExpired;
+        AppHost.Services.GetRequiredService<RealtimeNotificationService>();
 
         using (var scope = AppHost.Services.CreateScope())
         {

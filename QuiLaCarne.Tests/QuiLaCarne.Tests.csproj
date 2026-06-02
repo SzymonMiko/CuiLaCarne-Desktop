@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
@@ -21,6 +22,7 @@
     <ProjectReference Include="..\QuiLaCarne.Data\QuiLaCarne.Data.csproj" />
     <ProjectReference Include="..\QuiLaCarne.Models\QuiLaCarne.Models.csproj" />
     <ProjectReference Include="..\QuiLaCarne.Services\QuiLaCarne.Services.csproj" />
+    <ProjectReference Include="..\QuiLaCarne.Ui\QuiLaCarne.Ui.csproj" />
     <ProjectReference Include="..\QuiLaCarne.ViewModels\QuiLaCarne.ViewModels.csproj" />
   </ItemGroup>
 

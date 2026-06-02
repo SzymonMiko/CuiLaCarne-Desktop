@@ -10,9 +10,33 @@ public class SyncReservationResponse
 {
     public string Token { get; set; } = "";
 
+    public string ReservationToken
+    {
+        get => Token;
+        set => Token = value;
+    }
+
     public string TableToken { get; set; } = "";
 
     public string UserToken { get; set; } = "";
+
+    public string ClientToken
+    {
+        get => UserToken;
+        set => UserToken = value;
+    }
+
+    public string CustomerToken
+    {
+        get => UserToken;
+        set => UserToken = value;
+    }
+
+    public string GuestToken
+    {
+        get => UserToken;
+        set => UserToken = value;
+    }
 
     public List<string> StatusTokens { get; set; } = [];
 

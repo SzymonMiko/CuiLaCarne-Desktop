@@ -9268,23 +9268,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mania\\.nuget\\packages\\": {},
+    "C:\\Users\\aleks\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
+      "projectUniqueName": "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
       "projectName": "QuiLaCarne.Ui",
-      "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
-      "packagesPath": "C:\\Users\\mania\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Ui\\obj\\",
+      "projectPath": "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Ui\\QuiLaCarne.Ui.csproj",
+      "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Ui\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mania\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9299,17 +9299,17 @@
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
           "projectReferences": {
-            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarne.Data.csproj": {
-              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Data\\QuiLaCarne.Data.csproj"
+            "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Data\\QuiLaCarne.Data.csproj": {
+              "projectPath": "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Data\\QuiLaCarne.Data.csproj"
             },
-            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\QuiLaCarne.Models.csproj": {
-              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\QuiLaCarne.Models.csproj"
+            "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Models\\QuiLaCarne.Models.csproj": {
+              "projectPath": "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Models\\QuiLaCarne.Models.csproj"
             },
-            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj": {
-              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj"
+            "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj": {
+              "projectPath": "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj"
             },
-            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj": {
-              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj"
+            "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj": {
+              "projectPath": "C:\\Users\\aleks\\Source\\Repos\\CuiLaCarne-Desktop\\QuiLaCarne.ViewModels\\QuiLaCarne.ViewModels.csproj"
             }
           }
         }

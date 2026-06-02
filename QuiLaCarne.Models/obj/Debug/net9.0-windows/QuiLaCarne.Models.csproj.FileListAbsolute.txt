@@ -124,3 +124,17 @@ C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\language-switch\QuiL
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\language-switch\QuiLaCarne.Models.runtimeconfig.json
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\language-switch\QuiLaCarne.Models.dll
 C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\artifacts\language-switch\QuiLaCarne.Models.pdb
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\bin\Debug\net9.0-windows\QuiLaCarne.Models.deps.json
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\bin\Debug\net9.0-windows\QuiLaCarne.Models.runtimeconfig.json
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\bin\Debug\net9.0-windows\QuiLaCarne.Models.dll
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\bin\Debug\net9.0-windows\QuiLaCarne.Models.pdb
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.AssemblyInfoInputs.cache
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.AssemblyInfo.cs
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.csproj.CoreCompileInputs.cache
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.sourcelink.json
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.dll
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\refint\QuiLaCarne.Models.dll
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.pdb
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\QuiLaCarne.Models.genruntimeconfig.cache
+C:\Users\aleks\source\repos\CuiLaCarne-Desktop\QuiLaCarne.Models\obj\Debug\net9.0-windows\ref\QuiLaCarne.Models.dll

@@ -51,7 +51,7 @@ public sealed class UsersPanelViewModelTests
     }
 
     [Fact]
-    public async Task LoadAsync_LoadsSelectedClientOrdersAndReports()
+    public async Task LoadAsync_LoadsSelectedClientOrdersReservationsAndReports()
     {
         using var database = new TemporarySqliteDatabase();
         var client = new Users
@@ -96,6 +96,22 @@ public sealed class UsersPanelViewModelTests
                 }
             ]
         };
+        var reservation = new Reservations
+        {
+            Token = "reservation-token",
+            User = client,
+            Table = table,
+            ReservedFrom = new DateTimeOffset(2026, 6, 2, 18, 30, 0, TimeSpan.FromHours(2)),
+            ReservedUntil = new DateTimeOffset(2026, 6, 2, 20, 0, 0, TimeSpan.FromHours(2)),
+            Statuses =
+            [
+                new ReservationStatus
+                {
+                    Token = "reservation-status-token",
+                    Name = "Confirmed"
+                }
+            ]
+        };
         var report = new GuestReports
         {
             Token = "report-token",
@@ -103,16 +119,23 @@ public sealed class UsersPanelViewModelTests
             Reporter = reporter,
             Description = "Too loud"
         };
-        database.Db.AddRange(client, reporter, table, dish, order, report);
+        database.Db.AddRange(client, reporter, table, dish, order, reservation, report);
         await database.Db.SaveChangesAsync();
         database.Db.ChangeTracker.Clear();
         var viewModel = new UsersPanelViewModel(database.Db, new FakeAppDialogService());
 
         await viewModel.LoadAsync();
-        await WaitUntilAsync(() => viewModel.ClientOrders.Count == 1 && viewModel.ClientReports.Count == 1);
+        await WaitUntilAsync(() =>
+            viewModel.ClientOrders.Count == 1 &&
+            viewModel.ClientReservations.Count == 1 &&
+            viewModel.ClientReports.Count == 1);
 
         Assert.Equal("2x Pizza", Assert.Single(viewModel.ClientOrders).DishesText);
         Assert.Equal(5, Assert.Single(viewModel.ClientOrders).TableNumber);
+        Assert.Equal("2026-06-02 18:30", Assert.Single(viewModel.ClientReservations).ReservedFromText);
+        Assert.Equal("2026-06-02 20:00", Assert.Single(viewModel.ClientReservations).ReservedUntilText);
+        Assert.Equal(5, Assert.Single(viewModel.ClientReservations).TableNumber);
+        Assert.Equal("Confirmed", Assert.Single(viewModel.ClientReservations).StatusesText);
         Assert.Equal("Too loud", Assert.Single(viewModel.ClientReports).Description);
         Assert.Equal("manager", Assert.Single(viewModel.ClientReports).Reporter);
     }

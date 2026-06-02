@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Net.Http.Json;
 using System.Text.Json;
 using QuiLaCarne.Models.DTOS;
 using QuiLaCarne.Models.Responses;
-
 namespace QuiLaCarne.Services.Api;
 
 public class ReservationService : BaseApiService

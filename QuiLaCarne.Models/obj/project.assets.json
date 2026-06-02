@@ -2746,23 +2746,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mania\\.nuget\\packages\\": {},
+    "C:\\Users\\aleks\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\QuiLaCarne.Models.csproj",
+      "projectUniqueName": "C:\\Users\\aleks\\source\\repos\\CuiLaCarne-Desktop\\QuiLaCarne.Models\\QuiLaCarne.Models.csproj",
       "projectName": "QuiLaCarne.Models",
-      "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\QuiLaCarne.Models.csproj",
-      "packagesPath": "C:\\Users\\mania\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Models\\obj\\",
+      "projectPath": "C:\\Users\\aleks\\source\\repos\\CuiLaCarne-Desktop\\QuiLaCarne.Models\\QuiLaCarne.Models.csproj",
+      "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aleks\\source\\repos\\CuiLaCarne-Desktop\\QuiLaCarne.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mania\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

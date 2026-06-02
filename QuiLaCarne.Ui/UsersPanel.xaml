@@ -77,14 +77,14 @@
             </DataGrid.Columns>
           </DataGrid>
 
-          <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-              <RowDefinition Height="Auto" />
-              <RowDefinition Height="8" />
-              <RowDefinition Height="*" />
-              <RowDefinition Height="12" />
-              <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+            <Grid Grid.Column="2">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
 
             <StackPanel>
               <TextBlock Text="{Binding SelectedClient.Username, StringFormat=Wybrany klient: {0}, TargetNullValue=Wybierz klienta}" FontWeight="Bold" FontSize="16" />
@@ -112,6 +112,31 @@
                   <DataGridTextColumn Header="Stolik" Binding="{Binding TableNumber}" Width="64" />
                   <DataGridTextColumn Header="Status" Binding="{Binding StatusesText}" Width="90" />
                   <DataGridTextColumn Header="Dania" Binding="{Binding DishesText}" Width="*" />
+                </DataGrid.Columns>
+              </DataGrid>
+            </Grid>
+
+            <Grid Grid.Row="3">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="6" />
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+              <TextBlock Text="Rezerwacje" FontWeight="Bold" FontSize="14" />
+              <DataGrid
+                Grid.Row="2"
+                ItemsSource="{Binding ClientReservations}"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                HeadersVisibility="Column"
+                GridLinesVisibility="None"
+                RowHeight="30"
+                FontSize="12">
+                <DataGrid.Columns>
+                  <DataGridTextColumn Header="Od" Binding="{Binding ReservedFromText}" Width="112" />
+                  <DataGridTextColumn Header="Do" Binding="{Binding ReservedUntilText}" Width="112" />
+                  <DataGridTextColumn Header="Stolik" Binding="{Binding TableNumber}" Width="64" />
+                  <DataGridTextColumn Header="Status" Binding="{Binding StatusesText}" Width="*" />
                 </DataGrid.Columns>
               </DataGrid>
             </Grid>

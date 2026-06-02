@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Services", "QuiL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Models", "QuiLaCarne.Models\QuiLaCarne.Models.csproj", "{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLACarne.Helpers", "QuiLACarne.Helpers\QuiLACarne.Helpers.csproj", "{C6892F91-DB0D-425B-A098-63088F21E8D4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.Data", "QuiLaCarne.Data\QuiLaCarne.Data.csproj", "{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuiLaCarne.ViewModels", "QuiLaCarne.ViewModels\QuiLaCarne.ViewModels.csproj", "{4F3A56EE-B9D8-4F6F-612C-A607329BCFA9}"
@@ -35,10 +33,6 @@ Global
 		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3CFCE12-D491-4A1C-BA7E-48CB31B0736C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6892F91-DB0D-425B-A098-63088F21E8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6892F91-DB0D-425B-A098-63088F21E8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6892F91-DB0D-425B-A098-63088F21E8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6892F91-DB0D-425B-A098-63088F21E8D4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F43EDDC-FBEB-4559-8E8E-929B68B19B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU

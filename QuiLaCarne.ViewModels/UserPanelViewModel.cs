@@ -16,6 +16,8 @@ public partial class UsersPanelViewModel : ObservableObject
 
     public ObservableCollection<ClientOrderRow> ClientOrders { get; } = [];
 
+    public ObservableCollection<ClientReservationRow> ClientReservations { get; } = [];
+
     public ObservableCollection<ClientReportRow> ClientReports { get; } = [];
 
     private ClientRow? selectedClient;
@@ -76,6 +78,7 @@ public partial class UsersPanelViewModel : ObservableObject
         try
         {
             ClientOrders.Clear();
+            ClientReservations.Clear();
             ClientReports.Clear();
 
             if (client == null)
@@ -106,6 +109,26 @@ public partial class UsersPanelViewModel : ObservableObject
                         : string.Join(", ", order.Items
                             .OrderBy(x => x.Dish.Name)
                             .Select(x => $"{x.Quantity}x {x.Dish.Name}"))
+                });
+            }
+
+            var reservations = await _db.Reservations
+                .AsNoTracking()
+                .Include(x => x.Table)
+                .Include(x => x.Statuses)
+                .Where(x => x.UserId == client.Id)
+                .ToListAsync();
+
+            foreach (var reservation in reservations.OrderByDescending(x => x.ReservedFrom))
+            {
+                ClientReservations.Add(new ClientReservationRow
+                {
+                    ReservedFrom = reservation.ReservedFrom.LocalDateTime,
+                    ReservedUntil = reservation.ReservedUntil?.LocalDateTime,
+                    TableNumber = reservation.Table.TableNumber,
+                    StatusesText = reservation.Statuses.Count == 0
+                        ? ""
+                        : string.Join(", ", reservation.Statuses.Select(x => x.Name).OrderBy(x => x))
                 });
             }
 
@@ -193,6 +216,21 @@ public class ClientOrderRow
     public string DishesText { get; set; } = "";
 
     public string CreatedAtText => CreatedAt.ToString("yyyy-MM-dd HH:mm");
+}
+
+public class ClientReservationRow
+{
+    public DateTime ReservedFrom { get; set; }
+
+    public DateTime? ReservedUntil { get; set; }
+
+    public int TableNumber { get; set; }
+
+    public string StatusesText { get; set; } = "";
+
+    public string ReservedFromText => ReservedFrom.ToString("yyyy-MM-dd HH:mm");
+
+    public string ReservedUntilText => ReservedUntil?.ToString("yyyy-MM-dd HH:mm") ?? "";
 }
 
 public class ClientReportRow

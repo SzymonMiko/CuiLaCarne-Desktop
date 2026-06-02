@@ -7719,23 +7719,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mania\\.nuget\\packages\\": {},
+    "C:\\Users\\aleks\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
+      "projectUniqueName": "C:\\Users\\aleks\\source\\repos\\CuiLaCarne-Desktop\\ViewModels\\QuiLaCarne.ViewModels.csproj",
       "projectName": "QuiLaCarne.ViewModels",
-      "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\QuiLaCarne.ViewModels.csproj",
-      "packagesPath": "C:\\Users\\mania\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\ViewModels\\obj\\",
+      "projectPath": "C:\\Users\\aleks\\source\\repos\\CuiLaCarne-Desktop\\ViewModels\\QuiLaCarne.ViewModels.csproj",
+      "packagesPath": "C:\\Users\\aleks\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aleks\\source\\repos\\CuiLaCarne-Desktop\\ViewModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mania\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7750,8 +7750,8 @@
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
           "projectReferences": {
-            "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj": {
-              "projectPath": "C:\\Users\\mania\\source\\repos\\QuiLaCarne\\QuiLaCarne\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj"
+            "C:\\Users\\aleks\\source\\repos\\CuiLaCarne-Desktop\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj": {
+              "projectPath": "C:\\Users\\aleks\\source\\repos\\CuiLaCarne-Desktop\\QuiLaCarne.Services\\QuiLaCarne.Services.csproj"
             }
           }
         }

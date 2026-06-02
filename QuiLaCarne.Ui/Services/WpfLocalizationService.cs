@@ -66,9 +66,14 @@ public sealed class WpfLocalizationService : ILocalizationService
 
         application.Dispatcher.InvokeAsync(() =>
         {
-            foreach (Window window in application.Windows)
+            var windows = application.Windows
+                .OfType<Window>()
+                .Where(window => window.IsVisible)
+                .ToList();
+
+            foreach (var window in windows)
             {
-                window.Title = Translate(window.Title);
+                SetIfChanged(window.Title, Translate(window.Title), value => window.Title = value);
                 TranslateElement(window);
             }
         });
@@ -87,6 +92,13 @@ public sealed class WpfLocalizationService : ILocalizationService
     {
         switch (element)
         {
+            case DataGrid dataGrid:
+                TranslateDataGrid(dataGrid);
+                return;
+
+            case ItemsControl and not MenuItem and not ComboBox and not TabControl:
+                return;
+
             case TextBlock textBlock:
                 TranslateTextBlock(textBlock);
                 break;
@@ -100,12 +112,9 @@ public sealed class WpfLocalizationService : ILocalizationService
                 break;
 
             case Page page:
-                page.Title = Translate(page.Title);
+                SetIfChanged(page.Title, Translate(page.Title), value => page.Title = value);
                 break;
 
-            case DataGrid dataGrid:
-                TranslateDataGrid(dataGrid);
-                break;
         }
 
         foreach (var child in GetChildren(element))
@@ -119,12 +128,12 @@ public sealed class WpfLocalizationService : ILocalizationService
         if (!string.IsNullOrWhiteSpace(textBlock.Text) &&
             BindingOperations.GetBindingExpression(textBlock, TextBlock.TextProperty) == null)
         {
-            textBlock.Text = Translate(textBlock.Text);
+            SetIfChanged(textBlock.Text, Translate(textBlock.Text), value => textBlock.Text = value);
         }
 
-        foreach (var run in textBlock.Inlines.OfType<Run>())
+        foreach (var run in textBlock.Inlines.OfType<Run>().ToList())
         {
-            run.Text = Translate(run.Text);
+            SetIfChanged(run.Text, Translate(run.Text), value => run.Text = value);
         }
     }
 
@@ -133,7 +142,11 @@ public sealed class WpfLocalizationService : ILocalizationService
         if (contentControl.Content is string text &&
             BindingOperations.GetBindingExpression(contentControl, ContentControl.ContentProperty) == null)
         {
-            contentControl.Content = Translate(text);
+            var translated = Translate(text);
+            if (!string.Equals(text, translated, StringComparison.Ordinal))
+            {
+                contentControl.Content = translated;
+            }
         }
     }
 
@@ -142,7 +155,11 @@ public sealed class WpfLocalizationService : ILocalizationService
         if (headeredContentControl.Header is string header &&
             BindingOperations.GetBindingExpression(headeredContentControl, HeaderedContentControl.HeaderProperty) == null)
         {
-            headeredContentControl.Header = Translate(header);
+            var translated = Translate(header);
+            if (!string.Equals(header, translated, StringComparison.Ordinal))
+            {
+                headeredContentControl.Header = translated;
+            }
         }
     }
 
@@ -152,8 +169,20 @@ public sealed class WpfLocalizationService : ILocalizationService
         {
             if (column.Header is string header)
             {
-                column.Header = Translate(header);
+                var translated = Translate(header);
+                if (!string.Equals(header, translated, StringComparison.Ordinal))
+                {
+                    column.Header = translated;
+                }
             }
+        }
+    }
+
+    private static void SetIfChanged(string current, string translated, Action<string> setValue)
+    {
+        if (!string.Equals(current, translated, StringComparison.Ordinal))
+        {
+            setValue(translated);
         }
     }
 

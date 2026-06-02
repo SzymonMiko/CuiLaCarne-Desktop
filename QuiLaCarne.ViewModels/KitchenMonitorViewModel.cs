@@ -125,43 +125,6 @@ public partial class KitchenMonitorViewModel : ObservableObject
         }
     }
 
-    [RelayCommand]
-    private void StartItem(KdsOrderItem item)
-    {
-        if (item == null)
-            return;
-
-        /*
-         * TODO:
-         * Replace this with your real endpoint when available, e.g.
-         *
-         * await _orderService.ChangeOrderItemStatusAsync(
-         *     SessionService.JwtToken,
-         *     item.Token,
-         *     "IN_PROGRESS_STATUS_TOKEN");
-         */
-
-        _dialog.ShowMessage($"TODO: zmień pozycję zamówienia {item.Token} na W_TRAKCIE.");
-    }
-
-    [RelayCommand]
-    private void ReadyItem(KdsOrderItem item)
-    {
-        if (item == null)
-            return;
-
-        /*
-         * TODO:
-         * Replace this with your real endpoint when available, e.g.
-         *
-         * await _orderService.ChangeOrderItemStatusAsync(
-         *     SessionService.JwtToken,
-         *     item.Token,
-         *     "READY_STATUS_TOKEN");
-         */
-
-        _dialog.ShowMessage($"TODO: zmień pozycję zamówienia {item.Token} na GOTOWE.");
-    }
 
     private void OnRealtimeDataChanged(object? sender, WebSocketEvent e)
     {

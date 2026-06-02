@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\obj\Debug\net9.0-windows\
+C:\Users\aleks\Source\Repos\CuiLaCarne-Desktop\QuiLaCarne.Ui\obj\Debug\net9.0-windows\
 QuiLaCarne.Ui
 none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\mania\source\repos\QuiLaCarne\QuiLaCarne\QuiLaCarne.Ui\App.xaml
-12-1965882977
+C:\Users\aleks\Source\Repos\CuiLaCarne-Desktop\QuiLaCarne.Ui\App.xaml
+131112636858
 
-20-70945909
-251-367012230
-AdminTwoFactorPanel.xaml;Authentication.xaml;IngredientConfirmationPanel.xaml;KitchenMonitor.xaml;LoginPage.xaml;MainWindow.xaml;ManagerTab.xaml;Menu.xaml;MenuRoomEditor.xaml;PersonnelManagement.xaml;SecurityDashboard.xaml;UsersPanel.xaml;
+221187171361
+251337844575
+AdminTwoFactorPanel.xaml;Authentication.xaml;IngredientConfirmationPanel.xaml;KitchenMonitor.xaml;LoginPage.xaml;MainWindow.xaml;ManagerTab.xaml;Menu.xaml;MenuRoomEditor.xaml;PersonnelManagement.xaml;SecurityDashboard.xaml;Services\NotificationToastWindow.xaml;UsersPanel.xaml;
 
 False
 
